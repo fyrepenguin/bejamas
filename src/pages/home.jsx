@@ -8,6 +8,7 @@ import TechUsed from "./../components/common/tech";
 import Products from "./../components/home/products";
 import WorldMap from "./../components/home/worldmap";
 import Footer from "./../components/common/footer";
+import Stories from "./../components/home/stories";
 
 export default class Home extends Component {
   render() {
@@ -21,6 +22,7 @@ export default class Home extends Component {
         <TechUsed />
         <Products />
         <WorldMap />
+        <Stories />
         <Footer />
       </>
     );

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Heading from "./heading";
-
+import flo from "../../images/flo.svg";
 export default class Header extends Component {
   render() {
     const desc =
@@ -20,7 +20,13 @@ export default class Header extends Component {
           />
           <div>
             <h4>trusted by innovative companies</h4>
-            <div>images list</div>
+            <div>
+              <ul style={{ display: "flex" }}>
+                <li>
+                  <img src={flo} alt="flo" />
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div>img</div>
