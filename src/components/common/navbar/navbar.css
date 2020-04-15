@@ -1,0 +1,17 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-logo img {
+  max-width: 10.85rem;
+  height: 30px;
+}
+.menu ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+}
+.menu ul li {
+  padding: 0 1rem;
+}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Heading from "./../common/heading";
-
+import { map } from "./../../images";
 export default class WorldMap extends Component {
   render() {
     return (
@@ -12,7 +12,9 @@ export default class WorldMap extends Component {
           description="We’re an international-ready team.
 Worked in sync with customers in 7 different time-zones."
         />
-        <div>world map image</div>
+        <div>
+          <img src={map} alt="" />
+        </div>
         ============================== World map ==============================
       </section>
     );

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-
+import opt from "./../../images/testimonials-opt.webp";
+import eppo from "./../../images/eppo-heemstra.webp";
 export default class Testimonial extends Component {
   render() {
     return (
@@ -16,12 +17,16 @@ export default class Testimonial extends Component {
           </p>
           <div>rating</div>
           <div>
-            <div>user image</div>
+            <div>
+              <img src={eppo} alt="eppo" />
+            </div>
             <div>Eppo Heemstra</div>
             <div>Marketing Operations Manager at Mambu</div>
           </div>
         </div>
-        <div>img</div>
+        <div>
+          <img src={opt} alt="testimonial hero" />
+        </div>
         ============================= Testimonial =============================
       </section>
     );

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Heading from "./../common/heading";
+import { productJam, productPWA } from "./../../images";
 
 export default class Products extends Component {
   render() {
@@ -13,7 +14,9 @@ export default class Products extends Component {
         />
         <div className="cards">
           <div className="card">
-            <div>img</div>
+            <div>
+              <img src={productJam} alt="" />
+            </div>
             <h3>JAMstack Websites</h3>
             <p>
               Get new customers with a faster website with higher SEO chances.
@@ -23,7 +26,9 @@ export default class Products extends Component {
             <a href="/">See more</a>
           </div>
           <div className="card">
-            <div>img</div>
+            <div>
+              <img src={productPWA} alt="" />
+            </div>
             <h3>Progressive Web Applications</h3>
             <p>
               Save time and money with a progressive web app instead of native

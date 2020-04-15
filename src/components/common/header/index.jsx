@@ -1,6 +1,12 @@
 import React, { Component } from "react";
-import Heading from "./heading";
-import flo from "../../images/flo.svg";
+import Heading from "../heading";
+import flo from "../../../images/flo.svg";
+import armorblox from "../../../images/armorblox.svg";
+import mambu from "../../../images/mambu.svg";
+import newfront from "../../../images/newfront.svg";
+import hero from "../../../images/hero-opt.webp";
+import "./header.css";
+
 export default class Header extends Component {
   render() {
     const desc =
@@ -23,13 +29,26 @@ export default class Header extends Component {
             <div>
               <ul style={{ display: "flex" }}>
                 <li>
+                  <img src={newfront} alt="newfront" />
+                </li>
+                <li>
+                  <img src={mambu} alt="mambu" />
+                </li>
+                <li>
                   <img src={flo} alt="flo" />
+                </li>
+                <li>
+                  <img src={armorblox} alt="armorblox" />
                 </li>
               </ul>
             </div>
           </div>
         </div>
-        <div>img</div>
+        <div>
+          <picture>
+            <img src={hero} alt="hero main" />
+          </picture>
+        </div>
         ============================== Header ==============================
       </section>
     );

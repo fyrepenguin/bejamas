@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import Heading from "./../common/heading";
+import swift from "./../../images/icon-swift@2x.webp";
+import safe from "./../../images/icon-safe@2x.webp";
+import stable from "./../../images/icon-stable@2x.webp";
+import scalable from "./../../images/icon-scalable@2x.webp";
 
 export default class JamUses extends Component {
   render() {
@@ -13,7 +17,9 @@ export default class JamUses extends Component {
         />
         <div className="benefits">
           <div className="benefit">
-            <div>img</div>
+            <div>
+              <img src={swift} alt="" />
+            </div>
             <div>Swift</div>
             <div>
               We don’t use databases, so there’s no time-consuming multiple
@@ -22,7 +28,9 @@ export default class JamUses extends Component {
             </div>
           </div>
           <div className="benefit">
-            <div>img</div>
+            <div>
+              <img src={safe} alt="" />
+            </div>
             <div>Safe</div>
             <div>
               73.2% of the most popular WordPress installations are opened to
@@ -31,7 +39,9 @@ export default class JamUses extends Component {
             </div>
           </div>
           <div className="benefit">
-            <div>img</div>
+            <div>
+              <img src={stable} alt="" />
+            </div>
             <div>Stable</div>
             <div>
               Traffic bigger than usual? Not an issue with the JAMstack sites -
@@ -40,7 +50,9 @@ export default class JamUses extends Component {
             </div>
           </div>
           <div className="benefit">
-            <div>img</div>
+            <div>
+              <img src={scalable} alt="" />
+            </div>
             <div>Scalable</div>
             <div>
               Implementing new features to your project? Serverless architecture

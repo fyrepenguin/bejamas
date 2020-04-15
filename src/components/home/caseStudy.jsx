@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Heading from "./../common/heading";
+import dmitri from "../../images/dmitry-terner.jpeg";
+import avenue from "../../images/avenues-case-study.webp";
 
 export default class CaseStudy extends Component {
   render() {
@@ -11,7 +13,9 @@ export default class CaseStudy extends Component {
           title="JAMstack in Services of Better education: Avenues, the World School."
         />
         <div>
-          <div>img</div>
+          <div>
+            <img src={avenue} alt="avenues case study" />
+          </div>
           <div>
             <div>
               <div>
@@ -20,7 +24,9 @@ export default class CaseStudy extends Component {
                 and inherent security improvements.
               </div>
               <div>
-                <div>user image</div>
+                <div>
+                  <img src={dmitri} alt="dmitri" />
+                </div>
                 <div>Dmitry Terner</div>
                 <div>Website Manager at Avenues</div>
               </div>

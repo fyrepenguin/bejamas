@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Navbar from "./../components/common/navbar";
 import Header from "./../components/common/header";
 import CaseStudy from "./../components/home/caseStudy";
 import JamUses from "./../components/home/jamUses";
@@ -14,7 +13,6 @@ export default class Home extends Component {
   render() {
     return (
       <>
-        <Navbar />
         <Header />
         <CaseStudy />
         <JamUses />
