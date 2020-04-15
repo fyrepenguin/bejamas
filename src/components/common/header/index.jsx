@@ -15,8 +15,7 @@ export default class Header extends Component {
       title = "Meet faster, more secure web.",
       cta = "work with us!";
     return (
-      <section>
-        ============================== Header ==============================
+      <section className="hero container">
         <div>
           <Heading
             title={title}
@@ -49,7 +48,6 @@ export default class Header extends Component {
             <img src={hero} alt="hero main" />
           </picture>
         </div>
-        ============================== Header ==============================
       </section>
     );
   }

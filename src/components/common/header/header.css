@@ -1,6 +1,9 @@
-ul li img {
+.hero ul li img {
   height: 50px;
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+}
+.hero {
+  display: flex;
 }
