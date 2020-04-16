@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Heading from "../heading";
+import Heading from "./heading";
 
 export default class Footer extends Component {
   render() {

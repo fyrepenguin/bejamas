@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Heading from "../heading";
+import Heading from "./heading";
 import {
   contentful,
   storyblok,
@@ -15,7 +15,7 @@ import {
   now,
   firebase,
   aws,
-} from "../../../images";
+} from "../../images";
 export default class TechUsed extends Component {
   render() {
     return (

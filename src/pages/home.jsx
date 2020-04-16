@@ -13,15 +13,17 @@ export default class Home extends Component {
   render() {
     return (
       <>
-        <Header />
-        <CaseStudy />
-        <JamUses />
-        <Testimonial />
-        <TechUsed />
-        <Products />
-        <WorldMap />
-        <Stories />
-        <Footer />
+        <main className="page-content container">
+          <Header />
+          <CaseStudy />
+          <JamUses />
+          <Testimonial />
+          <TechUsed />
+          <Products />
+          <WorldMap />
+          <Stories />
+          <Footer />
+        </main>
       </>
     );
   }
