@@ -79,7 +79,7 @@ const Navbar = () => {
             </li>
           </ul>
         </nav>
-        <div className="cta">
+        <div className="cta-container">
           <a href="/" className="cta">
             Work with us!
           </a>

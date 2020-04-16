@@ -1,11 +1,11 @@
 import React from "react";
-
+import "../../styles/heading.scss";
 const Heading = ({ subtitle, title, description, cta, align }) => {
   return (
-    <header className={align === "left" ? "text-left" : "text-center"}>
-      <p>{subtitle}</p>
+    <header className="heading">
+      <p className="sub-title">{subtitle}</p>
       <h2>{title}</h2>
-      {description ? <p>{description}</p> : ""}
+      {description ? <p className="description">{description}</p> : ""}
       {cta ? (
         <a href="/" className="cta">
           {cta}

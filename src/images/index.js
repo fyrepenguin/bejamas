@@ -7,6 +7,14 @@ export const newfront = require("./newfront.svg");
 export const mambu = require("./mambu.svg");
 
 export const hero = require("./hero-opt.webp");
+export const i30 = require("./30.webp");
+export const i9 = require("./9.webp");
+
+/* Case Study */
+export const dmitri = require("./dmitry-terner.webp");
+export const avenue = require("./avenues-case-study.webp");
+export const quote = require("./quotes.webp");
+
 /* Technologies Used Images */
 export const contentful = require("./contentful.webp");
 export const storyblok = require("./storyblok.webp");

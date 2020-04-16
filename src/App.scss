@@ -1,15 +1,23 @@
 @font-face {
   font-family: "Recoleta";
-  src: local("Recoleta Bold"), local("Recoleta-Bold"),
-    url("./fonts/Recoleta-Bold.woff2") format("woff2"),
-    url("./fonts/Recoleta-Bold.woff") format("woff"),
-    url("./fonts/Recoleta-Bold.ttf") format("truetype");
-  font-weight: 700;
+  src: local("Recoleta Medium"), local("Recoleta-Medium"),
+    url("./fonts/Recoleta-Medium.woff2") format("woff2"),
+    url("./fonts/Recoleta-Medium.woff") format("woff"),
+    url("./fonts/Recoleta-Medium.ttf") format("truetype");
+  font-weight: 500;
   font-style: normal;
 }
-/** 
-  * TODO: Add Poppins family
-*/
+
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins Medium"), local("Poppins-Medium"),
+    url("./fonts/Poppins-Medium.woff2") format("woff2"),
+    url("./fonts/Poppins-Medium.woff") format("woff"),
+    url("./fonts/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
 :root {
   --color-bg: #fff;
   --color-bg-primary: #0a0012;
@@ -42,6 +50,7 @@
     rgba(0, 0, 0, 0.12) 50%,
     rgba(0, 0, 0, 0.01)
   );
+  --color-cta: #da3654;
 }
 
 body,
@@ -50,11 +59,12 @@ html {
   padding: 0;
   background-color: var(--color-bg);
   font-family: Poppins, sans-serif;
+  font-weight: 500;
   line-height: 24.8px;
   box-sizing: border-box;
 }
 html {
-  font: 100%/155 Poppins, sans-serif;
+  font: 100%/1.55 Poppins, sans-serif;
 }
 body {
   color: var(--color-text-primary);
@@ -74,6 +84,31 @@ h5,
 h6 {
   font-family: "Recoleta", sans-serif;
   font-weight: 700;
+  line-height: 1.33;
+  padding: 0;
+  margin: 0 0 1.1625rem;
+}
+h1 {
+  font-size: 3.375rem;
+}
+h2 {
+  font-size: 2.07474rem;
+}
+h3 {
+  font-size: 1.62671rem;
+}
+h4 {
+  font-size: 1rem;
+}
+h5 {
+  font-size: 0.78405rem;
+}
+h6 {
+  font-size: 0.69425rem;
+}
+p {
+  padding: 0;
+  margin: 0 0 1.1625rem;
 }
 a {
   text-decoration: none;
@@ -84,6 +119,12 @@ ul {
   padding: 0;
   margin: 0;
 }
+li {
+  margin-bottom: calc(1.1625rem / 2);
+}
+ul li {
+  padding-left: 0;
+}
 
 blockquote :last-child,
 li :last-child,
@@ -91,6 +132,12 @@ p :last-child {
   margin-bottom: 0;
 }
 
+img {
+  max-width: 100%;
+  padding: 0;
+  margin: 0 0 1.1625rem;
+  border-style: none;
+}
 .container {
   max-width: 1400px;
   margin: 0 auto;
@@ -102,4 +149,20 @@ p :last-child {
 .page-content {
   max-width: 87.5rem;
   padding: 0;
+}
+
+a.cta {
+  font-size: 1.125rem;
+  font-weight: 500;
+  display: inline-block;
+  border: 0;
+  cursor: pointer;
+  background-color: var(--color-cta);
+  padding: 0.86111111111111111112rem 1.55rem 1.03333333333333332rem;
+  border-radius: 28px;
+  text-decoration: none;
+  color: #fff;
+  min-width: 9rem;
+  position: relative;
+  text-align: center;
 }

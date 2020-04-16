@@ -2,6 +2,7 @@ $red: #da3654;
 header.nav {
   background: var(--color-bg-almost-primary);
   backdrop-filter: blur(16px);
+  z-index: 9;
   position: sticky;
   top: 0;
   .navbar {
@@ -79,6 +80,9 @@ header.nav {
                 color: var(--color-text-primary);
                 padding: 0.5167rem 1.9375rem;
                 display: block;
+                &:hover {
+                  color: $red;
+                }
               }
             }
           }
@@ -92,27 +96,12 @@ header.nav {
         }
       }
     }
-    .cta {
+    .cta-container {
       justify-self: end;
-      grid-area: cta;
+      grid-area: var(--color-cta);
       display: flex;
       align-items: center;
       margin-left: auto;
-      a {
-        font-size: 1.125rem;
-        font-weight: 500;
-        display: inline-block;
-        border: 0;
-        cursor: pointer;
-        background-color: $red;
-        padding: 0.86rem 1.55rem 1.03rem;
-        border-radius: 28px;
-        text-decoration: none;
-        color: #fff;
-        min-width: 9rem;
-        position: relative;
-        text-align: center;
-      }
     }
   }
 }
