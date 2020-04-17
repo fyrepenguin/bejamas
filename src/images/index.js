@@ -15,6 +15,12 @@ export const dmitri = require("./dmitry-terner.webp");
 export const avenue = require("./avenues-case-study.webp");
 export const quote = require("./quotes.webp");
 
+/* Benefits of JAMstack */
+export const swift = require("./icon-swift@2x.webp");
+export const safe = require("./icon-safe@2x.webp");
+export const stable = require("./icon-stable@2x.webp");
+export const scalable = require("./icon-scalable@2x.webp");
+
 /* Technologies Used Images */
 export const contentful = require("./contentful.webp");
 export const storyblok = require("./storyblok.webp");

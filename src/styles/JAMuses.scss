@@ -1,0 +1,53 @@
+.jamstack-benefits {
+  background-color: var(--color-bg-secondary);
+  border-radius: 16px;
+  .benefits {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18.6rem, 1fr));
+    row-gap: 3.1rem;
+    column-gap: calc(6vw + 3.1rem);
+    align-items: flex-start;
+    max-width: 58.9rem;
+    margin: 1.55rem auto 0;
+
+    margin-top: 4.65rem;
+    counter-reset: benefits;
+    .benefit {
+      position: relative;
+      color: var(--color-text-secondary);
+      &::before {
+        content: counter(benefits);
+        font-weight: 700;
+        font-size: 18rem;
+        top: -5rem;
+        color: #e3eef4;
+        position: absolute;
+        right: 5%;
+        width: 50%;
+        line-height: 1;
+        text-align: center;
+        counter-increment: benefits;
+        background: linear-gradient(
+          180deg,
+          var(--color-text-gradient-from) 0,
+          var(--color-text-gradient-to) 85%
+        );
+        pointer-events: none;
+        z-index: 0;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .benefit-img {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+      }
+      h3 {
+        z-index: 2;
+        color: var(--color-text-primary);
+        margin-top: 1.55rem;
+        position: relative;
+      }
+    }
+  }
+}
