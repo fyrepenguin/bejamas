@@ -16,55 +16,55 @@ import {
   firebase,
   aws,
 } from "../../images";
+import "../../styles/tech.scss";
+
 export default class TechUsed extends Component {
   render() {
     return (
-      <section>
-        ============================= Tech =============================
+      <section className="tech section">
         <Heading
           description="Every project is a new story, yet some things stay the same. We pick a dedicated set of tools for each one, for the best performance possible."
           title="Beautifying the web"
           subtitle="TECHNOLOGIES WE USE"
         />
-        <div>
+        <div className="tool-types">
           <h3>Data Sources</h3>
-          <div>
-            <img src={contentful} alt="" />
+          <div className="tool-images">
+            <img style={{ "max-width": "160px" }} src={contentful} alt="" />
 
-            <img src={storyblok} alt="" />
+            <img style={{ "max-width": "160px" }} src={storyblok} alt="" />
 
-            <img src={sanity} alt="" />
-            <img src={forestry} alt="" />
-            <img src={dato} alt="" />
+            <img style={{ "max-width": "110px" }} src={sanity} alt="" />
+            <img style={{ "max-width": "160px" }} src={forestry} alt="" />
+            <img style={{ "max-width": "120px" }} src={dato} alt="" />
           </div>
         </div>
-        <div>
+        <div className="tool-types">
           <h3>Build</h3>
-          <div>
-            <img src={gatsby} alt="" />
+          <div className="tool-images">
+            <img style={{ "max-width": "160px" }} src={gatsby} alt="" />
 
-            <img src={next} alt="" />
+            <img style={{ "max-width": "120px" }} src={next} alt="" />
 
-            <img src={hugo} alt="" />
+            <img style={{ "max-width": "150px" }} src={hugo} alt="" />
 
-            <img src={react} alt="" />
+            <img style={{ "max-width": "60px" }} src={react} alt="" />
 
-            <img src={node} alt="" />
+            <img style={{ "max-width": "120px" }} src={node} alt="" />
           </div>
         </div>
-        <div>
+        <div className="tool-types">
           <h3>Deploy & CDN</h3>
-          <div>
-            <img src={netlify} alt="" />
+          <div className="tool-images">
+            <img style={{ "max-width": "130px" }} src={netlify} alt="" />
 
-            <img src={now} alt="" />
+            <img style={{ "max-width": "50px" }} src={now} alt="" />
 
-            <img src={firebase} alt="" />
+            <img style={{ "max-width": "150px" }} src={firebase} alt="" />
 
-            <img src={aws} alt="" />
+            <img style={{ "max-width": "70px" }} src={aws} alt="" />
           </div>
         </div>
-        ============================= Tech =============================
       </section>
     );
   }

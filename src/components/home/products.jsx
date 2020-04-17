@@ -5,8 +5,7 @@ import { productJam, productPWA } from "./../../images";
 export default class Products extends Component {
   render() {
     return (
-      <section>
-        ============================== Products ==============================
+      <section className="products section">
         <Heading
           description="Best things since sliced bread. Shaped with diligence and the highest software-craftsmanship."
           title="Perfect for SMBs and enterprise"
@@ -38,7 +37,6 @@ export default class Products extends Component {
             <a href="/">See more</a>
           </div>
         </div>
-        ============================== Products ==============================
       </section>
     );
   }
