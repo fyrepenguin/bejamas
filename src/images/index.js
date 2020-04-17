@@ -50,3 +50,7 @@ export const jamPWA = require("./jamstack-pwa-minimal.webp");
 export const jamclients = require("./jamstack-for-clients.webp");
 export const headless = require("./headless-cms-minimal.webp");
 export const wordpress = require("./wordpress-alternatives.webp");
+
+/* Footer */
+
+export const footerLogo = require("./bejamas-logo.svg");

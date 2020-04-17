@@ -9,9 +9,8 @@ import {
 export default class Stories extends Component {
   render() {
     return (
-      <section>
-        ============================== Stories ==============================
-        <div>
+      <section className="stories section">
+        <article className="post">
           <a href="/">
             <img src={JAMintro} alt="" />
             <div>
@@ -19,8 +18,8 @@ export default class Stories extends Component {
               <p>Read more</p>
             </div>
           </a>
-        </div>
-        <div>
+        </article>
+        <article className="post">
           <a href="/">
             <img src={jamPWA} alt="" />
             <div>
@@ -28,8 +27,8 @@ export default class Stories extends Component {
               <p>Read more</p>
             </div>
           </a>
-        </div>
-        <div>
+        </article>
+        <article className="post">
           <a href="/">
             <img src={jamclients} alt="" />
             <div>
@@ -37,8 +36,8 @@ export default class Stories extends Component {
               <p>Read more</p>
             </div>
           </a>
-        </div>
-        <div>
+        </article>
+        <article className="post">
           <a href="/">
             <img src={wordpress} alt="" />
             <div>
@@ -49,8 +48,8 @@ export default class Stories extends Component {
               <p>Read more</p>
             </div>
           </a>
-        </div>
-        <div>
+        </article>
+        <article className="post">
           <a href="/">
             <img src={headless} alt="" />
             <div>
@@ -58,8 +57,7 @@ export default class Stories extends Component {
               <p>Read more</p>
             </div>
           </a>
-        </div>
-        ============================== Stories ==============================
+        </article>
       </section>
     );
   }
