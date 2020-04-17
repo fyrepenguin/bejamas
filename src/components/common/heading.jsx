@@ -1,6 +1,6 @@
 import React from "react";
 import "../../styles/heading.scss";
-const Heading = ({ subtitle, title, description, cta, align }) => {
+const Heading = ({ subtitle, title, description, cta }) => {
   return (
     <header className="heading">
       <p className="sub-title">{subtitle}</p>

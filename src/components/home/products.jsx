@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Heading from "./../common/heading";
 import { productJam, productPWA } from "./../../images";
+import "../../styles/products.scss";
 
 export default class Products extends Component {
   render() {
@@ -12,8 +13,8 @@ export default class Products extends Component {
           subtitle="PRODUCTS WE CRAFT"
         />
         <div className="cards">
-          <div className="card">
-            <div>
+          <a href="/" className="card">
+            <div className="card-img">
               <img src={productJam} alt="" />
             </div>
             <h3>JAMstack Websites</h3>
@@ -22,10 +23,10 @@ export default class Products extends Component {
               We build them with proven technologies: GatsbyJS, Hugo, Netlify,
               and many others.
             </p>
-            <a href="/">See more</a>
-          </div>
-          <div className="card">
-            <div>
+            <span>See more »</span>
+          </a>
+          <a href="/" className="card">
+            <div className="card-img">
               <img src={productPWA} alt="" />
             </div>
             <h3>Progressive Web Applications</h3>
@@ -34,8 +35,8 @@ export default class Products extends Component {
               apps for multiple platforms. JAMstack PWA means great performance
               and low hosting costs.
             </p>
-            <a href="/">See more</a>
-          </div>
+            <span>See more »</span>
+          </a>
         </div>
       </section>
     );
