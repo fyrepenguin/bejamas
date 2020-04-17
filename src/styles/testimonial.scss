@@ -1,0 +1,37 @@
+.testimonial {
+  .testimonial-content {
+    display: grid;
+    column-gap: 6.2rem;
+    align-items: center;
+    padding-left: 3.1rem;
+    grid-template-columns: auto 40%;
+    h3 {
+      font-size: 1.8125rem;
+      font-weight: 600;
+    }
+    .rating {
+      display: flex;
+      margin: 3.1rem 0;
+      svg + svg {
+        margin-left: 0.775rem;
+      }
+    }
+    .customer {
+      display: flex;
+      .customer-img {
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        margin-right: 0.775rem;
+      }
+    }
+    .testimonial-hero {
+      position: relative;
+      max-width: 511px;
+      overflow: hidden;
+    }
+  }
+}
