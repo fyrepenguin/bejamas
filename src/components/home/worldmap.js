@@ -1,0 +1,22 @@
+import React, { Component } from "react";
+import Heading from "../common/heading";
+import { map } from "../../images";
+import "../../styles/map.scss";
+export default class WorldMap extends Component {
+  render() {
+    const desc = `We’re an international-ready team.\n
+    Worked in sync with customers in 7 different time-zones.`;
+    return (
+      <section className="section map">
+        <Heading
+          subtitle="Bettering the web for clients from"
+          title="14 countries, 5 continents"
+          description={desc}
+        />
+        <div className="map-img">
+          <img src={map} alt="" />
+        </div>
+      </section>
+    );
+  }
+}
