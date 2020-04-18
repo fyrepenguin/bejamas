@@ -7,7 +7,7 @@ import {
   wordpress,
   headless,
   i30,
-} from "../../images";
+} from "../images";
 import "../../styles/stories.scss";
 export default class Stories extends Component {
   render() {

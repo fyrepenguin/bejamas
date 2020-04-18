@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Heading from "../common/heading";
-import { productJam, productPWA } from "../../images";
+import { productJam, productPWA } from "../images";
 import "../../styles/products.scss";
 
 export default class Products extends Component {

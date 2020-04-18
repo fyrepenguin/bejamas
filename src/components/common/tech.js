@@ -15,7 +15,7 @@ import {
   now,
   firebase,
   aws,
-} from "../../images";
+} from "../images";
 import "../../styles/tech.scss";
 
 export default class TechUsed extends Component {

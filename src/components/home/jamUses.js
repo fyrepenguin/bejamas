@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Heading from "../common/heading";
-import { swift, safe, stable, scalable } from "../../images";
+import { swift, safe, stable, scalable } from "../images";
 import "../../styles/JAMuses.scss";
 
 export default class JamUses extends Component {

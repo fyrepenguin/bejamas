@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Heading from "../common/heading";
-import { dmitri, avenue, quote } from "../../images";
+import { dmitri, avenue, quote } from "../images";
 import "./../../styles/caseStudy.scss";
 export default class CaseStudy extends Component {
   render() {

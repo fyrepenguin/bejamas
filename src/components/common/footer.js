@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import Heading from "./heading";
 import "../../styles/footer.scss";
-import { footerLogo } from "../../images";
-
+import { footerLogo } from "../images";
+import { Link } from "gatsby";
 export default class Footer extends Component {
   render() {
     return (
       <footer className="footer">
         <div className="footer-content">
-          <a href="/" className="top">
+          <Link href="/" className="top">
             <svg width="16" height="22">
               <path
                 d="M8 21V1M1 8l7-7 7 7"
@@ -20,7 +20,7 @@ export default class Footer extends Component {
                 strokeWidth="2"
               ></path>
             </svg>
-          </a>
+          </Link>
           <section className="footer-cta">
             <Heading
               title="Ready to join JAMstack revolution?"
@@ -31,9 +31,9 @@ export default class Footer extends Component {
           </section>
           <section className="footer-info">
             <div className="mode">
-              <a href="/">
+              <Link href="/">
                 <img src={footerLogo} alt="" style={{ maxWidth: "2rem" }} />
-              </a>
+              </Link>
               <fieldset aria-label="Theme Switcher">
                 <input
                   type="checkbox"
@@ -67,22 +67,22 @@ export default class Footer extends Component {
                 <p>Company</p>
                 <ul>
                   <li>
-                    <a href="/">Home</a>
+                    <Link href="/">Home</Link>
                   </li>
                   <li>
-                    <a href="/">About</a>
+                    <Link href="/">About</Link>
                   </li>
                   <li>
-                    <a href="/">Blog</a>
+                    <Link href="/blog">Blog</Link>
                   </li>
                   <li>
-                    <a href="/">Careers</a>
+                    <Link href="/careers">Careers</Link>
                   </li>
                   <li>
-                    <a href="/">Privacy</a>
+                    <Link href="/">Privacy</Link>
                   </li>
                   <li>
-                    <a href="/">Cookies</a>
+                    <Link href="/">Cookies</Link>
                   </li>
                 </ul>
               </div>
@@ -90,10 +90,10 @@ export default class Footer extends Component {
                 <p>Services</p>
                 <ul>
                   <li>
-                    <a href="/">JAMstack Websites</a>
+                    <Link href="/">JAMstack Websites</Link>
                   </li>
                   <li>
-                    <a href="/">Progressive Web Apps</a>
+                    <Link href="/">Progressive Web Apps</Link>
                   </li>
                 </ul>
               </div>
@@ -101,10 +101,10 @@ export default class Footer extends Component {
                 <p>Get In Touch</p>
                 <ul>
                   <li>
-                    <a href="/">Estimate project</a>
+                    <Link href="/">Estimate project</Link>
                   </li>
                   <li>
-                    <a href="/">Contact</a>
+                    <Link href="/">Contact</Link>
                   </li>
                 </ul>
               </div>

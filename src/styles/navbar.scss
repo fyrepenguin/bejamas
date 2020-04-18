@@ -49,8 +49,10 @@ header.nav {
             color: var(--color-text-primary);
             &:hover,
             &.active {
-              border-top: 2px solid $red;
               color: $red;
+            }
+            &.active {
+              border-top: 2px solid $red;
             }
           }
         }

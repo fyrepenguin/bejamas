@@ -26,20 +26,25 @@ const Navbar = () => {
         <nav className="menu">
           <ul className="menu-items">
             <li>
-              <a className="top-nav-link active" href="/">
+              <Link activeClassName="active" className="top-nav-link" href="/">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              {/*  <a className="top-nav-link" href="/about">
-                About
-              </a> */}
-              <Link to="/about" className="top-nav-link">
+              <Link
+                activeClassName="active"
+                to="/about"
+                className="top-nav-link"
+              >
                 About
               </Link>
             </li>
             <li className="nav-service">
-              <Link className="top-nav-link " to="/services">
+              <Link
+                activeClassName="active"
+                className="top-nav-link "
+                to="/services"
+              >
                 Services
                 <svg
                   width="10"
@@ -59,25 +64,37 @@ const Navbar = () => {
               </Link>
               <ul className="service-dropdown">
                 <li>
-                  <a href="/jamstackServices">JAMstack websites</a>
+                  <a href="/services/jamstackServices">JAMstack websites</a>
                 </li>
                 <li>
-                  <a href="/pwaServices">Progressive Web Apps</a>
+                  <a href="/services/pwaServices">Progressive Web Apps</a>
                 </li>
               </ul>
             </li>
             <li>
-              <Link className="top-nav-link" to="/careers">
+              <Link
+                activeClassName="active"
+                className="top-nav-link"
+                to="/careers"
+              >
                 Careers
               </Link>
             </li>
             <li>
-              <Link className="top-nav-link" to="/blog">
+              <Link
+                activeClassName="active"
+                className="top-nav-link"
+                to="/blog"
+              >
                 Blog
               </Link>
             </li>
             <li>
-              <Link className="top-nav-link" to="/contact">
+              <Link
+                activeClassName="active"
+                className="top-nav-link"
+                to="/contact"
+              >
                 Contact
               </Link>
             </li>

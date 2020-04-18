@@ -8,6 +8,7 @@ exports.components = {
   "component---cache-dev-404-page-js": hot(preferDefault(require("E:\\JAMstack\\bejamas\\.cache\\dev-404-page.js"))),
   "component---src-pages-404-js": hot(preferDefault(require("E:\\JAMstack\\bejamas\\src\\pages\\404.js"))),
   "component---src-pages-about-js": hot(preferDefault(require("E:\\JAMstack\\bejamas\\src\\pages\\about.js"))),
+  "component---src-pages-blog-js": hot(preferDefault(require("E:\\JAMstack\\bejamas\\src\\pages\\blog.js"))),
   "component---src-pages-careers-js": hot(preferDefault(require("E:\\JAMstack\\bejamas\\src\\pages\\careers.js"))),
   "component---src-pages-contact-js": hot(preferDefault(require("E:\\JAMstack\\bejamas\\src\\pages\\contact.js"))),
   "component---src-pages-index-js": hot(preferDefault(require("E:\\JAMstack\\bejamas\\src\\pages\\index.js"))),
