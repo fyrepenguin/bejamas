@@ -4,8 +4,13 @@ import { map } from "../images";
 import "../../styles/map.scss";
 
 const WorldMap = () => {
-  const desc = `We’re an international-ready team.\n
-    Worked in sync with customers in 7 different time-zones.`;
+  const desc = (
+    <>
+      We’re an international-ready team.
+      <br />
+      Worked in sync with customers in 7 different time-zones.
+    </>
+  );
   return (
     <section className="section map">
       <Heading
