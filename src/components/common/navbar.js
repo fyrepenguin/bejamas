@@ -64,10 +64,10 @@ const Navbar = () => {
               </Link>
               <ul className="service-dropdown">
                 <li>
-                  <a href="/services/jamstackServices">JAMstack websites</a>
+                  <a href="/jamstackServices">JAMstack websites</a>
                 </li>
                 <li>
-                  <a href="/services/pwaServices">Progressive Web Apps</a>
+                  <a href="/pwaServices">Progressive Web Apps</a>
                 </li>
               </ul>
             </li>

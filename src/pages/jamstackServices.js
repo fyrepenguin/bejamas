@@ -1,8 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 import Layout from "./../layouts/index";
-
-export default class JAM extends Component {
-  render() {
-    return <Layout>JAM</Layout>;
-  }
-}
+import Footer from "./../components/common/footer";
+import FooterCTA from "./../components/common/footerCTA";
+const JAM = () => {
+  return (
+    <>
+      <Layout>JAM</Layout>
+      <Footer>
+        <FooterCTA />
+      </Footer>
+    </>
+  );
+};
+export default JAM;

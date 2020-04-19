@@ -11,6 +11,8 @@ import Layout from "./../layouts/index";
 import "../styles/App.scss";
 import { hero, i30, i9 } from "./../components/images";
 import "../styles/home.scss";
+import Footer from "./../components/common/footer";
+import FooterCTA from "./../components/common/footerCTA";
 
 export default () => {
   const subTitle = `jamstack developers for hire`,
@@ -139,23 +141,28 @@ export default () => {
     </>
   );
   return (
-    <Layout>
-      <Header
-        subTitle={subTitle}
-        title={title}
-        desc={desc}
-        cta={cta}
-        hero={hero}
-        extra={extra}
-        shapes={shapes}
-      ></Header>
-      <CaseStudy />
-      <JamUses />
-      <Testimonial />
-      <TechUsed />
-      <Products />
-      <WorldMap />
-      <Stories />
-    </Layout>
+    <>
+      <Layout>
+        <Header
+          subTitle={subTitle}
+          title={title}
+          desc={desc}
+          cta={cta}
+          hero={hero}
+          extra={extra}
+          shapes={shapes}
+        ></Header>
+        <CaseStudy />
+        <JamUses />
+        <Testimonial />
+        <TechUsed />
+        <Products />
+        <WorldMap />
+        <Stories />
+      </Layout>
+      <Footer>
+        <FooterCTA />
+      </Footer>
+    </>
   );
 };

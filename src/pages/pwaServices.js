@@ -1,8 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import Layout from "./../layouts/index";
+import Footer from "./../components/common/footer";
+import FooterCTA from "./../components/common/footerCTA";
 
-export default class PWA extends Component {
-  render() {
-    return <Layout>PWA</Layout>;
-  }
-}
+const PWA = () => {
+  return (
+    <>
+      <Layout>PWA</Layout>
+      <Footer>
+        <FooterCTA />
+      </Footer>
+    </>
+  );
+};
+export default PWA;
