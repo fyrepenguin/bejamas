@@ -7,6 +7,8 @@ import { servicesHero } from "./../../components/images";
 import Products from "../../components/home/products";
 import "../../styles/services.scss";
 import Workflow from "./../../components/common/workflow";
+import Testimonials from "./../../components/common/testimonials";
+import Faq from "../../components/services/faq";
 const Services = () => {
   return (
     <>
@@ -25,7 +27,8 @@ const Services = () => {
           pwaDesc="Build a fast and scalable web app with all the native app's features."
         />
         <Workflow />
-        testimonials faq
+        <Testimonials />
+        <Faq />
       </Layout>
       <Footer>
         <FooterCTA />
