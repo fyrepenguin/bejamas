@@ -5,7 +5,7 @@ const FooterCTA = () => {
     <section className="footer-cta">
       <Heading
         title="Ready to join JAMstack revolution?"
-        subtitle="JAMstack developers for hire"
+        subheading="JAMstack developers for hire"
         description="Start your super-fast project with us or take your existing product to the next level."
         cta="Work with us!"
       />

@@ -5,7 +5,7 @@ const Team = () => {
   return (
     <section className="team section">
       <Heading
-        subtitle="We are"
+        subheading="We are"
         title="Bejamas Team"
         description="Working from all around the world to build the Web of tomorrow."
       />

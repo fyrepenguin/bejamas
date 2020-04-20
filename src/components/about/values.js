@@ -6,7 +6,7 @@ const Values = () => {
   return (
     <section className="values section">
       <Heading
-        subtitle="Things we value"
+        subheading="Things we value"
         title="Believability at the core"
         description="As a remote team of independent thinkers, we share the same values that make things work like a charm."
       />

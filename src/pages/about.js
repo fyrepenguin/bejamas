@@ -12,7 +12,7 @@ import "../styles/about.scss";
 import Values from "./../components/about/values";
 
 const About = () => {
-  const subTitle = `About Us`,
+  const subheading = `About Us`,
     title = `We are Bejamas`,
     desc = `Not your everyday web dev shop but a partner that will help your business grow with modern tools more than you thought it's possible.`,
     cta = `Meet the Team`,
@@ -34,7 +34,7 @@ const About = () => {
     <>
       <Layout>
         <Header
-          subTitle={subTitle}
+          subheading={subheading}
           title={title}
           desc={desc}
           cta={cta}

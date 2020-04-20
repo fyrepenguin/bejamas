@@ -27,7 +27,7 @@ const TechUsed = ({ cta }) => {
       <Heading
         description={desc}
         title="Beautifying the web"
-        subtitle="TECHNOLOGIES WE USE"
+        subheading="TECHNOLOGIES WE USE"
       />
       <div className="tool-types">
         <h3>Data Sources</h3>

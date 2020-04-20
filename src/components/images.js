@@ -8,6 +8,7 @@ export const mambu = require("../images/mambu.svg");
 
 export const hero = require("../images/hero-opt.webp");
 export const aboutHero = require("../images/about-hero-tr.webp");
+export const servicesHero = require("../images/hero-services.webp");
 export const i30 = require("../images/30.webp");
 export const i9 = require("../images/9.webp");
 export const i1 = require("../images/1.webp");

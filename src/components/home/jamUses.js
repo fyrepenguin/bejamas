@@ -7,7 +7,7 @@ const JamUses = () => {
   return (
     <section className="jamstack-benefits section">
       <Heading
-        subtitle="Site with benefits"
+        subheading="Site with benefits"
         title="How JAMstack supports your business"
         description="We use the power of JAMstack and server-side rendering to ship value to our customers."
       />

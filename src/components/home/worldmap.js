@@ -14,7 +14,7 @@ const WorldMap = () => {
   return (
     <section className="section map">
       <Heading
-        subtitle="Bettering the web for clients from"
+        subheading="Bettering the web for clients from"
         title="14 countries, 5 continents"
         description={desc}
       />

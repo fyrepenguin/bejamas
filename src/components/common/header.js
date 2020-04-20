@@ -1,13 +1,13 @@
 import React from "react";
 import "./../../styles/header.scss";
 
-const Header = ({ subTitle, title, cta, desc, hero, extra, shapes }) => {
+const Header = ({ subheading, title, cta, desc, hero, extra, shapes }) => {
   return (
     <section className="hero">
       <div className="hero-content">
         <div className="hero-text">
           <div className="main-text">
-            <h3>{subTitle}</h3>
+            <h3>{subheading}</h3>
             <h1>{title}</h1>
             <p>{desc}</p>
             <a href="/" className="cta">

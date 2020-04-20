@@ -44,6 +44,7 @@ const Navbar = () => {
                 activeClassName="active"
                 className="top-nav-link "
                 to="/services"
+                partiallyActive
               >
                 Services
                 <svg
@@ -64,10 +65,10 @@ const Navbar = () => {
               </Link>
               <ul className="service-dropdown">
                 <li>
-                  <a href="/jamstackServices">JAMstack websites</a>
+                  <a href="/services/jamstackServices">JAMstack websites</a>
                 </li>
                 <li>
-                  <a href="/pwaServices">Progressive Web Apps</a>
+                  <a href="/services/pwaServices">Progressive Web Apps</a>
                 </li>
               </ul>
             </li>
@@ -76,6 +77,7 @@ const Navbar = () => {
                 activeClassName="active"
                 className="top-nav-link"
                 to="/careers"
+                partiallyActive
               >
                 Careers
               </Link>
@@ -85,6 +87,7 @@ const Navbar = () => {
                 activeClassName="active"
                 className="top-nav-link"
                 to="/blog"
+                partiallyActive
               >
                 Blog
               </Link>

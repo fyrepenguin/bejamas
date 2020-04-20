@@ -7,7 +7,7 @@ const CaseStudy = () => {
   return (
     <section className="case-study section">
       <Heading
-        subtitle="featured jamstack case study"
+        subheading="featured jamstack case study"
         title="JAMstack in Services of Better education: Avenues, the World School."
       />
       <div className="case-study-content">

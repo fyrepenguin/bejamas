@@ -13,7 +13,7 @@ export default class Stories extends Component {
   render() {
     return (
       <section className="stories section">
-        <Heading subtitle="Our Stories" title="Latest from blog" />
+        <Heading subheading="Our Stories" title="Latest from blog" />
         <div className="posts">
           <div className="post-circle">
             <img src={i30} alt="" />

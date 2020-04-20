@@ -5,7 +5,7 @@ const Nomads = () => {
     <section className="section nomads">
       <div className="nomad-text">
         <Heading
-          subtitle="digital nomads"
+          subheading="digital nomads"
           title="Behind the scenes of remote work"
           description="Who said we have to work from one office to be a close-knit team?"
         />

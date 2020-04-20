@@ -15,7 +15,7 @@ import Footer from "./../components/common/footer";
 import FooterCTA from "./../components/common/footerCTA";
 
 export default () => {
-  const subTitle = `jamstack developers for hire`,
+  const subheading = `jamstack developers for hire`,
     title = (
       <>
         Meet faster,
@@ -144,7 +144,7 @@ export default () => {
     <>
       <Layout>
         <Header
-          subTitle={subTitle}
+          subheading={subheading}
           title={title}
           desc={desc}
           cta={cta}

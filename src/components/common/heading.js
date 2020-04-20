@@ -1,9 +1,9 @@
 import React from "react";
 import "../../styles/heading.scss";
-const Heading = ({ subtitle, title, description, cta }) => {
+const Heading = ({ subheading, title, description, cta }) => {
   return (
     <header className="heading">
-      <p className="sub-title">{subtitle}</p>
+      <p className="sub-title">{subheading}</p>
       <h2>{title}</h2>
       {description ? <p className="description">{description}</p> : ""}
       {cta ? (
