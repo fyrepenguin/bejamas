@@ -3,11 +3,17 @@ import Heading from "../common/heading";
 import { productJam, productPWA } from "../images";
 import "../../styles/products.scss";
 
-const Products = ({ description, subheading }) => {
+const Products = ({ description, subheading, pageName, jamDesc, pwaDesc }) => {
+  let classes;
+  if (pageName === "services") classes = "products-services section";
+  else {
+    classes = "products section";
+  }
+
   return (
-    <section className="products section">
+    <section className={classes}>
       <Heading
-        description="Best things since sliced bread. Shaped with diligence and the highest software-craftsmanship."
+        description={description}
         title="Perfect for SMBs and enterprise"
         subheading={subheading}
       />
@@ -17,11 +23,7 @@ const Products = ({ description, subheading }) => {
             <img src={productJam} alt="" />
           </div>
           <h3>JAMstack Websites</h3>
-          <p>
-            Get new customers with a faster website with higher SEO chances. We
-            build them with proven technologies: GatsbyJS, Hugo, Netlify, and
-            many others.
-          </p>
+          <p>{jamDesc}</p>
           <span>See more »</span>
         </a>
         <a href="/" className="card">
@@ -29,11 +31,7 @@ const Products = ({ description, subheading }) => {
             <img src={productPWA} alt="" />
           </div>
           <h3>Progressive Web Applications</h3>
-          <p>
-            Save time and money with a progressive web app instead of native
-            apps for multiple platforms. JAMstack PWA means great performance
-            and low hosting costs.
-          </p>
+          <p>{pwaDesc}</p>
           <span>See more »</span>
         </a>
       </div>

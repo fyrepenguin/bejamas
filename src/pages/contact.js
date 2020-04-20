@@ -1,14 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import Layout from "./../layouts/index";
 import Footer from "./../components/common/footer";
-
-export default class Contact extends Component {
-  render() {
-    return (
-      <>
-        <Layout>Contact</Layout>
-        <Footer />
-      </>
-    );
-  }
-}
+const Contact = () => {
+  return (
+    <>
+      <Layout>Contact</Layout>
+      <Footer />
+    </>
+  );
+};
+export default Contact;

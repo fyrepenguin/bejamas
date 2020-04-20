@@ -156,7 +156,16 @@ export default () => {
         <JamUses />
         <Testimonial />
         <TechUsed />
-        <Products />
+        <Products
+          subheading="products we craft"
+          description="Best things since sliced bread. Shaped with diligence and the highest software-craftsmanship."
+          jamDesc=" Get new customers with a faster website with higher SEO chances. We
+            build them with proven technologies: GatsbyJS, Hugo, Netlify, and
+            many others."
+          pwaDesc="Save time and money with a progressive web app instead of native
+            apps for multiple platforms. JAMstack PWA means great performance
+            and low hosting costs."
+        />
         <WorldMap />
         <Stories />
       </Layout>

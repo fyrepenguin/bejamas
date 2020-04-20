@@ -1,7 +1,6 @@
 import React from "react";
 import Heading from "../common/heading";
 import { map } from "../images";
-import "../../styles/map.scss";
 
 const WorldMap = () => {
   const desc = (
