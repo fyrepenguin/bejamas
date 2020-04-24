@@ -11,6 +11,7 @@ exports.createPages = async ({ actions, graphql }) => {
             frontmatter {
               path
             }
+            id
           }
         }
       }
@@ -25,7 +26,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path,
       component: careerTemplate,
-      context: { pathSlug: path },
+      context: { pathSlug: path, id: node.id },
     });
   });
 };

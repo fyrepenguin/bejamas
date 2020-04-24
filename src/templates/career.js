@@ -3,30 +3,27 @@ import Layout from "./../layouts/index";
 import Footer from "./../components/common/footer";
 import { graphql } from "gatsby";
 
-const Template = ({ path }) => {
-  /*  const { data } = props;
+const Template = ({ data }) => {
   const { markdownRemark } = data;
-  const { frontmatter, html } = allMarkdownRemark;
-  console.log(data.markdownRemark.frontmatter); */
+  const { html, frontmatter } = markdownRemark;
   return (
     <>
       <Layout>
         <div className="career">
-          {/*   <h1>{frontmatter.title}</h1>
+          <h1>{frontmatter.title}</h1>
           <div
             className="career-content"
             dangerouslySetInnerHTML={{ __html: html }}
-          /> */}
-          {path}
+          />
         </div>
       </Layout>
       <Footer />
     </>
   );
 };
-export const pageQuery = graphql`
-  query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+export const query = graphql`
+  query($id: String!) {
+    markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
         title

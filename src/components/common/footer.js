@@ -6,7 +6,7 @@ const Footer = ({ children }) => {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <Link href="/" className="top">
+        <Link to="/" className="top">
           <svg width="16" height="22">
             <path
               d="M8 21V1M1 8l7-7 7 7"
@@ -22,7 +22,7 @@ const Footer = ({ children }) => {
         {children}
         <section className="footer-info">
           <div className="mode">
-            <Link href="/">
+            <Link to="/">
               <img src={footerLogo} alt="" style={{ maxWidth: "2rem" }} />
             </Link>
             <fieldset aria-label="Theme Switcher">
@@ -58,22 +58,22 @@ const Footer = ({ children }) => {
               <p>Company</p>
               <ul>
                 <li>
-                  <Link href="/">Home</Link>
+                  <Link to="/">Home</Link>
                 </li>
                 <li>
-                  <Link href="/">About</Link>
+                  <Link to="/">About</Link>
                 </li>
                 <li>
-                  <Link href="/blog">Blog</Link>
+                  <Link to="/blog">Blog</Link>
                 </li>
                 <li>
-                  <Link href="/careers">Careers</Link>
+                  <Link to="/careers">Careers</Link>
                 </li>
                 <li>
-                  <Link href="/">Privacy</Link>
+                  <Link to="/">Privacy</Link>
                 </li>
                 <li>
-                  <Link href="/">Cookies</Link>
+                  <Link to="/">Cookies</Link>
                 </li>
               </ul>
             </div>
@@ -81,10 +81,10 @@ const Footer = ({ children }) => {
               <p>Services</p>
               <ul>
                 <li>
-                  <Link href="/">JAMstack Websites</Link>
+                  <Link to="/">JAMstack Websites</Link>
                 </li>
                 <li>
-                  <Link href="/">Progressive Web Apps</Link>
+                  <Link to="/">Progressive Web Apps</Link>
                 </li>
               </ul>
             </div>
@@ -92,10 +92,10 @@ const Footer = ({ children }) => {
               <p>Get In Touch</p>
               <ul>
                 <li>
-                  <Link href="/">Estimate project</Link>
+                  <Link to="/">Estimate project</Link>
                 </li>
                 <li>
-                  <Link href="/">Contact</Link>
+                  <Link to="/">Contact</Link>
                 </li>
               </ul>
             </div>
