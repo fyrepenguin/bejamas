@@ -1,0 +1,37 @@
+---
+title: UI Designer
+path: /ui-designer
+---
+
+Why we want to hire someone for this position?
+We’ve grown very dynamically in the last year (from 3 people organization into a company of 14) what’s been constantly posing new challenges in front of us. We’ve been focusing solely on the web development side of things thus far, but we see a tremendous potential to ship even more value to our customers if we do the design part right as well (often times, we receive an UI designed poorly that we have to implement)
+
+We want to solve this problem and create awesome products for our customers: ship beautifully designed UI that’s engineered and developed in a perfect way.
+
+Once hired, you’ll work directly with our project manager and developers.
+
+Requirements:
+
+- At least 2 years of proven commercial experience in designing web UI interfaces, wireframes and design interface concepts
+- Experience using tools such as Sketch, Figma, InVision
+- Experience working in an agile/scrum development process.
+- Be open to receiving objective feedback and improving upon it.
+- Be an exceptional team player who’s experienced in working with agile teams
+- Ability to collaborate closely with project manager and developers
+- Written and spoken English at a high-enough level to be able to communicate smoothly with the rest of the team
+- Portfolio of design projects that you can share during the recruitment process
+- Basic understanding of web UX concepts
+
+Responsibilities:
+
+- Gather and evaluate user requirements in collaboration with project managers and developers
+- Illustrate design ideas using storyboards, process flows and sitemaps
+- Design graphic user interface elements, like menus, tabs and widgets
+- Build page navigation buttons and search fields
+- Develop UI mockups and prototypes that clearly illustrate how sites function and look like
+- Create original graphic designs (e.g. images, sketches and tables)
+- Prepare and present rough drafts to internal team
+- identify and troubleshoot UX problems (e.g. responsiveness)
+- Conduct layout adjustments based on user feedback
+- Adhere to style standards on fonts, colors and images
+- Down the road we want to grow our design team, so you’ll be responsible for hiring and managing the designers (longer-term goal, next ~12 months)

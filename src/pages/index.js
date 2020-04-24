@@ -13,8 +13,23 @@ import { hero, i30, i9 } from "./../components/images";
 import "../styles/home.scss";
 import Footer from "./../components/common/footer";
 import FooterCTA from "./../components/common/footerCTA";
+/* import { useStaticQuery, graphql } from "gatsby"; */
 
 export default () => {
+  /*   const data = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "hero-opt.webp" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+          original {
+            src
+          }
+        }
+      }
+    }
+  `); */
   const subheading = `jamstack developers for hire`,
     title = (
       <>

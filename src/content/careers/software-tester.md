@@ -1,0 +1,30 @@
+---
+title: Software Tester
+path: /software-tester
+---
+
+Whenever you write a new line of code, you also potentially add new bugs. That’s especially (and painfully) true when you’re working as a team on several different projects at the same time.
+
+We treat our Software Tester as a watchful investigator whose efforts are a crucial factor in delivering better and reliable web apps. As the second Tester within Bejamas, you will get a chance to test (ha!) your new ideas, setting up a new bunch of rules if needed, and teach us about the quality standards.
+
+In the nearest future, we have a plan to prepare test cases and implement automation tests for all clients’ projects on a regular basis.
+
+Requirements:
+
+- At least 3 years of commercial experience in testing (manual and automation, both for desktop and mobile)
+- Know how to write clean bug reports and how to write test plans
+- Experience with defining and refining requirements
+- Basic knowledge of JavaScript
+- Understanding of UX principles and know how to test usability/accessibility
+- Experience with cooperating in Scrum methodology
+- Speaking and writing in English with ease
+- Nice-to-have: knowledge of ISTQB and CMSes, like Prismic, Contentful, Storyblok
+- Ability to quickly adapt to the project and absorb domain knowledge
+
+Responsibilities:
+
+- Performing functional, regression, responsiveness and cross-browser tests on a daily basis, together with our other Software Tester
+- Preparing and executing test case scenarios
+- Reporting test results and cooperation with the dev team
+- Defining and setting our testing standards and quality
+- Acting as an expert in your field - advising on test topics, proposing customized solutions, sharing your knowledge and best practices with us
