@@ -1,6 +1,6 @@
 import React from "react";
 import "./../../styles/header.scss";
-
+import Img from "gatsby-image";
 const Header = ({ subheading, title, cta, desc, hero, extra, shapes }) => {
   return (
     <section className="hero">
@@ -19,9 +19,7 @@ const Header = ({ subheading, title, cta, desc, hero, extra, shapes }) => {
       </div>
       <div className="hero-img-container">
         <div className="img-wrapper">
-          <picture>
-            <img src={hero} alt="" />
-          </picture>
+          <Img fluid={hero} alt="" />
         </div>
       </div>
       {shapes}

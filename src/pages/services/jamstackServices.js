@@ -3,7 +3,6 @@ import Layout from "./../../layouts/index";
 import Footer from "./../../components/common/footer";
 import FooterCTA from "./../../components/common/footerCTA";
 import Header from "../../components/common/header";
-import { jamHero } from "../../components/images";
 import JamIntro from "./../../components/services/jamIntro";
 import Benefits from "./../../components/services/benefits";
 import ServicesFeaturedPost from "./../../components/services/servicesFeaturedPost";
@@ -11,8 +10,18 @@ import TechUsed from "./../../components/common/tech";
 import Workflow from "./../../components/common/workflow";
 import Testimonials from "./../../components/common/testimonials";
 import Heading from "../../components/common/heading";
-
+import { useStaticQuery, graphql } from "gatsby";
 const JAM = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      contentfulAsset(title: { eq: "hero" }) {
+        title
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
+    }
+  `);
   return (
     <>
       <Layout>
@@ -21,7 +30,7 @@ const JAM = () => {
           title="Get more customers with SEO-friendly marketing websites"
           desc="There’s a thing Google and your customers have in common. They both like fast sites. Try JAMstack approach to get ranked higher and gain new visitors. Then, let your website turn them into customers."
           cta="View more"
-          hero={jamHero}
+          hero={data.contentfulAsset.fluid}
         />
         <JamIntro />
         <Benefits />

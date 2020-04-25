@@ -9,27 +9,26 @@ import WorldMap from "../components/home/worldmap";
 import Stories from "../components/home/stories";
 import Layout from "./../layouts/index";
 import "../styles/App.scss";
-import { hero, i30, i9 } from "./../components/images";
+import { i30, i9 } from "./../components/images";
 import "../styles/home.scss";
 import Footer from "./../components/common/footer";
 import FooterCTA from "./../components/common/footerCTA";
-/* import { useStaticQuery, graphql } from "gatsby"; */
+import { useStaticQuery, graphql } from "gatsby";
 
+/**
+ * TODO: Make it responsive
+ */
 export default () => {
-  /*   const data = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     query {
-      file(relativePath: { eq: "hero-opt.webp" }) {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
-          original {
-            src
-          }
+      contentfulAsset(title: { eq: "hero" }) {
+        title
+        fluid {
+          ...GatsbyContentfulFluid
         }
       }
     }
-  `); */
+  `);
   const subheading = `jamstack developers for hire`,
     title = (
       <>
@@ -163,7 +162,7 @@ export default () => {
           title={title}
           desc={desc}
           cta={cta}
-          hero={hero}
+          hero={data.contentfulAsset.fluid}
           extra={extra}
           shapes={shapes}
         ></Header>

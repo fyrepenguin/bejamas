@@ -2,6 +2,11 @@ import React from "react";
 import "../../styles/footer.scss";
 import { footerLogo } from "../images";
 import { Link } from "gatsby";
+
+/**
+ * TODO: Make it responsive
+ * TODO: Add Theme functonality
+ */
 const Footer = ({ children }) => {
   return (
     <footer className="footer">

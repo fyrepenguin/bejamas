@@ -1,17 +1,33 @@
 import React from "react";
 import Layout from "./../layouts";
-import { aboutHero, i1, i4 } from "../components/images";
+import { i1, i4 } from "../components/images";
 import Header from "./../components/common/header";
 import Team from "../components/about/team";
 import TechUsed from "../components/common/tech";
 import Nomads from "../components/about/nomads";
 import Footer from "../components/common/footer";
-import { Link } from "gatsby";
+import { Link, useStaticQuery, graphql } from "gatsby";
 
 import "../styles/about.scss";
 import Values from "./../components/about/values";
 
+/**
+ * TODO: Make it responsive
+ * TODO: Add images of team
+ */
+
 const About = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      contentfulAsset(title: { eq: "hero" }) {
+        title
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
+    }
+  `);
+
   const subheading = `About Us`,
     title = `We are Bejamas`,
     desc = `Not your everyday web dev shop but a partner that will help your business grow with modern tools more than you thought it's possible.`,
@@ -38,7 +54,7 @@ const About = () => {
           title={title}
           desc={desc}
           cta={cta}
-          hero={aboutHero}
+          hero={data.contentfulAsset.fluid}
           shapes={shapes}
         ></Header>
 

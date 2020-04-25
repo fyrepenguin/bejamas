@@ -1,6 +1,12 @@
 import React from "react";
 import "./../../styles/navbar.scss";
 import { Link } from "gatsby";
+
+/**
+ * TODO: Add post name and social icons in blog posts
+ * TODO: Add animations and scroll events
+ * TODO: Make it responsive
+ */
 const Navbar = () => {
   return (
     <header className="nav">
