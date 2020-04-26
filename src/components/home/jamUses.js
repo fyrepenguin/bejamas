@@ -1,9 +1,31 @@
 import React from "react";
 import Heading from "../common/heading";
-import { swift, safe, stable, scalable } from "../images";
 import "../../styles/JAMuses.scss";
+import { useStaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image";
 
 const JamUses = () => {
+  const data = useStaticQuery(graphql`
+    fragment Icon on ContentfulAsset {
+      fluid {
+        ...GatsbyContentfulFluid
+      }
+    }
+    query {
+      swift: contentfulAsset(title: { eq: "swift-icon" }) {
+        ...Icon
+      }
+      safe: contentfulAsset(title: { eq: "safe-icon" }) {
+        ...Icon
+      }
+      stable: contentfulAsset(title: { eq: "stable-icon" }) {
+        ...Icon
+      }
+      scalable: contentfulAsset(title: { eq: "scalable-icon" }) {
+        ...Icon
+      }
+    }
+  `);
   return (
     <section className="jamstack-benefits section">
       <Heading
@@ -14,7 +36,7 @@ const JamUses = () => {
       <div className="benefits">
         <div className="benefit">
           <div className="benefit-img">
-            <img src={swift} alt="" />
+            <Img fluid={data.swift.fluid} style={{ width: "152px" }} />
           </div>
           <h3>Swift</h3>
           <p>
@@ -25,7 +47,7 @@ const JamUses = () => {
         </div>
         <div className="benefit">
           <div className="benefit-img">
-            <img src={safe} alt="" />
+            <Img fluid={data.safe.fluid} style={{ width: "179px" }} />
           </div>
           <h3>Safe</h3>
           <p>
@@ -36,7 +58,7 @@ const JamUses = () => {
         </div>
         <div className="benefit">
           <div className="benefit-img">
-            <img src={stable} alt="" />
+            <Img fluid={data.stable.fluid} style={{ width: "209px" }} />
           </div>
           <h3>Stable</h3>
           <p>
@@ -47,7 +69,7 @@ const JamUses = () => {
         </div>
         <div className="benefit">
           <div className="benefit-img">
-            <img src={scalable} alt="" />
+            <Img fluid={data.scalable.fluid} style={{ width: "195px" }} />
           </div>
           <h3>Scalable</h3>
           <p>

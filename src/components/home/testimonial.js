@@ -1,8 +1,23 @@
 import React from "react";
-import opt from "./../../images/testimonials-opt.webp";
-import eppo from "./../../images/eppo-heemstra.webp";
 import "../../styles/testimonial.scss";
+import { useStaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image";
+
 const Testimonial = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      eppo: contentfulAsset(title: { eq: "eppo-heemstra" }) {
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
+      opt: contentfulAsset(title: { eq: "testimonials-opt" }) {
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
+    }
+  `);
   return (
     <section className="testimonial section">
       <div className="testimonial-content">
@@ -54,7 +69,7 @@ const Testimonial = () => {
           </div>
           <div className="customer">
             <div className="customer-img">
-              <img src={eppo} alt="eppo" />
+              <Img fluid={data.eppo.fluid} />
             </div>
             <p>
               Eppo Heemstra <br />
@@ -63,7 +78,7 @@ const Testimonial = () => {
           </div>
         </div>
         <div className="testimonial-hero">
-          <img src={opt} alt="" />
+          <Img fluid={data.opt.fluid} />
         </div>
       </div>
     </section>

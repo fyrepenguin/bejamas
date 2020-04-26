@@ -8,24 +8,33 @@ import Products from "../components/home/products";
 import WorldMap from "../components/home/worldmap";
 import Stories from "../components/home/stories";
 import Layout from "./../layouts/index";
-import "../styles/App.scss";
-import { i30, i9 } from "./../components/images";
-import "../styles/home.scss";
 import Footer from "./../components/common/footer";
 import FooterCTA from "./../components/common/footerCTA";
 import { useStaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image";
+import "../styles/App.scss";
+import "../styles/home.scss";
 
 /**
  * TODO: Make it responsive
  */
 export default () => {
   const data = useStaticQuery(graphql`
+    fragment ImageContent on ContentfulAsset {
+      title
+      fluid {
+        ...GatsbyContentfulFluid
+      }
+    }
     query {
-      contentfulAsset(title: { eq: "hero" }) {
-        title
-        fluid {
-          ...GatsbyContentfulFluid
-        }
+      hero: contentfulAsset(title: { eq: "hero-opt" }) {
+        ...ImageContent
+      }
+      i30: contentfulAsset(title: { eq: "30" }) {
+        ...ImageContent
+      }
+      i9: contentfulAsset(title: { eq: "9" }) {
+        ...ImageContent
       }
     }
   `);
@@ -143,14 +152,10 @@ export default () => {
   const shapes = (
     <>
       <div className="i30">
-        <picture>
-          <img src={i30} alt="" />
-        </picture>
+        <Img fluid={data.i30.fluid} />
       </div>
       <div className="i9">
-        <picture>
-          <img src={i9} alt="" />
-        </picture>
+        <Img fluid={data.i9.fluid} />
       </div>
     </>
   );
@@ -162,7 +167,7 @@ export default () => {
           title={title}
           desc={desc}
           cta={cta}
-          hero={data.contentfulAsset.fluid}
+          hero={data.hero.fluid}
           extra={extra}
           shapes={shapes}
         ></Header>

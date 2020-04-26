@@ -12,12 +12,15 @@ import { useStaticQuery, graphql } from "gatsby";
 
 const Services = () => {
   const data = useStaticQuery(graphql`
+    fragment ImageContent on ContentfulAsset {
+      title
+      fluid {
+        ...GatsbyContentfulFluid
+      }
+    }
     query {
-      contentfulAsset(title: { eq: "hero" }) {
-        title
-        fluid {
-          ...GatsbyContentfulFluid
-        }
+      contentfulAsset(title: { eq: "hero-services" }) {
+        ...ImageContent
       }
     }
   `);

@@ -1,78 +1,83 @@
-import React, { Component } from "react";
+import React from "react";
 import Heading from "../common/heading";
-import {
-  JAMintro,
-  jamPWA,
-  jamclients,
-  wordpress,
-  headless,
-  i30,
-} from "../images";
+import { JAMintro, jamPWA, jamclients, wordpress, headless } from "../images";
 import "../../styles/stories.scss";
-export default class Stories extends Component {
-  render() {
-    return (
-      <section className="stories section">
-        <Heading subheading="Our Stories" title="Latest from blog" />
-        <div className="posts">
-          <div className="post-circle">
-            <img src={i30} alt="" />
-          </div>
-          <article className="post mainPost">
-            <a href="/">
-              <div className="article-wrapper">
-                <img src={JAMintro} alt="" />
-              </div>
-              <h3>JAMstack: The Corenrstone of Modern-day Web Development</h3>
-              <p>Read more</p>
-            </a>
-          </article>
-          <article className="post post4">
-            <a href="/">
-              <div className="article-wrapper">
-                <img src={jamPWA} alt="" />
-              </div>
-              <h3>Building a Fast PWA With JAMstack</h3>
-              <p>Read more</p>
-            </a>
-          </article>
-          <article className="post post1">
-            <a href="/">
-              <div className="article-wrapper">
-                <img src={jamclients} alt="" />
-              </div>
-              <h3>JAMstack for Clints</h3>
-              <p>Read more</p>
-            </a>
-          </article>
-          <article className="post post2">
-            <a href="/">
-              <div className="article-wrapper">
-                <img src={wordpress} alt="" />
-              </div>
-              <h3>
-                WordPress Alternative: The Pros and Cons of Static Site
-                Generators
-              </h3>
-              <p>Read more</p>
-            </a>
-          </article>
-          <article className="post post3">
-            <a href="/">
-              <div className="article-wrapper">
-                <img src={headless} alt="" />
-              </div>
-              <h3>9 Headless CMS Options for Your JAMstack Site</h3>
-              <p>Read more</p>
-            </a>
-          </article>
+import { useStaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image";
+
+const Stories = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      contentfulAsset(title: { eq: "30" }) {
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
+    }
+  `);
+
+  return (
+    <section className="stories section">
+      <Heading subheading="Our Stories" title="Latest from blog" />
+      <div className="posts">
+        <div className="post-circle">
+          <Img fluid={data.contentfulAsset.fluid} />
         </div>
-        <div className="cta-posts">
-          <a href="/" className="cta">
-            Read more stories
+        <article className="post mainPost">
+          <a href="/">
+            <div className="article-wrapper">
+              <img src={JAMintro} alt="" />
+            </div>
+            <h3>JAMstack: The Corenrstone of Modern-day Web Development</h3>
+            <p>Read more</p>
           </a>
-        </div>
-      </section>
-    );
-  }
-}
+        </article>
+        <article className="post post4">
+          <a href="/">
+            <div className="article-wrapper">
+              <img src={jamPWA} alt="" />
+            </div>
+            <h3>Building a Fast PWA With JAMstack</h3>
+            <p>Read more</p>
+          </a>
+        </article>
+        <article className="post post1">
+          <a href="/">
+            <div className="article-wrapper">
+              <img src={jamclients} alt="" />
+            </div>
+            <h3>JAMstack for Clints</h3>
+            <p>Read more</p>
+          </a>
+        </article>
+        <article className="post post2">
+          <a href="/">
+            <div className="article-wrapper">
+              <img src={wordpress} alt="" />
+            </div>
+            <h3>
+              WordPress Alternative: The Pros and Cons of Static Site Generators
+            </h3>
+            <p>Read more</p>
+          </a>
+        </article>
+        <article className="post post3">
+          <a href="/">
+            <div className="article-wrapper">
+              <img src={headless} alt="" />
+            </div>
+            <h3>9 Headless CMS Options for Your JAMstack Site</h3>
+            <p>Read more</p>
+          </a>
+        </article>
+      </div>
+      <div className="cta-posts">
+        <a href="/" className="cta">
+          Read more stories
+        </a>
+      </div>
+    </section>
+  );
+};
+
+export default Stories;

@@ -13,12 +13,15 @@ import { useStaticQuery, graphql } from "gatsby";
 
 const PWA = () => {
   const data = useStaticQuery(graphql`
+    fragment ImageContent on ContentfulAsset {
+      title
+      fluid {
+        ...GatsbyContentfulFluid
+      }
+    }
     query {
-      contentfulAsset(title: { eq: "hero" }) {
-        title
-        fluid {
-          ...GatsbyContentfulFluid
-        }
+      hero: contentfulAsset(title: { eq: "hero-pwa" }) {
+        ...ImageContent
       }
     }
   `);
@@ -30,7 +33,7 @@ const PWA = () => {
           title="A fast app-like experience in a browser"
           desc="Developing your business with Progressive Web App saves you money and time you’d spend on building native apps for multiple platforms. Going JAMstack way will give you low hosting costs and incredibly good performance, so you won’t lose any users."
           cta="View more"
-          hero={data.contentfulAsset.fluid}
+          hero={data.hero.fluid}
         />
         <JamIntro />
         <Benefits />

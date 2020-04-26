@@ -1,13 +1,12 @@
 import React from "react";
 import Layout from "./../layouts";
-import { i1, i4 } from "../components/images";
 import Header from "./../components/common/header";
 import Team from "../components/about/team";
 import TechUsed from "../components/common/tech";
 import Nomads from "../components/about/nomads";
 import Footer from "../components/common/footer";
 import { Link, useStaticQuery, graphql } from "gatsby";
-
+import Img from "gatsby-image";
 import "../styles/about.scss";
 import Values from "./../components/about/values";
 
@@ -18,12 +17,21 @@ import Values from "./../components/about/values";
 
 const About = () => {
   const data = useStaticQuery(graphql`
+    fragment ImageContent on ContentfulAsset {
+      title
+      fluid {
+        ...GatsbyContentfulFluid
+      }
+    }
     query {
-      contentfulAsset(title: { eq: "hero" }) {
-        title
-        fluid {
-          ...GatsbyContentfulFluid
-        }
+      hero: contentfulAsset(title: { eq: "hero-about" }) {
+        ...ImageContent
+      }
+      i1: contentfulAsset(title: { eq: "1" }) {
+        ...ImageContent
+      }
+      i4: contentfulAsset(title: { eq: "4" }) {
+        ...ImageContent
       }
     }
   `);
@@ -35,14 +43,10 @@ const About = () => {
     shapes = (
       <>
         <div className="i4">
-          <picture>
-            <img src={i4} alt="" />
-          </picture>
+          <Img fluid={data.i1.fluid} />
         </div>
         <div className="i1">
-          <picture>
-            <img src={i1} alt="" />
-          </picture>
+          <Img fluid={data.i4.fluid} />
         </div>
       </>
     );
@@ -54,7 +58,7 @@ const About = () => {
           title={title}
           desc={desc}
           cta={cta}
-          hero={data.contentfulAsset.fluid}
+          hero={data.hero.fluid}
           shapes={shapes}
         ></Header>
 

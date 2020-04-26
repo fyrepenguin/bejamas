@@ -1,9 +1,30 @@
 import React from "react";
 import Heading from "../common/heading";
-import { dmitri, avenue, quote } from "../images";
+import { dmitri, quote } from "../images";
 import "./../../styles/caseStudy.scss";
+import Img from "gatsby-image";
+import { useStaticQuery, graphql } from "gatsby";
 
 const CaseStudy = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      avenues: contentfulAsset(title: { eq: "avenues-case-study" }) {
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
+      quotes: contentfulAsset(title: { eq: "quotes" }) {
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
+      dmitry: contentfulAsset(title: { eq: "dmitry-terner" }) {
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
+    }
+  `);
   return (
     <section className="case-study section">
       <Heading
@@ -14,21 +35,21 @@ const CaseStudy = () => {
         <div className="case-study-hero">
           <div className="img-container">
             <div className="img-wrapper">
-              <img src={avenue} alt="avenues case study" />
+              <Img fluid={data.avenues.fluid} />
             </div>
           </div>
         </div>
         <div>
           <blockquote className="case-study-quote">
             <div className="quote-img">
-              <img src={quote} alt="" />
+              <Img fluid={data.quotes.fluid} />
             </div>
             For us, the benefits (of JAMstack) are straight forward. Cost is an
             obvious win as well as the ease of implementing enhancements and
             inherent security improvements.
             <div className="user">
               <div className="user-img">
-                <img src={dmitri} alt="dmitri" />
+                <Img fluid={data.dmitry.fluid} />
               </div>
               <div className="user-info">
                 <div className="user-name">Dmitry Terner</div>

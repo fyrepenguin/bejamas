@@ -1,8 +1,18 @@
 import React from "react";
 import Heading from "../common/heading";
-import { map } from "../images";
+import Img from "gatsby-image";
+import { useStaticQuery, graphql } from "gatsby";
 
 const WorldMap = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      contentfulAsset(title: { eq: "map-filled" }) {
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
+    }
+  `);
   const desc = (
     <>
       We’re an international-ready team.
@@ -18,7 +28,7 @@ const WorldMap = () => {
         description={desc}
       />
       <div className="map-img">
-        <img src={map} alt="" />
+        <Img fluid={data.contentfulAsset.fluid} />
       </div>
     </section>
   );

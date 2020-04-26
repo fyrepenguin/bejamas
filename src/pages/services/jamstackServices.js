@@ -13,15 +13,19 @@ import Heading from "../../components/common/heading";
 import { useStaticQuery, graphql } from "gatsby";
 const JAM = () => {
   const data = useStaticQuery(graphql`
+    fragment ImageContent on ContentfulAsset {
+      title
+      fluid {
+        ...GatsbyContentfulFluid
+      }
+    }
     query {
-      contentfulAsset(title: { eq: "hero" }) {
-        title
-        fluid {
-          ...GatsbyContentfulFluid
-        }
+      contentfulAsset(title: { eq: "hero-jamstack" }) {
+        ...ImageContent
       }
     }
   `);
+
   return (
     <>
       <Layout>

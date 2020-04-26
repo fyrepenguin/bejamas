@@ -1,7 +1,17 @@
 import React from "react";
-import { Link } from "gatsby";
-import { jamintroHero } from "../images";
+import { Link, useStaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image";
+
 const JamIntro = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      contentfulAsset(title: { eq: "What is JAM" }) {
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
+    }
+  `);
   return (
     <section className="jam-intro section">
       <div>
@@ -15,11 +25,10 @@ const JamIntro = () => {
         <p>
           Building our apps we use battle-tested technologies like GatsbyJS,
           NextJS, Contentful, AWS, Netlify, and others.
-        </p>{" "}
+        </p>
       </div>
       <div className="jamintro-img">
-        {" "}
-        <img src={jamintroHero} alt="" />
+        <Img fluid={data.contentfulAsset.fluid} />
       </div>
       <Link className="cta" to="/blog">
         Read more

@@ -41,6 +41,9 @@
         position: relative;
         overflow: hidden;
         display: inline-block;
+        .gatsby-image-wrapper {
+          height: 160px;
+        }
       }
       h3 {
         z-index: 2;

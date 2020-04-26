@@ -1,9 +1,24 @@
 import React from "react";
 import Heading from "../common/heading";
-import { productJam, productPWA } from "../images";
 import "../../styles/products.scss";
+import { useStaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image";
 
 const Products = ({ description, subheading, pageName, jamDesc, pwaDesc }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      productJAM: contentfulAsset(title: { eq: "product-mw" }) {
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
+      productPWA: contentfulAsset(title: { eq: "product-pwa" }) {
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
+    }
+  `);
   let classes;
   if (pageName === "services") classes = "products-services section";
   else {
@@ -20,7 +35,7 @@ const Products = ({ description, subheading, pageName, jamDesc, pwaDesc }) => {
       <div className="cards">
         <a href="/" className="card">
           <div className="card-img">
-            <img src={productJam} alt="" />
+            <Img fluid={data.productJAM.fluid} />
           </div>
           <h3>JAMstack Websites</h3>
           <p>{jamDesc}</p>
@@ -28,7 +43,7 @@ const Products = ({ description, subheading, pageName, jamDesc, pwaDesc }) => {
         </a>
         <a href="/" className="card">
           <div className="card-img">
-            <img src={productPWA} alt="" />
+            <Img fluid={data.productPWA.fluid} />
           </div>
           <h3>Progressive Web Applications</h3>
           <p>{pwaDesc}</p>
