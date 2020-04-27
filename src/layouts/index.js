@@ -1,10 +1,10 @@
 import React from "react";
 import Navbar from "../components/common/navbar";
-const Layout = ({ children }) => {
+const Layout = ({ children, page }) => {
   return (
     <>
       <Navbar />
-      <main className="container">{children}</main>
+      <main className={`container ${page}`}>{children}</main>
     </>
   );
 };

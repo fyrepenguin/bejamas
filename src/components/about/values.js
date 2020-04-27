@@ -1,8 +1,32 @@
 import React from "react";
 import Heading from "./../common/heading";
-import { Link } from "gatsby";
+import { Link, useStaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image";
 
 const Values = () => {
+  const data = useStaticQuery(graphql`
+    fragment ValueImg on ContentfulAsset {
+      fluid {
+        ...GatsbyContentfulFluid
+      }
+    }
+    query {
+      transparency: contentfulAsset(title: { eq: "01 Transparency Icon" }) {
+        ...ValueImg
+      }
+      openness: contentfulAsset(title: { eq: "02 Openness of Mind Icon" }) {
+        ...ValueImg
+      }
+      commitment: contentfulAsset(
+        title: { eq: "03 Commitment Responsibility Icon" }
+      ) {
+        ...ValueImg
+      }
+      empathy: contentfulAsset(title: { eq: "04 Empathy Icon" }) {
+        ...ValueImg
+      }
+    }
+  `);
   return (
     <section className="values section">
       <Heading
@@ -12,7 +36,11 @@ const Values = () => {
       />
       <div className="things">
         <div className="value">
-          <div className="value-img"></div>
+          <Img
+            className="value-img"
+            fluid={data.transparency.fluid}
+            style={{ width: "229px", height: "200px" }}
+          />
           <h3>Transparency and Truthfulness</h3>
           <p>
             We communicate with each other honestly, even if the truth violates
@@ -22,7 +50,11 @@ const Values = () => {
           </p>
         </div>
         <div className="value">
-          <div className="value-img"></div>
+          <Img
+            className="value-img"
+            fluid={data.openness.fluid}
+            style={{ width: "204px", height: "200px" }}
+          />
           <h3>Openness of mind</h3>
           <p>
             In our case transparency means that everyone's opinion is open for
@@ -33,7 +65,11 @@ const Values = () => {
           </p>
         </div>
         <div className="value">
-          <div className="value-img"></div>
+          <Img
+            className="value-img"
+            fluid={data.commitment.fluid}
+            style={{ width: "215px", height: "200px" }}
+          />
           <h3>Commitment and Responsibility</h3>
           <p>
             Remote work gives great possibilities, but comes with great
@@ -44,7 +80,11 @@ const Values = () => {
           </p>
         </div>
         <div className="value">
-          <div className="value-img"></div>
+          <Img
+            className="value-img"
+            fluid={data.empathy.fluid}
+            style={{ width: "206px", height: "200px" }}
+          />
           <h3>Empathy and Unselfishness</h3>
           <p>
             Those are two very important factors at Bejamas. We believe that
@@ -55,14 +95,16 @@ const Values = () => {
         </div>
       </div>
       <footer>
-        <p>
-          For us customers really do come first because we help them not only
-          grow their businesses but also educate them to understand the tech
-          behind it.
-        </p>
-        <Link to="/careers" className="cta">
-          Work with us!
-        </Link>
+        <div>
+          <p>
+            For us customers really do come first because we help them not only
+            grow their businesses but also educate them to understand the tech
+            behind it.
+          </p>
+          <Link to="/careers" className="cta">
+            Work with us!
+          </Link>
+        </div>
       </footer>
     </section>
   );

@@ -1,18 +1,19 @@
 import React from "react";
+import { Link, useStaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image";
+
 import Layout from "./../layouts";
 import Header from "./../components/common/header";
+import Footer from "../components/common/footer";
 import Team from "../components/about/team";
 import TechUsed from "../components/common/tech";
 import Nomads from "../components/about/nomads";
-import Footer from "../components/common/footer";
-import { Link, useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
-import "../styles/about.scss";
 import Values from "./../components/about/values";
+
+import "../styles/about.scss";
 
 /**
  * TODO: Make it responsive
- * TODO: Add images of team
  */
 
 const About = () => {
@@ -33,6 +34,9 @@ const About = () => {
       i4: contentfulAsset(title: { eq: "4" }) {
         ...ImageContent
       }
+      footer: contentfulAsset(title: { eq: "become-one-of-us" }) {
+        ...ImageContent
+      }
     }
   `);
 
@@ -42,17 +46,31 @@ const About = () => {
     cta = `Meet the Team`,
     shapes = (
       <>
-        <div className="i4">
-          <Img fluid={data.i1.fluid} />
-        </div>
-        <div className="i1">
-          <Img fluid={data.i4.fluid} />
-        </div>
+        <Img
+          className="i4"
+          fluid={data.i1.fluid}
+          style={{
+            position: "absolute",
+            display: "inline-block",
+            width: "160px",
+            height: "160px",
+          }}
+        />
+        <Img
+          className="i1"
+          fluid={data.i4.fluid}
+          style={{
+            position: "absolute",
+            display: "inline-block",
+            width: "160px",
+            height: "160px",
+          }}
+        />
       </>
     );
   return (
     <>
-      <Layout>
+      <Layout page={"about-page"}>
         <Header
           subheading={subheading}
           title={title}
@@ -61,15 +79,16 @@ const About = () => {
           hero={data.hero.fluid}
           shapes={shapes}
         ></Header>
-
         <section className="about-us section">
-          <h2>Client-focused, forward-thinking people</h2>
-          <p>
-            We are a team of passionate web developers who share the vision of
-            websites, that are high-performing, safe, and easy to maintain. We
-            make this vision happen by building serverless Progressive Web Apps
-            and websites on the JAMstack architecture.
-          </p>
+          <header>
+            <h2>Client-focused, forward-thinking people</h2>
+            <p>
+              We are a team of passionate web developers who share the vision of
+              websites, that are high-performing, safe, and easy to maintain. We
+              make this vision happen by building serverless Progressive Web
+              Apps and websites on the JAMstack architecture.
+            </p>
+          </header>
         </section>
         <Team />
         <Values />
@@ -79,7 +98,7 @@ const About = () => {
       <Footer>
         <section className="footer-cta">
           <div>
-            <h3>Become one of us</h3>
+            <h2>Become one of us</h2>
             <p>
               Do you want to join our team and work remotely from anywhere you'd
               like? We can't wait to hear from you!
@@ -88,7 +107,7 @@ const About = () => {
               Check Careers
             </Link>
           </div>
-          <div className="footer-cta-img"></div>
+          <Img className="footer-cta-img" fluid={data.footer.fluid} />
         </section>
       </Footer>
     </>

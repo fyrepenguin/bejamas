@@ -1,9 +1,32 @@
 import React from "react";
 import Heading from "./../common/heading";
+import { useStaticQuery } from "gatsby";
+import { graphql } from "gatsby";
+import Img from "gatsby-image";
+
 const Nomads = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      city: contentfulAsset(title: { eq: "malaga-city" }) {
+        ...ValueImg
+      }
+      landscape: contentfulAsset(title: { eq: "malaga-landscape" }) {
+        ...ValueImg
+      }
+      pool: contentfulAsset(title: { eq: "malaga-pool" }) {
+        ...ValueImg
+      }
+      tree: contentfulAsset(title: { eq: "malaga-pink-tree" }) {
+        ...ValueImg
+      }
+      breakfast: contentfulAsset(title: { eq: "malaga-breakfast" }) {
+        ...ValueImg
+      }
+    }
+  `);
   return (
     <section className="section nomads">
-      <div className="nomad-text">
+      <div className="nomads-text">
         <Heading
           subheading="digital nomads"
           title="Behind the scenes of remote work"
@@ -23,6 +46,33 @@ const Nomads = () => {
             the world and having real fun.
           </p>
         </div>
+      </div>
+      <div className="retreat-images">
+        <Img
+          className="city"
+          fluid={data.city.fluid}
+          style={{ margin: "0 auto 0 0", maxWidth: "445px" }}
+        />
+        <Img
+          className="breakfast"
+          fluid={data.breakfast.fluid}
+          style={{ margin: "auto auto 0 0", maxWidth: "160px" }}
+        />
+        <Img
+          className="landscape"
+          fluid={data.landscape.fluid}
+          style={{ margin: "0 auto 0 0", maxWidth: "254px" }}
+        />
+        <Img
+          className="pool"
+          fluid={data.pool.fluid}
+          style={{ margin: "0 auto auto", maxWidth: "254px" }}
+        />
+        <Img
+          className="tree"
+          fluid={data.tree.fluid}
+          style={{ margin: "0 auto", maxWidth: "160px" }}
+        />
       </div>
     </section>
   );

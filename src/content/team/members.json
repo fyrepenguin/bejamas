@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Denis Kostrzewa",
+    "position": "CEO & Co-founder",
+    "image": "denis-kostrzewa"
+  },
+  {
+    "name": "Thom Krupa",
+    "position": "Co-founder",
+    "image": "thom"
+  },
+  {
+    "name": "Nebojsa Radakovic",
+    "position": "Marketing Manager",
+    "image": "nebojsa-radakovic"
+  },
+  {
+    "name": "Arek Górecki",
+    "position": "Lead Frontend developer",
+    "image": "arek-gorecki"
+  },
+  {
+    "name": "Gracjan Opiela",
+    "position": "Lead Frontend developer",
+    "image": "gracjan-opiela"
+  },
+  {
+    "name": "Patrycja Dzaluk",
+    "position": "Frontend developer",
+    "image": "patrycja-dzaluk"
+  },
+  {
+    "name": "Michal Zielinski",
+    "position": "Frontend developer",
+    "image": "michal-zielinski"
+  },
+  {
+    "name": "Daniel Woloszyn",
+    "position": "Frontend developer",
+    "image": "daniel-woloszyn"
+  },
+  {
+    "name": "Jakub Klimza",
+    "position": "Frontend developer",
+    "image": "jakub-klimza"
+  },
+  {
+    "name": "Ralph Wachsman",
+    "position": "Project Manager",
+    "image": "ralph-wachsman"
+  },
+  {
+    "name": "Piotr Zajac",
+    "position": "QA Tester",
+    "image": "piotr-zajac"
+  },
+  {
+    "name": "Bruno Aderaldo",
+    "position": "Junior Frontend Developer",
+    "image": "bruno-aderaldo"
+  },
+  {
+    "name": "Daniel Akuoko Jnr",
+    "position": "Junior Frontend developer",
+    "image": "daniel-akuoko"
+  },
+  {
+    "name": "Gerald Martinez",
+    "position": "Junior Frontend developer",
+    "image": "gerald-martinez"
+  },
+  {
+    "name": "Agata Lesniak",
+    "position": "HR & People",
+    "image": "agata-lesniak"
+  },
+  {
+    "name": "Sebastian Turbiarz",
+    "position": "Junior Frontend developer",
+    "image": "seba-turbiarz"
+  }
+]

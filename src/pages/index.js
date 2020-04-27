@@ -161,7 +161,7 @@ export default () => {
   );
   return (
     <>
-      <Layout>
+      <Layout page={"home-page"}>
         <Header
           subheading={subheading}
           title={title}
