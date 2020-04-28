@@ -6,6 +6,9 @@ export const flo = require("../images/flo.svg");
 export const newfront = require("../images/newfront.svg");
 export const mambu = require("../images/mambu.svg");
 
+export const yan = require("../images/yan-schuppli.jpg");
+export const william = require("../images/william-rudenmalm.jpg");
+export const paolo = require("../images/paolo-stolfo.jpg");
 /* Blog Posts */
 export const JAMintro = require("../images/JAMstack-hero-minimal.webp");
 export const jamPWA = require("../images/jamstack-pwa-minimal.webp");

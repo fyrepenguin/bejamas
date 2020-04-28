@@ -1,5 +1,7 @@
 import React from "react";
 import Heading from "./heading";
+import { paolo, william, yan } from "./../images";
+
 const Testimonials = () => {
   return (
     <section className="testimonials section">
@@ -11,7 +13,9 @@ const Testimonials = () => {
             adapted their workflow to our needs.
           </p>
           <div className="customer">
-            <div className="customer-img"></div>
+            <div className="customer-img">
+              <img src={william} alt="" />
+            </div>
             <p>
               William Rudenmalm,
               <br />
@@ -25,7 +29,10 @@ const Testimonials = () => {
             security while also improving site performance and speed.
           </p>
           <div className="customer">
-            <div className="customer-img"></div>
+            <div className="customer-img">
+              {" "}
+              <img src={yan} alt="" />
+            </div>
             <p>
               Yan Schuppli,
               <br />
@@ -40,7 +47,9 @@ const Testimonials = () => {
             work. Their can-do attitude made them a valuable partner.
           </p>
           <div className="customer">
-            <div className="customer-img"></div>
+            <div className="customer-img">
+              <img src={paolo} alt="" />
+            </div>
             <p>
               Paolo Stolfo,
               <br />

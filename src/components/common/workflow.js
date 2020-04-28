@@ -1,13 +1,38 @@
 import React from "react";
 import Heading from "./heading";
+import { useStaticQuery } from "gatsby";
+import { graphql } from "gatsby";
+import Img from "gatsby-image";
 
 const Workflow = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      icon1: contentfulAsset(title: { eq: "service icon 01" }) {
+        ...ImageContent
+      }
+      icon2: contentfulAsset(title: { eq: "service icon 02" }) {
+        ...ImageContent
+      }
+      icon3: contentfulAsset(title: { eq: "service icon 03" }) {
+        ...ImageContent
+      }
+      icon4: contentfulAsset(title: { eq: "service icon 04" }) {
+        ...ImageContent
+      }
+      icon5: contentfulAsset(title: { eq: "service icon 05" }) {
+        ...ImageContent
+      }
+    }
+  `);
   return (
     <section className="section workflow">
       <Heading subheading="workflow" title="Get your project a pro service" />
-      <div>
+      <div className="workflow-items">
         <div className="workflow-item">
-          <div className="workflow-img"></div>
+          <Img
+            fluid={data.icon1.fluid}
+            style={{ width: "250px", height: "250px" }}
+          />
           <h3>Settling up for the project’s goals</h3>
           <p>
             You want your web product to hit the highest performance scores? Be
@@ -18,7 +43,10 @@ const Workflow = () => {
           </p>
         </div>
         <div className="workflow-item">
-          <div className="workflow-img"></div>
+          <Img
+            fluid={data.icon2.fluid}
+            style={{ width: "250px", height: "250px" }}
+          />
           <h3>Picking the right tools for the job</h3>
           <p>
             Once we understand your project wants and needs it’s time to swim
@@ -29,7 +57,10 @@ const Workflow = () => {
           </p>
         </div>
         <div className="workflow-item">
-          <div className="workflow-img"></div>
+          <Img
+            fluid={data.icon3.fluid}
+            style={{ width: "250px", height: "250px" }}
+          />
           <h3>Setting up a work environment</h3>
           <p>
             When you give us the thumbs up, we’ll set up the project management
@@ -41,7 +72,10 @@ const Workflow = () => {
           </p>
         </div>
         <div className="workflow-item">
-          <div className="workflow-img"></div>
+          <Img
+            fluid={data.icon4.fluid}
+            style={{ width: "250px", height: "250px" }}
+          />
           <h3>Transparent project management</h3>
           <p>
             Transparency is our core value and it mirrors in our practice.
@@ -52,7 +86,10 @@ const Workflow = () => {
           </p>
         </div>
         <div className="workflow-item">
-          <div className="workflow-img"></div>
+          <Img
+            fluid={data.icon5.fluid}
+            style={{ width: "250px", height: "250px" }}
+          />
           <h3>No need to say goodbye</h3>
           <p>
             Rarely we see our work ending with the deployment. In most cases, we
