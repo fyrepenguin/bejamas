@@ -1,0 +1,11 @@
+.pwa-page {
+  .jam-intro,
+  .workflow,
+  .testimonials {
+    border-radius: 16px;
+    background-color: var(--color-bg-secondary);
+  }
+  .tech {
+    background-color: var(--color-bg);
+  }
+}

@@ -9,6 +9,9 @@ export const mambu = require("../images/mambu.svg");
 export const yan = require("../images/yan-schuppli.jpg");
 export const william = require("../images/william-rudenmalm.jpg");
 export const paolo = require("../images/paolo-stolfo.jpg");
+export const lotan = require("../images/benjamin-lotan.jpeg");
+export const eppo = require("../images/eppo-heemstra.jpeg");
+export const dmitri = require("../images/dmitry-terner.jpeg");
 /* Blog Posts */
 export const JAMintro = require("../images/JAMstack-hero-minimal.webp");
 export const jamPWA = require("../images/jamstack-pwa-minimal.webp");

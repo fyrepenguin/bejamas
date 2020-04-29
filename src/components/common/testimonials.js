@@ -1,62 +1,29 @@
 import React from "react";
 import Heading from "./heading";
-import { paolo, william, yan } from "./../images";
 
-const Testimonials = () => {
+const Testimonials = ({ testimonials }) => {
   return (
     <section className="testimonials section">
       <Heading title="Testimonials" />
       <div className="testimonials-container">
-        <div className="testimonial-item">
-          <p>
-            Bejamas is highly proactive; they sought feedback early on and have
-            adapted their workflow to our needs.
-          </p>
-          <div className="customer">
-            <div className="customer-img">
-              <img src={william} alt="" />
+        {testimonials.map((t, i) => {
+          return (
+            <div key={i} className="testimonial-item">
+              <p>{t.desc}</p>
+              <div className="customer">
+                <div className="customer-img">
+                  {console.log(t.img)}
+                  <img src={t.img} alt="" />
+                </div>
+                <p>
+                  {t.name}
+                  <br />
+                  <small>{t.position}</small>
+                </p>
+              </div>
             </div>
-            <p>
-              William Rudenmalm,
-              <br />
-              <small>CTO, Klira</small>
-            </p>
-          </div>
-        </div>
-        <div className="testimonial-item">
-          <p>
-            The successful switch to JAMstack has increased website and data
-            security while also improving site performance and speed.
-          </p>
-          <div className="customer">
-            <div className="customer-img">
-              {" "}
-              <img src={yan} alt="" />
-            </div>
-            <p>
-              Yan Schuppli,
-              <br />
-              <small>Founder, Codevelop Technologies GmbH</small>
-            </p>
-          </div>
-        </div>
-        <div className="testimonial-item">
-          <p>
-            Bejamas’ responsiveness and ability to turn constructive feedback
-            into implementable, on-time deliverables are hallmarks of their
-            work. Their can-do attitude made them a valuable partner.
-          </p>
-          <div className="customer">
-            <div className="customer-img">
-              <img src={paolo} alt="" />
-            </div>
-            <p>
-              Paolo Stolfo,
-              <br />
-              <small>Art Director, KREAM</small>
-            </p>
-          </div>
-        </div>
+          );
+        })}
       </div>
     </section>
   );

@@ -7,9 +7,11 @@ import JamIntro from "./../../components/services/jamIntro";
 import Benefits from "../../components/services/benefits";
 import Testimonials from "../../components/common/testimonials";
 import TechUsed from "./../../components/common/tech";
-import Workflow from "../../components/common/workflow";
 import Heading from "./../../components/common/heading";
 import { useStaticQuery, graphql } from "gatsby";
+import { dmitri, eppo, lotan } from "./../../components/images";
+import "../../styles/pwa.scss";
+import JAMworkflow from "./../../components/services/JAMworkflow";
 
 const PWA = () => {
   const data = useStaticQuery(graphql`
@@ -25,9 +27,32 @@ const PWA = () => {
       }
     }
   `);
+  const testimonials = [
+    {
+      img: `${lotan}`,
+      desc:
+        "Our website previously was static, and we wanted enhancements to the presentation layer. Thankfully, Bejamas knows how to build a good website.",
+      name: "Benjamin Lotan,",
+      position: "Senior Marketing Manager at Newfront Insurance",
+    },
+    {
+      img: `${eppo}`,
+      desc:
+        "Having worked intensively with Bejamas on multiple projects, our partnership has been a professional and productive experience with impressive results to date. The team is responsive, full of ideas and delivers on their commitments. I can highly recommend Bejamas as a serious partner in modern web development projects involving JAMstack and React.",
+      name: "Eppo Heemstra,",
+      position: "Marketing Operations Manager at Mambu",
+    },
+    {
+      img: `${dmitri}`,
+      desc:
+        "Bejamas stood out as experts on the JAMstack products that are available and recommended Storyblok CMS which was not on our radar previously. That kind of guidance, approachability and subject matter expertise is what we were looking for. I am very happy with our decision.",
+      name: "Dmitry Terner,",
+      position: "Website Manager at Avenues",
+    },
+  ];
   return (
     <>
-      <Layout>
+      <Layout page={"pwa-page"}>
         <Header
           subheading="Progressive Web App"
           title="A fast app-like experience in a browser"
@@ -37,9 +62,9 @@ const PWA = () => {
         />
         <JamIntro />
         <Benefits />
-        <Testimonials />
+        <Testimonials testimonials={testimonials} />
         <TechUsed />
-        <Workflow />
+        <JAMworkflow />
         <section className="section others">
           <Heading
             subheading="Looking for other services?"

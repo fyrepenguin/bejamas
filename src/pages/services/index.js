@@ -11,7 +11,9 @@ import Workflow from "./../../components/common/workflow";
 import Testimonials from "./../../components/common/testimonials";
 import Faq from "../../components/services/faq";
 
+import "../../styles/service.scss";
 import "../../styles/services.scss";
+import { paolo, william, yan } from "./../../components/images";
 
 const Services = () => {
   const data = useStaticQuery(graphql`
@@ -42,6 +44,29 @@ const Services = () => {
       }}
     />
   );
+  const testimonials = [
+    {
+      name: "William Rudenmalm",
+      img: `${william}`,
+      desc:
+        "Bejamas is highly proactive; they sought feedback early on and have adapted their workflow to our needs.",
+      position: "CTO, Klira",
+    },
+    {
+      name: "Yan Schuppli",
+      img: `${yan}`,
+      desc:
+        "The successful switch to JAMstack has increased website and data security while also improving site performance and speed.",
+      position: "Founder, Codevelop Technologies GmbH",
+    },
+    {
+      name: "Paolo Stolfo",
+      img: `${paolo}`,
+      desc:
+        "Bejamas’ responsiveness and ability to turn constructive feedback into implementable, on-time deliverables are hallmarks of their work. Their can-do attitude made them a valuable partner.",
+      position: "Art Director, KREAM",
+    },
+  ];
   return (
     <>
       <Layout page={"services-page"}>
@@ -60,7 +85,7 @@ const Services = () => {
           pwaDesc="Build a fast and scalable web app with all the native app's features."
         />
         <Workflow />
-        <Testimonials />
+        <Testimonials testimonials={testimonials} />
         <Faq />
       </Layout>
       <Footer>

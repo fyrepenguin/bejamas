@@ -7,10 +7,13 @@ import JamIntro from "./../../components/services/jamIntro";
 import Benefits from "./../../components/services/benefits";
 import ServicesFeaturedPost from "./../../components/services/servicesFeaturedPost";
 import TechUsed from "./../../components/common/tech";
-import Workflow from "./../../components/common/workflow";
 import Testimonials from "./../../components/common/testimonials";
 import Heading from "../../components/common/heading";
 import { useStaticQuery, graphql } from "gatsby";
+import JAMworkflow from "./../../components/services/JAMworkflow";
+
+import { dmitri, eppo, lotan } from "./../../components/images";
+
 const JAM = () => {
   const data = useStaticQuery(graphql`
     fragment ImageContent on ContentfulAsset {
@@ -26,9 +29,33 @@ const JAM = () => {
     }
   `);
 
+  const testimonials = [
+    {
+      img: `${lotan}`,
+      desc:
+        "Our website previously was static, and we wanted enhancements to the presentation layer. Thankfully, Bejamas knows how to build a good website.",
+      name: "Benjamin Lotan,",
+      position: "Senior Marketing Manager at Newfront Insurance",
+    },
+    {
+      img: `${eppo}`,
+      desc:
+        "Having worked intensively with Bejamas on multiple projects, our partnership has been a professional and productive experience with impressive results to date. The team is responsive, full of ideas and delivers on their commitments. I can highly recommend Bejamas as a serious partner in modern web development projects involving JAMstack and React.",
+      name: "Eppo Heemstra,",
+      position: "Marketing Operations Manager at Mambu",
+    },
+    {
+      img: `${dmitri}`,
+      desc:
+        "Bejamas stood out as experts on the JAMstack products that are available and recommended Storyblok CMS which was not on our radar previously. That kind of guidance, approachability and subject matter expertise is what we were looking for. I am very happy with our decision.",
+      name: "Dmitry Terner,",
+      position: "Website Manager at Avenues",
+    },
+  ];
+
   return (
     <>
-      <Layout>
+      <Layout page={"jamstack-service-page"}>
         <Header
           subheading="jamstack"
           title="Get more customers with SEO-friendly marketing websites"
@@ -40,8 +67,8 @@ const JAM = () => {
         <Benefits />
         <ServicesFeaturedPost />
         <TechUsed />
-        <Workflow />
-        <Testimonials />
+        <JAMworkflow />
+        <Testimonials testimonials={testimonials} />
         blog posts
         <section className="section others">
           <Heading
