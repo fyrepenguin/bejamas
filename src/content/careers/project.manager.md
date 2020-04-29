@@ -1,4 +1,5 @@
 ---
+content: career
 title: Project Manager
 path: /project-manager
 ---

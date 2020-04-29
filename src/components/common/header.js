@@ -11,7 +11,7 @@ const Header = ({ subheading, title, cta, desc, hero, extra, shapes }) => {
             <h3>{subheading}</h3>
             <h1>{title}</h1>
             <p>{desc}</p>
-            <Link href="/" className="cta">
+            <Link to="/" className="cta">
               {cta}
             </Link>
           </div>

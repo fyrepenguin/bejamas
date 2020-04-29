@@ -14,6 +14,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import "../styles/App.scss";
 import "../styles/home.scss";
+import { Helmet } from "react-helmet";
 
 /**
  * TODO: Make it responsive
@@ -161,6 +162,10 @@ export default () => {
   );
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Bejamas Home</title>
+      </Helmet>
       <Layout page={"home-page"}>
         <Header
           subheading={subheading}

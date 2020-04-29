@@ -1,4 +1,5 @@
 ---
+content: career
 title: Software Tester
 path: /software-tester
 ---

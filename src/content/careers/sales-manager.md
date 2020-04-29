@@ -1,4 +1,5 @@
 ---
+content: career
 title: Sales Manager
 path: /sales-manager
 ---

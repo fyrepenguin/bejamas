@@ -11,6 +11,7 @@ import Nomads from "../components/about/nomads";
 import Values from "./../components/about/values";
 
 import "../styles/about.scss";
+import { Helmet } from "react-helmet";
 
 /**
  * TODO: Make it responsive
@@ -70,6 +71,10 @@ const About = () => {
     );
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>About</title>
+      </Helmet>
       <Layout page={"about-page"}>
         <Header
           subheading={subheading}
