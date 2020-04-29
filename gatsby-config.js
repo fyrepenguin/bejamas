@@ -2,11 +2,20 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 module.exports = {
+  siteMetadata: {
+    title: "Beejamas",
+  },
   plugins: [
     `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`,
     `gatsby-transformer-remark`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        icon: `src/images/favicon.png`,
+      },
+    },
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
