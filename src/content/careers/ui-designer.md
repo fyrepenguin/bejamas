@@ -1,4 +1,5 @@
 ---
+content: career
 title: UI Designer
 path: /ui-designer
 ---

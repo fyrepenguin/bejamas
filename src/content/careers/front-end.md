@@ -1,4 +1,5 @@
 ---
+content: career
 title: Front end developer
 path: /front-end-developer
 ---

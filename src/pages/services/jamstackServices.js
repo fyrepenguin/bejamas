@@ -13,6 +13,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import JAMworkflow from "./../../components/services/JAMworkflow";
 
 import { dmitri, eppo, lotan } from "./../../components/images";
+import { Helmet } from "react-helmet";
 
 const JAM = () => {
   const data = useStaticQuery(graphql`
@@ -55,6 +56,10 @@ const JAM = () => {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>JAMstack Websites</title>
+      </Helmet>
       <Layout page={"jamstack-service-page"}>
         <Header
           subheading="jamstack"
@@ -69,7 +74,6 @@ const JAM = () => {
         <TechUsed />
         <JAMworkflow />
         <Testimonials testimonials={testimonials} />
-        blog posts
         <section className="section others">
           <Heading
             subheading="Looking for other services?"

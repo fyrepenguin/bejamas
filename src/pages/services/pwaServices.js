@@ -12,6 +12,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import { dmitri, eppo, lotan } from "./../../components/images";
 import "../../styles/pwa.scss";
 import JAMworkflow from "./../../components/services/JAMworkflow";
+import { Helmet } from "react-helmet";
 
 const PWA = () => {
   const data = useStaticQuery(graphql`
@@ -52,6 +53,10 @@ const PWA = () => {
   ];
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>PWA Websites</title>
+      </Helmet>
       <Layout page={"pwa-page"}>
         <Header
           subheading="Progressive Web App"
