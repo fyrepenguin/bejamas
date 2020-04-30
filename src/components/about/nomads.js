@@ -8,19 +8,19 @@ const Nomads = () => {
   const data = useStaticQuery(graphql`
     query {
       city: contentfulAsset(title: { eq: "malaga-city" }) {
-        ...ValueImg
+        ...ImageContent
       }
       landscape: contentfulAsset(title: { eq: "malaga-landscape" }) {
-        ...ValueImg
+        ...ImageContent
       }
       pool: contentfulAsset(title: { eq: "malaga-pool" }) {
-        ...ValueImg
+        ...ImageContent
       }
       tree: contentfulAsset(title: { eq: "malaga-pink-tree" }) {
-        ...ValueImg
+        ...ImageContent
       }
       breakfast: contentfulAsset(title: { eq: "malaga-breakfast" }) {
-        ...ValueImg
+        ...ImageContent
       }
     }
   `);

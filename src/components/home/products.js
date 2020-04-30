@@ -8,14 +8,10 @@ const Products = ({ description, subheading, pageName, jamDesc, pwaDesc }) => {
   const data = useStaticQuery(graphql`
     query {
       productJAM: contentfulAsset(title: { eq: "product-mw" }) {
-        fluid {
-          ...GatsbyContentfulFluid
-        }
+        ...ImageContent
       }
       productPWA: contentfulAsset(title: { eq: "product-pwa" }) {
-        fluid {
-          ...GatsbyContentfulFluid
-        }
+        ...ImageContent
       }
     }
   `);

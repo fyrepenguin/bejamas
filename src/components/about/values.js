@@ -5,25 +5,20 @@ import Img from "gatsby-image";
 
 const Values = () => {
   const data = useStaticQuery(graphql`
-    fragment ValueImg on ContentfulAsset {
-      fluid {
-        ...GatsbyContentfulFluid
-      }
-    }
     query {
       transparency: contentfulAsset(title: { eq: "01 Transparency Icon" }) {
-        ...ValueImg
+        ...ImageContent
       }
       openness: contentfulAsset(title: { eq: "02 Openness of Mind Icon" }) {
-        ...ValueImg
+        ...ImageContent
       }
       commitment: contentfulAsset(
         title: { eq: "03 Commitment Responsibility Icon" }
       ) {
-        ...ValueImg
+        ...ImageContent
       }
       empathy: contentfulAsset(title: { eq: "04 Empathy Icon" }) {
-        ...ValueImg
+        ...ImageContent
       }
     }
   `);

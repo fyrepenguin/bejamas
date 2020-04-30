@@ -1,7 +1,6 @@
 @font-face {
   font-family: "Recoleta";
-  src: local("Recoleta Medium"), local("Recoleta-Medium"),
-    url("../fonts/Recoleta-Medium.woff2") format("woff2"),
+  src: url("../fonts/recoleta.woff2") format("woff2"),
     url("../fonts/Recoleta-Medium.woff") format("woff"),
     url("../fonts/Recoleta-Medium.ttf") format("truetype");
   font-weight: 500;
@@ -10,8 +9,7 @@
 
 @font-face {
   font-family: "Poppins";
-  src: local("Poppins Medium"), local("Poppins-Medium"),
-    url("../fonts/Poppins-Medium.woff2") format("woff2"),
+  src: url("../fonts/poppins.woff2") format("woff2"),
     url("../fonts/Poppins-Medium.woff") format("woff"),
     url("../fonts/Poppins-Medium.ttf") format("truetype");
   font-weight: 500;
