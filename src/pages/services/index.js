@@ -18,12 +18,6 @@ import { Helmet } from "react-helmet";
 
 const Services = () => {
   const data = useStaticQuery(graphql`
-    fragment ImageContent on ContentfulAsset {
-      title
-      fluid {
-        ...GatsbyContentfulFluid
-      }
-    }
     query {
       hero: contentfulAsset(title: { eq: "hero-services" }) {
         ...ImageContent

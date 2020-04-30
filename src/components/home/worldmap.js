@@ -7,9 +7,7 @@ const WorldMap = () => {
   const data = useStaticQuery(graphql`
     query {
       contentfulAsset(title: { eq: "map-filled" }) {
-        fluid {
-          ...GatsbyContentfulFluid
-        }
+        ...ImageContent
       }
     }
   `);

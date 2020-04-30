@@ -6,23 +6,18 @@ import Img from "gatsby-image";
 
 const JamUses = () => {
   const data = useStaticQuery(graphql`
-    fragment Icon on ContentfulAsset {
-      fluid {
-        ...GatsbyContentfulFluid
-      }
-    }
     query {
       swift: contentfulAsset(title: { eq: "swift-icon" }) {
-        ...Icon
+        ...ImageContent
       }
       safe: contentfulAsset(title: { eq: "safe-icon" }) {
-        ...Icon
+        ...ImageContent
       }
       stable: contentfulAsset(title: { eq: "stable-icon" }) {
-        ...Icon
+        ...ImageContent
       }
       scalable: contentfulAsset(title: { eq: "scalable-icon" }) {
-        ...Icon
+        ...ImageContent
       }
     }
   `);

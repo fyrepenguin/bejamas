@@ -17,12 +17,6 @@ import { Helmet } from "react-helmet";
 
 const JAM = () => {
   const data = useStaticQuery(graphql`
-    fragment ImageContent on ContentfulAsset {
-      title
-      fluid {
-        ...GatsbyContentfulFluid
-      }
-    }
     query {
       contentfulAsset(title: { eq: "hero-jamstack" }) {
         ...ImageContent

@@ -8,9 +8,7 @@ const JamIntro = () => {
   const data = useStaticQuery(graphql`
     query {
       contentfulAsset(title: { eq: "What is JAM" }) {
-        fluid {
-          ...GatsbyContentfulFluid
-        }
+        ...ImageContent
       }
     }
   `);

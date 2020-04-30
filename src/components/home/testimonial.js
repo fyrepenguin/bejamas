@@ -7,14 +7,10 @@ const Testimonial = () => {
   const data = useStaticQuery(graphql`
     query {
       eppo: contentfulAsset(title: { eq: "eppo-heemstra" }) {
-        fluid {
-          ...GatsbyContentfulFluid
-        }
+        ...ImageContent
       }
       opt: contentfulAsset(title: { eq: "testimonials-opt" }) {
-        fluid {
-          ...GatsbyContentfulFluid
-        }
+        ...ImageContent
       }
     }
   `);

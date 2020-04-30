@@ -9,9 +9,7 @@ const Stories = () => {
   const data = useStaticQuery(graphql`
     query {
       contentfulAsset(title: { eq: "30" }) {
-        fluid {
-          ...GatsbyContentfulFluid
-        }
+        ...ImageContent
       }
     }
   `);
