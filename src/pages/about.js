@@ -62,7 +62,33 @@ const About = () => {
           }}
         />
       </>
-    );
+    ),
+    values = [
+      {
+        style: { width: "229px", height: "200px" },
+        heading: "Transparency and Truthfulness",
+        description:
+          "We communicate with each other honestly, even if the truth violates one's ego. We believe that in the long term only through good and honest communication with each other we can generate added value for our clients.",
+      },
+      {
+        style: { width: "204px", height: "200px" },
+        heading: "Openness of mind",
+        description:
+          "In our case transparency means that everyone's opinion is open for discussion by anyone on the team. That is why it is so important for us to keep our mind open and treat every feedback with humility, a chance to look at things from another perspective, and as an opportunity to improve our skills.",
+      },
+      {
+        style: { width: "215px", height: "200px" },
+        heading: "Commitment and Responsibility",
+        description:
+          " Remote work gives great possibilities, but comes with great responsibility. At Bejamas, each team member is responsible for a certain part of a project and it’s on them to deliver the best solution for it. For us it’s crucial to keep things this way and run projects as a well-oiled machine.",
+      },
+      {
+        style: { width: "206px", height: "200px" },
+        heading: "Empathy and Unselfishness",
+        description:
+          "Those are two very important factors at Bejamas. We believe that every person deserves valuable relationships with other people and a pleasant work environment. We try to help each other and give as much as we take ourselves.",
+      },
+    ];
   return (
     <>
       <Helmet>
@@ -90,7 +116,7 @@ const About = () => {
           </header>
         </section>
         <Team />
-        <Values />
+        <Values values={values} />
         <TechUsed cta={`Consult your project`} />
         <Nomads />
       </Layout>
