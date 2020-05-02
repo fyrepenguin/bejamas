@@ -1,14 +1,42 @@
 import React from "react";
 import Layout from "./../../layouts";
 import Footer from "./../../components/common/footer";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import Header from "./../../components/common/header";
 import Values from "./../../components/about/values";
 import { Helmet } from "react-helmet";
+import WorkBenefits from "./../../components/careers/workBenefits";
+import Mission from "../../components/careers/mission";
+import Opportunities from "../../components/careers/opportunities";
 
 const Careers = ({ data }) => {
-  const { edges } = data.markdown;
-
+  const { edges } = data.markdown,
+    values = [
+      {
+        style: { width: "229px", height: "200px" },
+        heading: "Honesty",
+        description:
+          "We believe that working remotely calls for radical transparency and truthfulness - both to our clients and ourselves.",
+      },
+      {
+        style: { width: "204px", height: "200px" },
+        heading: "Open- mindedness",
+        description:
+          "Got any idea how something could be done better? Good. We love constructive feedback and improving our skills.",
+      },
+      {
+        style: { width: "215px", height: "200px" },
+        heading: "Responsibility",
+        description:
+          " We base our work culture on mutual trust. To make things work all of us need to be committed and feel responsible for our tasks.",
+      },
+      {
+        style: { width: "206px", height: "200px" },
+        heading: "Empathy",
+        description:
+          "We get that sometimes things don’t go the way we’d like them to. We talk and listen to each other to find the best solution.",
+      },
+    ];
   return (
     <>
       <Helmet>
@@ -24,21 +52,10 @@ your own way"
           desc="Learn modern web building, join the remote team, and work from… wherever you want."
           hero={data.hero.fluid}
         />
-        Mission
-        <Values />
-        WorkBenefits
-        <section className="open-roles">
-          {edges.map((edge) => {
-            const { frontmatter } = edge.node;
-            return (
-              <div key={frontmatter.path}>
-                <Link to={`/careers/${frontmatter.path}`}>
-                  {frontmatter.title}
-                </Link>
-              </div>
-            );
-          })}
-        </section>
+        <Mission />
+        <Values values={values} />
+        <WorkBenefits />
+        <Opportunities edges={edges} />
       </Layout>
       <Footer />
     </>
