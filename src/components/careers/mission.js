@@ -34,9 +34,7 @@ const Mission = () => {
             ourselves.
           </p>
           <blockquote>
-            <span>
-              <Img fluid={data.quotes.fluid} />
-            </span>
+            <span></span>
             <p>
               We believe that work is something that needs to be done, not a
               place where people need to go. Bejamas gives me the freedom to
@@ -45,7 +43,10 @@ const Mission = () => {
             </p>
             <div className="cite">
               <div className="img">
-                <Img fluid={data.arek.fluid} />
+                <Img
+                  fluid={data.arek.fluid}
+                  style={{ width: "45px", height: "45px" }}
+                />
               </div>
               <p>Arek Gorecki, Front-end Lead</p>
             </div>

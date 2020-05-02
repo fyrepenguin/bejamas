@@ -4,10 +4,11 @@ exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
   const careerTemplate = path.resolve(`src/templates/career.js`);
   const result = await graphql(`
-    {
-      allMarkdownRemark {
+    query {
+      allMdx {
         edges {
           node {
+            body
             frontmatter {
               path
             }
@@ -21,7 +22,7 @@ exports.createPages = async ({ actions, graphql }) => {
     console.error(result.errors);
   }
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  result.data.allMdx.edges.forEach(({ node }) => {
     const path = `careers${node.frontmatter.path}`;
     createPage({
       path,

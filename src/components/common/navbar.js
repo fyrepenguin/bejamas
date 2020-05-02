@@ -107,6 +107,11 @@ const Navbar = () => {
                 Contact
               </Link>
             </li>
+            <li>
+              <Link activeClassName="active" to="/ask" className="top-nav-link">
+                Ask
+              </Link>
+            </li>
           </ul>
         </nav>
         <div className="cta-container">
