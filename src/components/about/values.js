@@ -4,7 +4,7 @@ import { Link, useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import "../../styles/values.scss";
 
-const Values = ({ values }) => {
+const Values = ({ values, noFooter }) => {
   const data = useStaticQuery(graphql`
     query {
       transparency: contentfulAsset(title: { eq: "01 Transparency Icon" }) {
@@ -51,18 +51,23 @@ const Values = ({ values }) => {
           );
         })}
       </div>
-      <footer>
-        <div>
-          <p>
-            For us customers really do come first because we help them not only
-            grow their businesses but also educate them to understand the tech
-            behind it.
-          </p>
-          <Link to="/careers" className="cta">
-            Work with us!
-          </Link>
-        </div>
-      </footer>
+
+      {noFooter ? (
+        ""
+      ) : (
+        <footer>
+          <div>
+            <p>
+              For us customers really do come first because we help them not
+              only grow their businesses but also educate them to understand the
+              tech behind it.
+            </p>
+            <Link to="/careers" className="cta">
+              Work with us!
+            </Link>
+          </div>
+        </footer>
+      )}
     </section>
   );
 };
