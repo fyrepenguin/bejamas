@@ -1,6 +1,5 @@
 import React from "react";
 import Heading from "../common/heading";
-import { dmitri, quote } from "../images";
 import "./../../styles/caseStudy.scss";
 import Img from "gatsby-image";
 import { useStaticQuery, graphql } from "gatsby";

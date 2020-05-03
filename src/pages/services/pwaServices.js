@@ -10,9 +10,9 @@ import TechUsed from "./../../components/common/tech";
 import Heading from "./../../components/common/heading";
 import { useStaticQuery, graphql } from "gatsby";
 import { dmitri, eppo, lotan } from "./../../components/images";
-import "../../styles/pwa.scss";
 import JAMworkflow from "./../../components/services/JAMworkflow";
 import { Helmet } from "react-helmet";
+import "../../styles/pwa.scss";
 
 const PWA = () => {
   const data = useStaticQuery(graphql`
