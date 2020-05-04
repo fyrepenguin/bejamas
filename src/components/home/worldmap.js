@@ -1,7 +1,8 @@
 import React from "react";
-import Heading from "../common/heading";
 import Img from "gatsby-image";
 import { useStaticQuery, graphql } from "gatsby";
+
+import Heading from "../common/heading";
 
 const WorldMap = () => {
   const data = useStaticQuery(graphql`

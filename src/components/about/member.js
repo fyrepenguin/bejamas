@@ -1,5 +1,6 @@
 import React from "react";
 import Img from "gatsby-image";
+
 const Member = ({ name, position, image }) => {
   return (
     <div className="member-container">

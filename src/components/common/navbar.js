@@ -1,7 +1,7 @@
 import React from "react";
-import "./../../styles/navbar.scss";
 import { Link } from "gatsby";
 
+import "./../../styles/navbar.scss";
 /**
  * TODO: Add post name and social icons in blog posts
  * TODO: Add animations and scroll events

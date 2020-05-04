@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
+
 import Heading from "./../common/heading";
 
 const Opportunities = ({ edges }) => {

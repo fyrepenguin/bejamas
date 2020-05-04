@@ -1,8 +1,9 @@
 import React from "react";
-import Heading from "../common/heading";
-import { useStaticQuery } from "gatsby";
-import { graphql } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
+
+import Heading from "../common/heading";
+
 const Mission = () => {
   const data = useStaticQuery(graphql`
     query {

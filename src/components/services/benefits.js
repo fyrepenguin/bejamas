@@ -1,8 +1,10 @@
 import React from "react";
-import Heading from "./../common/heading";
 import Img from "gatsby-image";
-import { useStaticQuery } from "gatsby";
-import { graphql } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
+import { css } from "linaria";
+
+import Heading from "./../common/heading";
+
 const Benefits = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -23,9 +25,32 @@ const Benefits = () => {
       }
     }
   `);
+  const benefitsContent = css`
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    column-gap: 3.1rem;
+    row-gap: 1.55rem;
+    align-items: flex-start;
+    margin: 1.55rem auto 0;
+    max-width: 72.075rem;
+    margin-top: 0;
+    header {
+      text-align: left;
+    }
+    .benefit {
+      color: var(--color-text-secondary);
+      position: relative;
+    }
+    h3 {
+      margin-top: 1.55rem;
+      color: var(--color-text-primary);
+      position: relative;
+      z-index: 2;
+    }
+  `;
   return (
     <section className="benefits section">
-      <div className="benefits-content">
+      <div className={benefitsContent}>
         <Heading
           subheading={"Sites with Benefits"}
           title={"How JAMstack supports your marketing"}
