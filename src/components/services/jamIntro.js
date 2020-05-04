@@ -1,8 +1,7 @@
 import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
-
-import "../../styles/jamstack.scss";
+import { css } from "linaria";
 
 const JamIntro = () => {
   const data = useStaticQuery(graphql`
@@ -12,9 +11,29 @@ const JamIntro = () => {
       }
     }
   `);
+  const jamIntroContent = css`
+    margin: 1.55rem auto 0;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 0;
+    align-items: center;
+    max-width: 72.075rem;
+    display: grid;
+    column-gap: 3.1rem;
+    row-gap: 4.65rem;
+    p {
+      margin-top: 2.325rem;
+      font-size: 1.25rem;
+      color: var(--color-text-secondary);
+      line-height: 1.8;
+    }
+  `;
+  const footer = css`
+    text-align: center;
+    margin-top: 1.55rem;
+  `;
   return (
     <section className="jam-intro section">
-      <div className="jam-intro-content">
+      <div className={jamIntroContent}>
         <div>
           <h2>What is JAMstack</h2>
           <p>
@@ -35,7 +54,7 @@ const JamIntro = () => {
           />
         </div>
       </div>
-      <footer>
+      <footer className={footer}>
         <Link className="cta" to="/blog">
           Read more
         </Link>

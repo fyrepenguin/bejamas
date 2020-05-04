@@ -1,8 +1,10 @@
 import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+
 import Heading from "./../common/heading";
 import Member from "./member";
 import membersList from "../../content/team/members.json";
-import { useStaticQuery, graphql } from "gatsby";
+
 const Team = () => {
   const data = useStaticQuery(graphql`
     query {

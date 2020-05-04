@@ -1,5 +1,11 @@
 import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import { Helmet } from "react-helmet";
+
+import { dmitri, eppo, lotan } from "./../../components/images";
+
 import Layout from "./../../layouts/index";
+import JAMworkflow from "./../../components/services/JAMworkflow";
 import Footer from "./../../components/common/footer";
 import FooterCTA from "./../../components/common/footerCTA";
 import Header from "../../components/common/header";
@@ -9,12 +15,7 @@ import ServicesFeaturedPost from "./../../components/services/servicesFeaturedPo
 import TechUsed from "./../../components/common/tech";
 import Testimonials from "./../../components/common/testimonials";
 import Heading from "../../components/common/heading";
-import { useStaticQuery, graphql } from "gatsby";
-import JAMworkflow from "./../../components/services/JAMworkflow";
-
-import { dmitri, eppo, lotan } from "./../../components/images";
-import { Helmet } from "react-helmet";
-
+import "../../styles/jamstack.scss";
 const JAM = () => {
   const data = useStaticQuery(graphql`
     query {

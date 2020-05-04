@@ -1,5 +1,7 @@
 import React from "react";
+
 import Heading from "./heading";
+
 const FooterCTA = () => {
   return (
     <section className="footer-cta">

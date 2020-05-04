@@ -11,7 +11,6 @@ import Workflow from "./../../components/common/workflow";
 import Testimonials from "./../../components/common/testimonials";
 import Faq from "../../components/services/faq";
 
-import "../../styles/service.scss";
 import "../../styles/services.scss";
 import { paolo, william, yan } from "./../../components/images";
 import { Helmet } from "react-helmet";

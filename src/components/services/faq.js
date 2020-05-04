@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { css } from "linaria";
+
 import Heading from "./../common/heading";
 
 const Query = ({ query, ans }) => {
@@ -13,7 +15,44 @@ const Query = ({ query, ans }) => {
     </div>
   );
 };
-
+const faqList = css`
+  max-width: 46.5rem;
+  margin: 1.55rem auto 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 4.65rem;
+  column-gap: 2.325rem;
+  align-items: flex-start;
+  font-size: 1.25rem;
+  .query {
+    margin-top: 1.55rem;
+    margin-bottom: 0;
+    padding: 2.325rem;
+    background-color: var(--color-bg-secondary);
+    display: flex;
+    border-radius: 8px;
+    font-weight: 400;
+    cursor: pointer;
+    justify-content: space-between;
+    span {
+      font-size: 2.25rem;
+      font-weight: 100;
+      line-height: 1;
+      margin-left: 0.775rem;
+      color: var(--color-cta);
+    }
+  }
+  .ans {
+    background-color: var(--color-bg-secondary);
+    border-radius: 0 0 8px 8px;
+    display: none;
+    padding: 0 2.325rem 2.325rem;
+    color: var(--color-text-secondary);
+  }
+  .ans.active {
+    display: block;
+  }
+`;
 const Faq = () => {
   const queries = [
     {
@@ -42,7 +81,7 @@ const Faq = () => {
   return (
     <section className="faq section">
       <Heading subheading="faq" title="Questions you probably want to ask" />
-      <div className="faq-list">
+      <div className={faqList}>
         {queries.map((query, i) => {
           return <Query key={i} ans={query.a} query={query.q} />;
         })}

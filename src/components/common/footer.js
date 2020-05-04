@@ -1,7 +1,8 @@
 import React from "react";
-import "../../styles/footer.scss";
-import { footerLogo } from "../images";
 import { Link } from "gatsby";
+
+import { footerLogo } from "../images";
+import "../../styles/footer.scss";
 
 /**
  * TODO: Make it responsive
