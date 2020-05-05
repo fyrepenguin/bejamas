@@ -491,13 +491,12 @@ img {
 
 .cta,
 a.cta {
-  font-size: 1.125rem;
   font-weight: 500;
   display: inline-block;
   border: 0;
   cursor: pointer;
   background-color: var(--color-cta);
-  padding: 0.86111111111111111112rem 1.55rem 1.03333333333333332rem;
+  padding: 1.033333333333332rem 2.06666666666664rem;
   border-radius: 28px;
   text-decoration: none;
   color: #fff;
@@ -505,6 +504,10 @@ a.cta {
   position: relative;
   text-align: center;
   z-index: 0;
+  @media (min-width: 1522px) {
+    font-size: 1.125rem;
+    padding: 0.86111111111111111112rem 1.55rem 1.03333333333333332rem;
+  }
   &:hover {
     outline: 0;
     &::before {
@@ -537,7 +540,24 @@ a.cta {
 }
 
 .section {
-  padding: 4.65rem 3.1rem;
-  margin-left: 0;
-  margin-right: 0;
+  padding: 3.1rem 8vw;
+  margin-left: 8vw;
+  margin-right: 8vw;
+  @media (min-width: 768px) {
+    padding: 4.65rem 4vw;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  @media (min-width: 1522px) {
+    padding: 4.65rem 3.1rem;
+  }
+}
+.secondaryBg {
+  background: var(--color-bg-secondary);
+  @media (min-width: 768px) {
+    border-radius: 16px;
+  }
+}
+.primaryBg {
+  background: var(--color-bg);
 }

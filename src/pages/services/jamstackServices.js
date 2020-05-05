@@ -6,7 +6,7 @@ import { dmitri, eppo, lotan } from "./../../components/images";
 
 import Layout from "./../../layouts/index";
 import JAMworkflow from "./../../components/services/JAMworkflow";
-import Footer from "./../../components/common/footer";
+
 import FooterCTA from "./../../components/common/footerCTA";
 import Header from "../../components/common/header";
 import JamIntro from "./../../components/services/jamIntro";
@@ -55,7 +55,7 @@ const JAM = () => {
         <meta charSet="utf-8" />
         <title>JAMstack Websites</title>
       </Helmet>
-      <Layout page={"jamstack-service-page"}>
+      <Layout page={"jamstack-service-page"} footerCta={<FooterCTA />}>
         <Header
           subheading="jamstack"
           title="Get more customers with SEO-friendly marketing websites"
@@ -79,9 +79,6 @@ with all the native app’s features"
           />
         </section>
       </Layout>
-      <Footer>
-        <FooterCTA />
-      </Footer>
     </>
   );
 };

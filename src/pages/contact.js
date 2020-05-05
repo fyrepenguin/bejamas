@@ -1,6 +1,5 @@
 import React from "react";
 import Layout from "./../layouts/index";
-import Footer from "./../components/common/footer";
 import { Helmet } from "react-helmet";
 const Contact = () => {
   return (
@@ -10,7 +9,6 @@ const Contact = () => {
         <title>Contact</title>
       </Helmet>
       <Layout>Contact</Layout>
-      <Footer />
     </>
   );
 };

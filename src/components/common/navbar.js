@@ -1,17 +1,123 @@
 import React from "react";
 import { Link } from "gatsby";
+import { css } from "linaria";
 
-import "./../../styles/navbar.scss";
 /**
  * TODO: Add post name and social icons in blog posts
  * TODO: Add animations and scroll events
  * TODO: Make it responsive
  */
+
 const Navbar = () => {
+  const nav = css`
+      background: var(--color-bg-almost-primary);
+      backdrop-filter: blur(16px);
+      z-index: 9;
+      position: sticky;
+      top: 0;
+    `,
+    navbar = css`
+      display: grid;
+      max-width: 87.5rem;
+      padding: 0;
+      grid-template-columns: 1fr auto 1fr;
+      grid-template-areas: "logo nav cta";
+      align-items: center;
+      height: 100%;
+    `,
+    navBrand = css`
+      grid-area: logo;
+      a {
+        background-color: transparent;
+        .nav-logo {
+          max-width: 10.85rem;
+          height: 30px;
+          margin-top: 0.5rem;
+        }
+      }
+    `,
+    menu = css`
+      display: block;
+      grid-area: nav;
+      width: 100%;
+    `,
+    menuItems = css`
+      display: flex;
+      list-style-type: none;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+      li {
+        padding: 0 0.3875rem;
+        margin: 0;
+        font-size: 1rem;
+      }
+    `,
+    navLink = css`
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 2.325rem 1.55rem;
+      display: flex;
+      border-top: 2px solid transparent;
+      align-items: center;
+      color: var(--color-text-primary);
+      &:hover,
+      &.active {
+        color: var(--color-cta);
+      }
+      &.active {
+        border-top: 2px solid var(--color-cta);
+      }
+    `,
+    navService = css`
+      &:hover {
+        ul {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+      }
+    `,
+    downCaret = css`
+      margin-left: 0.775rem;
+    `,
+    serviceDropdown = css`
+      background: var(--color-bg-hover);
+      border-radius: 8px;
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      margin: 0;
+      list-style: none;
+      box-shadow: 0 9px 60px 0 var(--color-bg-shadow-heavy);
+      padding: 1.0333333333333332rem 0;
+      transition: all 0.3s cubic-bezier(0, 0.89, 0.44, 1);
+      transform: translateY(-4px);
+      li {
+        margin: 0;
+        padding-left: 0;
+        a {
+          color: var(--color-text-primary);
+          padding: 0.5167rem 1.9375rem;
+          display: block;
+          &:hover {
+            color: var(--color-cta);
+          }
+        }
+      }
+    `,
+    ctaContainer = css`
+      justify-self: end;
+      grid-area: var(--color-cta);
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+    `;
+
   return (
-    <header className="nav">
-      <div className="navbar container">
-        <div className="nav-brand">
+    <header className={nav}>
+      <div className={`${navbar} container`}>
+        <div className={navBrand}>
           <a href="/">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -29,26 +135,22 @@ const Navbar = () => {
             </svg>
           </a>
         </div>
-        <nav className="menu">
-          <ul className="menu-items">
+        <nav className={menu}>
+          <ul className={menuItems}>
             <li>
-              <Link activeClassName="active" className="top-nav-link" to="/">
+              <Link activeClassName="active" className={navLink} to="/">
                 Home
               </Link>
             </li>
             <li>
-              <Link
-                activeClassName="active"
-                to="/about"
-                className="top-nav-link"
-              >
+              <Link activeClassName="active" to="/about" className={navLink}>
                 About
               </Link>
             </li>
-            <li className="nav-service">
+            <li className={navService}>
               <Link
                 activeClassName="active"
-                className="top-nav-link "
+                className={navLink}
                 to="/services"
                 partiallyActive
               >
@@ -58,7 +160,7 @@ const Navbar = () => {
                   height="6"
                   fill="none"
                   display="block"
-                  className="downCaret"
+                  className={downCaret}
                 >
                   <path
                     d="M1 1l4 4 4-4"
@@ -69,7 +171,7 @@ const Navbar = () => {
                   />
                 </svg>
               </Link>
-              <ul className="service-dropdown">
+              <ul className={serviceDropdown}>
                 <li>
                   <a href="/services/jamstackServices">JAMstack websites</a>
                 </li>
@@ -81,7 +183,7 @@ const Navbar = () => {
             <li>
               <Link
                 activeClassName="active"
-                className="top-nav-link"
+                className={navLink}
                 to="/careers"
                 partiallyActive
               >
@@ -91,7 +193,7 @@ const Navbar = () => {
             <li>
               <Link
                 activeClassName="active"
-                className="top-nav-link"
+                className={navLink}
                 to="/blog"
                 partiallyActive
               >
@@ -99,22 +201,18 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link
-                activeClassName="active"
-                className="top-nav-link"
-                to="/contact"
-              >
+              <Link activeClassName="active" className={navLink} to="/contact">
                 Contact
               </Link>
             </li>
             <li>
-              <Link activeClassName="active" to="/ask" className="top-nav-link">
+              <Link activeClassName="active" to="/ask" className={navLink}>
                 Ask
               </Link>
             </li>
           </ul>
         </nav>
-        <div className="cta-container">
+        <div className={ctaContainer}>
           <Link to="/estimate-project" className="cta">
             Work with us!
           </Link>

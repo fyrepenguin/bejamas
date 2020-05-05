@@ -1,17 +1,15 @@
 import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
+import { Helmet } from "react-helmet";
+import { css } from "linaria";
 
 import Layout from "./../layouts";
 import Header from "./../components/common/header";
-import Footer from "../components/common/footer";
 import Team from "../components/about/team";
 import TechUsed from "../components/common/tech";
 import Nomads from "../components/about/nomads";
 import Values from "./../components/about/values";
-
-import "../styles/about.scss";
-import { Helmet } from "react-helmet";
 
 /**
  * TODO: Make it responsive
@@ -49,6 +47,8 @@ const About = () => {
             display: "inline-block",
             width: "160px",
             height: "160px",
+            bottom: 0,
+            right: "50%",
           }}
         />
         <Img
@@ -59,6 +59,8 @@ const About = () => {
             display: "inline-block",
             width: "160px",
             height: "160px",
+            bottom: "-6%",
+            right: "14%",
           }}
         />
       </>
@@ -89,13 +91,57 @@ const About = () => {
           "Those are two very important factors at Bejamas. We believe that every person deserves valuable relationships with other people and a pleasant work environment. We try to help each other and give as much as we take ourselves.",
       },
     ];
+  const aboutUs = css`
+    padding-top: 6.2rem;
+    text-align: center;
+    background-color: var(--color-bg);
+    header {
+      max-width: 43.4rem;
+      margin: 0 auto;
+
+      p {
+        margin-top: 2.325rem;
+        font-size: 1.25rem;
+        color: var(--color-text-secondary);
+        line-height: 1.8;
+      }
+    }
+  `;
+  const footerCta = css`
+    display: grid;
+    align-items: center;
+    margin: 0 auto 3.1rem;
+    row-gap: 3.1rem;
+    padding-left: 6.5875rem;
+    grid-template-columns: auto 513px;
+    column-gap: 9.3rem;
+    p {
+      font-size: 1.25rem;
+      line-height: 1.8;
+    }
+  `;
+  const FooterCTA = (
+    <section className={footerCta}>
+      <div>
+        <h2>Become one of us</h2>
+        <p>
+          Do you want to join our team and work remotely from anywhere you'd
+          like? We can't wait to hear from you!
+        </p>
+        <Link to="/careers" className="cta">
+          Check Careers
+        </Link>
+      </div>
+      <Img className="footer-cta-img" fluid={data.footer.fluid} />
+    </section>
+  );
   return (
     <>
       <Helmet>
         <meta charSet="utf-8" />
         <title>About</title>
       </Helmet>
-      <Layout page={"about-page"}>
+      <Layout page={"about-page"} footerCta={FooterCTA}>
         <Header
           subheading={subheading}
           title={title}
@@ -104,7 +150,7 @@ const About = () => {
           hero={data.hero.fluid}
           shapes={shapes}
         ></Header>
-        <section className="about-us section">
+        <section className={`${aboutUs} section`}>
           <header>
             <h2>Client-focused, forward-thinking people</h2>
             <p>
@@ -120,21 +166,6 @@ const About = () => {
         <TechUsed cta={`Consult your project`} />
         <Nomads />
       </Layout>
-      <Footer>
-        <section className="footer-cta">
-          <div>
-            <h2>Become one of us</h2>
-            <p>
-              Do you want to join our team and work remotely from anywhere you'd
-              like? We can't wait to hear from you!
-            </p>
-            <Link to="/careers" className="cta">
-              Check Careers
-            </Link>
-          </div>
-          <Img className="footer-cta-img" fluid={data.footer.fluid} />
-        </section>
-      </Footer>
     </>
   );
 };

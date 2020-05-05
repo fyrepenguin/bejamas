@@ -11,35 +11,4 @@
     background: var(--color-bg);
     border-radius: none;
   }
-
-  .featured-post-services {
-    .featured-content {
-      margin: 1.55rem auto 0;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      row-gap: 4.65rem;
-      column-gap: 4.65rem;
-      max-width: 58.9rem;
-      margin-top: 4.65rem;
-      .featured-header {
-        .gatsby-image-wrapper {
-          margin-top: 3.1rem;
-        }
-        header {
-          text-align: left;
-        }
-      }
-      .featured-description {
-        margin-top: -0.51666666rem;
-        p {
-          font-size: 1.25rem;
-          color: var(--color-text-secondary);
-          line-height: 1.8;
-        }
-        a {
-          margin-top: 1.0333333333333rem;
-        }
-      }
-    }
-  }
 }

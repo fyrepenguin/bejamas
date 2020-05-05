@@ -1,6 +1,5 @@
 import React from "react";
 import Layout from "./../../layouts";
-import Footer from "./../../components/common/footer";
 import { graphql } from "gatsby";
 import Header from "./../../components/common/header";
 import Values from "./../../components/about/values";
@@ -8,7 +7,7 @@ import { Helmet } from "react-helmet";
 import WorkBenefits from "./../../components/careers/workBenefits";
 import Mission from "../../components/careers/mission";
 import Opportunities from "../../components/careers/opportunities";
-import "../../styles/careers.scss";
+
 const Careers = ({ data }) => {
   const { edges } = data.markdown,
     values = [
@@ -56,7 +55,6 @@ const Careers = ({ data }) => {
         <WorkBenefits />
         <Opportunities edges={edges} />
       </Layout>
-      <Footer />
     </>
   );
 };
