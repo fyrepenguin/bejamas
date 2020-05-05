@@ -1,19 +1,19 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
+import { Helmet } from "react-helmet";
 
 import Layout from "../../layouts/index";
 import FooterCTA from "../../components/common/footerCTA";
-import Footer from "../../components/common/footer";
 import Header from "../../components/common/header";
 import Products from "../../components/home/products";
 import Workflow from "./../../components/common/workflow";
 import Testimonials from "./../../components/common/testimonials";
 import Faq from "../../components/services/faq";
 
-import "../../styles/services.scss";
 import { paolo, william, yan } from "./../../components/images";
-import { Helmet } from "react-helmet";
+
+import "../../styles/services.scss";
 
 const Services = () => {
   const data = useStaticQuery(graphql`
@@ -35,6 +35,8 @@ const Services = () => {
         width: "150px",
         height: "161px",
         display: "inline-block",
+        bottom: "-13%",
+        right: "15.25%",
       }}
     />
   );
@@ -67,7 +69,7 @@ const Services = () => {
         <meta charSet="utf-8" />
         <title>Services</title>
       </Helmet>
-      <Layout page={"services-page"}>
+      <Layout page={"services-page"} footerCta={<FooterCTA />}>
         <Header
           subheading="services"
           title="Raise your page loading speed up to 10 times with static site generators"
@@ -86,9 +88,6 @@ const Services = () => {
         <Testimonials testimonials={testimonials} />
         <Faq />
       </Layout>
-      <Footer>
-        <FooterCTA />
-      </Footer>
     </>
   );
 };

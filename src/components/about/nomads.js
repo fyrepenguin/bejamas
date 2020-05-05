@@ -1,6 +1,8 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
+import { css } from "linaria";
+import breakpoints from "../utils/breakpoints";
 
 import Heading from "./../common/heading";
 
@@ -24,9 +26,84 @@ const Nomads = () => {
       }
     }
   `);
+  const nomadsText = css`
+      display: grid;
+      row-gap: 0rem;
+      column-gap: calc(6vw + 3.1rem);
+      align-items: flex-start;
+      margin: 1.55rem auto 0;
+      max-width: 58.9rem;
+      @media (min-width: ${breakpoints.sm}) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @media (min-width: ${breakpoints.md}) {
+        margin-top: 4.65rem;
+      }
+      header {
+        text-align: left;
+      }
+      div {
+        color: var(--color-text-secondary);
+        @media (min-width: ${breakpoints.md}) {
+          margin-top: 3.875rem;
+        }
+      }
+    `,
+    retreatImages = css`
+      display: grid;
+
+      row-gap: 1.55rem;
+      column-gap: 1.55rem;
+      margin-top: 3.1rem;
+      grid-template-columns: 1fr 1fr;
+      @media (min-width: ${breakpoints.md}) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .gatsby-image-wrapper {
+        border-radius: 16px;
+        width: 100%;
+        transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        margin-left: 0;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+        @media (max-width: ${breakpoints.md}) {
+          max-width: 100% !important;
+        }
+      }
+      .tree {
+        display: none;
+      }
+
+      @media (min-width: ${breakpoints.md}) {
+        .city {
+          grid-column: 2/4;
+        }
+        .breakfast {
+          grid-column: 4;
+        }
+        .landscape {
+          grid-column: 1/3;
+        }
+        .pool {
+          grid-column: 3;
+          margin-top: -4.65rem !important;
+        }
+        .tree {
+          display: block;
+          grid-column: 2;
+          margin-top: -6.2rem !important;
+        }
+      }
+      @media (min-width: ${breakpoints.lg}) {
+        margin-left: 7.75rem !important;
+        margin-top: 1.55rem !important;
+      }
+    `;
   return (
-    <section className="section nomads">
-      <div className="nomads-text">
+    <section className="section nomads primaryBg">
+      <div className={nomadsText}>
         <Heading
           subheading="digital nomads"
           title="Behind the scenes of remote work"
@@ -47,7 +124,7 @@ const Nomads = () => {
           </p>
         </div>
       </div>
-      <div className="retreat-images">
+      <div className={retreatImages}>
         <Img
           className="city"
           fluid={data.city.fluid}

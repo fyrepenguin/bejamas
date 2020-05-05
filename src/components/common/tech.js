@@ -91,7 +91,7 @@ const TechUsed = ({ cta }) => {
     }
   `;
   return (
-    <section className={`${tech} section`}>
+    <section className={`${tech} tech section`}>
       <Heading
         description={desc}
         title="Beautifying the web"

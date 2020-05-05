@@ -3,6 +3,7 @@ import { Link, useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import { css } from "linaria";
 
+import breakpoints from "../utils/breakpoints";
 import Heading from "./../common/heading";
 
 const Values = ({ values, noFooter }) => {
@@ -39,7 +40,13 @@ const Values = ({ values, noFooter }) => {
     align-items: flex-start;
     margin: 1.55rem auto 0;
     max-width: 58.9rem;
-    margin-top: 4.65rem;
+    @media (min-width: ${breakpoints.sm}) {
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 3.1rem;
+    }
+    @media (min-width: ${breakpoints.md}) {
+      margin-top: 4.65rem;
+    }
   `;
   const value = css`
     position: relative;
@@ -56,21 +63,27 @@ const Values = ({ values, noFooter }) => {
   `;
 
   const valueFooter = css`
-    margin-top: 4.65rem;
+    margin-top: 1.55rem;
     text-align: center;
+    @media (min-width: ${breakpoints.md}) {
+      margin-top: 4.65rem;
+    }
   `;
   const footerContent = css`
     max-width: 40.3000000000000004rem;
     margin: 0 auto;
   `;
   const footerDesc = css`
-    margin-top: 2.325rem;
-    font-size: 1.25rem;
+    margin-top: 1.55rem;
     color: var(--color-text-secondary);
     line-height: 1.8;
+    @media (min-width: ${breakpoints.md}) {
+      font-size: 1.25rem;
+      margin-top: 2.25rem;
+    }
   `;
   return (
-    <section className="values section">
+    <section className="values section primaryBg">
       <Heading
         subheading="Things we value"
         title="Believability at the core"

@@ -1,6 +1,7 @@
 import React from "react";
 import Img from "gatsby-image";
 import { useStaticQuery, graphql } from "gatsby";
+import { css } from "linaria";
 
 import Heading from "../common/heading";
 
@@ -19,14 +20,25 @@ const WorldMap = () => {
       Worked in sync with customers in 7 different time-zones.
     </>
   );
+  const map = css`
+      background-color: var(--color-bg-secondary);
+      border-radius: 16px;
+      text-align: center;
+    `,
+    mapImg = css`
+      margin: 4.65rem auto 0;
+      position: relative;
+      overflow: hidden;
+      max-width: 64rem;
+    `;
   return (
-    <section className="section map">
+    <section className={`section ${map}`}>
       <Heading
         subheading="Bettering the web for clients from"
         title="14 countries, 5 continents"
         description={desc}
       />
-      <div className="map-img">
+      <div className={mapImg}>
         <Img fluid={data.contentfulAsset.fluid} />
       </div>
     </section>

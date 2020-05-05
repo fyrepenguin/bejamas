@@ -1,7 +1,7 @@
 import React from "react";
 import Heading from "./../components/common/heading";
 import Layout from "../layouts";
-import Footer from "./../components/common/footer";
+
 const Ask = () => {
   return (
     <>
@@ -13,7 +13,6 @@ const Ask = () => {
           cta="Ask Bejamas Anything"
         />
       </Layout>
-      <Footer />
     </>
   );
 };
