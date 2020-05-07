@@ -2,6 +2,7 @@ import React from "react";
 import { css } from "linaria";
 
 import Heading from "./heading";
+import breakpoints from "../utils/breakpoints";
 
 const Testimonials = ({ testimonials }) => {
   const testimonialsContainer = css`
@@ -12,18 +13,25 @@ const Testimonials = ({ testimonials }) => {
     grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
     margin: 1.55rem auto 0;
     align-items: flex-start;
-    margin-top: 3.1rem;
+    @media (min-width: ${breakpoints.md}) {
+      margin-top: 4.65rem;
+    }
+    @media (min-width: ${breakpoints.sm}) {
+      margin-top: 3.1rem;
+    }
     .testimonial-item {
       p {
         margin-bottom: 1.55rem;
         color: var(--color-text-secondary);
       }
       .customer {
-        margin-bottom: 2.325rem;
         margin-top: auto;
         display: flex;
         width: 100%;
         position: relative;
+        @media (min-width: ${breakpoints.lg}) {
+          margin-bottom: 2.325rem;
+        }
         .customer-img img {
           display: block;
           width: 2.5rem;

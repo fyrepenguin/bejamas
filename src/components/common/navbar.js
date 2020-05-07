@@ -280,7 +280,7 @@ const Navbar = () => {
 
   const [isOpen, setOpen] = useState(true);
   return (
-    <header className={isOpen ? `${nav} open show-it` : nav}>
+    <header className={isOpen ? nav : `${nav} open show-it`}>
       <div className={`${navbar}`}>
         <div className={navBrand}>
           <a href="/">

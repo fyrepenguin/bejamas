@@ -69,14 +69,21 @@ const TechUsed = ({ cta }) => {
   `;
 
   const toolTypes = css`
-    margin-top: 4.65rem;
+    margin-top: 2.325rem;
+    @media (min-width: ${breakpoints.md}) {
+      margin-top: 4.65rem;
+    }
     h3 {
       font-size: 0.875rem;
       margin-bottom: 2.325rem;
       letter-spacing: 0.1875rem;
+      text-align: left;
       font-family: Poppins, sans-serif;
       text-transform: uppercase;
       color: var(--color-text-secondary);
+      @media (min-width: ${breakpoints.md}) {
+        text-align: center;
+      }
     }
   `;
 
@@ -91,6 +98,12 @@ const TechUsed = ({ cta }) => {
       width: 100%;
       filter: invert(0);
       opacity: 0.3;
+    }
+    @media (max-width: ${breakpoints.md}) {
+      .gatsby-image-wrapper {
+        margin: 0 -0.1rem 1.55rem;
+        transform: scale(0.75);
+      }
     }
   `;
 
@@ -132,13 +145,15 @@ const TechUsed = ({ cta }) => {
       </div>
 
       {cta && (
-        <Link
-          to="estimate-project"
-          className="cta"
-          style={{ marginTop: "4.65rem" }}
-        >
-          {cta}
-        </Link>
+        <footer>
+          <Link
+            to="estimate-project"
+            className="cta"
+            style={{ marginTop: "4.65rem" }}
+          >
+            {cta}
+          </Link>
+        </footer>
       )}
     </section>
   );

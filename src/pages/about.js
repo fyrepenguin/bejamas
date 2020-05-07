@@ -10,6 +10,7 @@ import Team from "../components/about/team";
 import TechUsed from "../components/common/tech";
 import Nomads from "../components/about/nomads";
 import Values from "./../components/about/values";
+import breakpoints from "../components/utils/breakpoints";
 
 /**
  * TODO: Make it responsive
@@ -111,13 +112,28 @@ const About = () => {
     display: grid;
     align-items: center;
     margin: 0 auto 3.1rem;
+    padding-bottom: 3.1rem;
     row-gap: 3.1rem;
-    padding-left: 6.5875rem;
-    grid-template-columns: auto 513px;
-    column-gap: 9.3rem;
+
+    @media (min-width: ${breakpoints.md}) {
+      padding-bottom: 4.65rem;
+      grid-template-columns: auto 40%;
+      column-gap: 2.325rem;
+      margin-bottom: 4.65rem;
+    }
+    @media (min-width: ${breakpoints.xl}) {
+      padding-left: 6.5875rem;
+      grid-template-columns: auto 513px;
+      column-gap: 9.3rem;
+    }
     p {
-      font-size: 1.25rem;
       line-height: 1.8;
+      margin-top: 1.55rem;
+      margin-bottom: 3.1rem;
+      @media (min-width: ${breakpoints.md}) {
+        font-size: 1.25rem;
+        margin-top: 2.325rem;
+      }
     }
   `;
   const FooterCTA = (

@@ -4,6 +4,7 @@ import Img from "gatsby-image";
 import { css } from "linaria";
 
 import Heading from "./heading";
+import breakpoints from "../utils/breakpoints";
 
 const Workflow = () => {
   const data = useStaticQuery(graphql`
@@ -30,8 +31,8 @@ const Workflow = () => {
     color: var(--color-text-secondary);
     &::before {
       position: absolute;
-      font-size: 18rem;
-      top: -5rem;
+      font-size:10rem;
+      top: 1rem;
       content: counter(benefits);
       color: #e3eef4;
       right: 5%;
@@ -49,6 +50,11 @@ const Workflow = () => {
       );
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      
+      @media(min-width:${breakpoints.md}) {
+        font-size: 18rem;
+        top:-5rem;
+      }
     }
     .gatsby-image-wrapper {
       display: inline-block;
@@ -62,7 +68,7 @@ const Workflow = () => {
     
     }`;
   const workflowItems = css`
-  margin: 1.55rem auto 0;
+    margin: 1.55rem auto 0;
     margin-top: 4.65rem;
     display: grid;
     column-gap: calc(6vw + 3.1rem);
@@ -74,16 +80,23 @@ const Workflow = () => {
     );
     counter-reset: benefits;
     align-items: flex-start;
-    & > .workflow-item:nth-child(2) {
-  margin-top: 23.25rem;
-}
-& > .workflow-item:nth-child(odd):not(:first-child) {
-  margin-top: -9.3rem;
-}
-& > .workflow-item:nth-child(2n):not(:nth-child(2)) {
-  margin-top: 12.4rem;
-  `;
+    @media (min-width: ${breakpoints.sm}) {
+      margin-top: 3.1rem;
+    }
 
+    @media (min-width: ${breakpoints.md}) {
+      margin-top: 4.65rem;
+      & > .workflow-item:nth-child(2) {
+        margin-top: 23.25rem;
+      }
+      & > .workflow-item:nth-child(odd):not(:first-child) {
+        margin-top: -9.3rem;
+      }
+      & > .workflow-item:nth-child(2n):not(:nth-child(2)) {
+        margin-top: 12.4rem;
+      }
+    }
+  `;
   return (
     <section className="section workflow">
       <Heading subheading="workflow" title="Get your project a pro service" />
