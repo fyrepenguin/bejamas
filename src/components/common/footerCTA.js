@@ -8,7 +8,7 @@ const FooterCTA = () => {
     padding-bottom: 4.65rem;
     margin-bottom: 4.65rem;
     border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
-    p {
+    h3 {
       color: var(--color-cta);
     }
     h2 {

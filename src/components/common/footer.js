@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import { css } from "linaria";
-
-import { footerLogo } from "../images";
+import breakpoints from "../utils/breakpoints";
 
 /**
  * TODO: Make it responsive
@@ -10,200 +9,247 @@ import { footerLogo } from "../images";
  */
 
 const footer = css`
-  padding: 0;
-  max-width: 87.5rem;
   color: #fff;
-  margin: 0 auto 3.1rem;
-  .top {
-    right: 7.75rem;
-    display: flex;
-    background: var(--color-cta);
-    border-radius: 100%;
-    width: 3.5rem;
-    height: 3.5rem;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 0;
-    transform: translateY(-50%);
-    transition: box-shadow 0.3s cubic-bezier(0, 0.89, 0.44, 1);
-    will-change: box-shadow;
-    &:hover {
-      box-shadow: 0 9px 40px 0 rgba(218, 54, 84, 0.65);
-      svg {
-        transform: translateY(-2px) scale(1);
-      }
-    }
-    svg {
-      will-change: transform;
-      transform: scale(0.95);
-      transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    }
+  @media (min-width: ${breakpoints.md}) {
+    padding-left: 4vw;
+    padding-right: 4vw;
+    padding-bottom: 0;
+    margin: 0 auto 3.1rem;
   }
 
-  .footer-content {
-    padding: 3.1rem 8vw 1.5rem;
-    position: relative;
+  @media (min-width: ${breakpoints.xxl}) {
+    padding: 0;
+    max-width: 87.5rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (min-width: ${breakpoints.xxl}) {
+    padding: 0;
+    max-width: 87.5rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+`;
+const footerContent = css`
+  background: #000;
+  padding: 3.1rem 8vw 1.5rem;
+  position: relative;
+
+  background: #000;
+  @media (min-width: ${breakpoints.md}) {
+    border-radius: 16px;
+    padding-top: 4.65rem;
+    padding-left: 4.65rem;
+    padding-right: 4.65rem;
+  }
+  @media (min-width: ${breakpoints.xxl}) {
     padding-top: 4.65rem;
     padding-left: 7.75rem;
     padding-right: 7.75rem;
-    border-radius: 16px;
-    background: #000;
+  }
+`;
+const top = css`
+  background: var(--color-cta);
+  border-radius: 100%;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 4.65rem;
+  top: 0;
+  transform: translateY(-50%);
+  transition: box-shadow 0.3s cubic-bezier(0, 0.89, 0.44, 1);
+  will-change: box-shadow;
+  &:hover {
+    box-shadow: 0 9px 40px 0 rgba(218, 54, 84, 0.65);
+    svg {
+      transform: translateY(-2px) scale(1);
+    }
+  }
+  svg {
+    will-change: transform;
+    transform: scale(0.95);
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  @media (min-width: ${breakpoints.md}) {
+    display: flex;
+  }
+  @media (min-width: ${breakpoints.xxl}) {
+    right: 7.75rem;
+  }
+`;
+const footerInfo = css`
+  display: grid;
+  margin-bottom: 1.55rem;
+  row-gap: 4.65rem;
+  @media (min-width: ${breakpoints.lg}) {
+    grid-template-columns: 2fr 7fr;
+    margin-bottom: 3.1rem;
+  }
+  @media (min-width: ${breakpoints.xl}) {
+    grid-template-columns: 2fr 5fr;
+  }
+  @media (min-width: ${breakpoints.xxl}) {
+    grid-template-columns: 2fr 4fr;
+  }
+`;
 
-    .footer-info {
-      display: grid;
-      row-gap: 4.65rem;
-      margin-bottom: 3.1rem;
-      grid-template-columns: 2fr 4fr;
-      .mode {
-        img {
-          margin: 0;
-        }
-        fieldset {
-          padding: 0;
-          margin: 0 0 1.1625rem;
-          margin-top: 20px;
-          border: 0;
-          .switch {
-            position: absolute;
-            z-index: 1;
-            opacity: 0;
-            padding: 0;
-            margin: 0;
-            overflow: visible;
-            &:checked ~ label {
-              a:first-child {
-                opacity: 0.3;
-              }
-              a:last-child {
-                opacity: 1;
-              }
-            }
-            &:checked ~ label a:hover {
-              opacity: 1;
-            }
-            &:checked ~ label span::after {
-              transform: translate3d(20px, 0, 0);
-            }
-          }
-          .switch-label {
-            position: absolute;
-            z-index: 1;
-            padding: 15px;
-            margin: 0 28px;
-            transition: background-color 0.2s ease-in-out;
-            width: 50px;
-            height: 30px;
-            border-radius: 50px;
-            text-align: center;
-            background-color: var(--color-cta);
-            box-shadow: inset -4px 4px 15px rgba(0, 0, 0, 0.4);
-            cursor: pointer;
-            a {
-              display: flex;
-              &:hover {
-                opacity: 1;
-              }
-            }
-            .light {
-              position: absolute;
-              transform: translate3d(0, -50%, 0);
-              top: 50%;
-              color: #fff;
-              transition: opacity 0.15s linear;
-              right: 100%;
-              margin-right: 10px;
-              font-size: 28px;
-              &:hover {
-                opacity: 1;
-              }
-
-              svg {
-                width: 21px;
-                height: 21px;
-              }
-            }
-            .dark {
-              position: absolute;
-              transform: translate3d(0, -50%, 0);
-              top: 50%;
-              color: #fff;
-              transition: opacity 0.15s linear;
-              text-decoration: none;
-              left: 100%;
-              margin-left: 4px;
-              font-size: 19px;
-              opacity: 0.3;
-              svg {
-                width: 30px;
-                height: 30px;
-              }
-            }
-            span {
-              position: absolute;
-              bottom: calc(100% + 10px);
-              left: 0;
-              width: 100%;
-              &::after {
-                position: absolute;
-                top: calc(100% + 15px);
-                left: 5px;
-                width: 20px;
-                height: 20px;
-                content: "";
-                border-radius: 50%;
-                background-color: #fff;
-                transition: transform 0.2s, background-color 0.2s;
-                box-shadow: -3px 3px 8px rgba(0, 0, 0, 0.4);
-              }
-            }
-          }
-        }
+const fieldset = css`
+  margin-top: 20px;
+  border: 0;
+  .switch {
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    &:checked ~ label {
+      a:first-child {
+        opacity: 0.3;
+      }
+      a:last-child {
+        opacity: 1;
+      }
+    }
+    &:checked ~ label a:hover {
+      opacity: 1;
+    }
+    &:checked ~ label span::after {
+      transform: translate3d(20px, 0, 0);
+    }
+  }
+  .switch-label {
+    position: absolute;
+    z-index: 1;
+    padding: 15px;
+    margin: 0 28px;
+    transition: background-color 0.2s ease-in-out;
+    width: 50px;
+    height: 30px;
+    border-radius: 50px;
+    text-align: center;
+    background-color: var(--color-cta);
+    box-shadow: inset -4px 4px 15px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    a {
+      display: flex;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    .light {
+      position: absolute;
+      transform: translate3d(0, -50%, 0);
+      top: 50%;
+      color: #fff;
+      transition: opacity 0.15s linear;
+      right: 100%;
+      margin-right: 10px;
+      font-size: 28px;
+      &:hover {
+        opacity: 1;
       }
 
-      nav {
-        display: grid;
-        grid-template-columns: auto auto auto 140px;
-        column-gap: 1.55rem;
-        color: #fff;
-        row-gap: 2.325rem;
-        ul {
-          margin: 0;
-          font-size: 0.875rem;
-          li {
-            margin-bottom: 1.55rem;
-            a {
-              transition: all 0.15s cubic-bezier(0.7, 0, 1, 0.5);
-              color: hsla(0, 0%, 100%, 0.5);
-              line-height: 21.7px;
-              &:hover {
-                color: #fff;
-              }
-            }
-          }
-        }
-        .social {
-          justify-content: flex-end;
-          display: flex;
-          li + li {
-            margin-left: 1.55rem;
-          }
+      svg {
+        width: 21px;
+        height: 21px;
+      }
+    }
+    .dark {
+      position: absolute;
+      transform: translate3d(0, -50%, 0);
+      top: 50%;
+      color: #fff;
+      transition: opacity 0.15s linear;
+      text-decoration: none;
+      left: 100%;
+      margin-left: 4px;
+      font-size: 19px;
+      opacity: 0.3;
+      svg {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    span {
+      position: absolute;
+      bottom: calc(100% + 10px);
+      left: 0;
+      width: 100%;
+      &::after {
+        position: absolute;
+        top: calc(100% + 15px);
+        left: 5px;
+        width: 20px;
+        height: 20px;
+        content: "";
+        border-radius: 50%;
+        background-color: #fff;
+        transition: transform 0.2s, background-color 0.2s;
+        box-shadow: -3px 3px 8px rgba(0, 0, 0, 0.4);
+      }
+    }
+  }
+`;
+const footerLogo = css`
+  max-width: 2rem;
+  height: auto;
+`;
+
+const nav = css`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1.55rem;
+  color: #fff;
+  row-gap: 2.325rem;
+  @media (min-width: ${breakpoints.md}) {
+    grid-template-columns: auto auto auto;
+  }
+  @media (min-width: ${breakpoints.lg}) {
+    grid-template-columns: auto auto auto 140px;
+  }
+  ul {
+    margin: 0;
+    fonst-size: 0.875rem;
+    li {
+      margin-bottom: 1.55rem;
+      a {
+        transition: all 0.15s cubic-bezier(0.7, 0, 1, 0.5);
+        color: hsla(0, 0%, 100%, 0.5);
+        line-height: 21.7px;
+        &:hover {
+          color: #fff;
         }
       }
     }
   }
-
-  .copyright {
-    font-size: 0.8125rem;
-    color: hsla(0, 0%, 100%, 0.5);
+`;
+const social = css`
+  display: flex;
+  @media (min-width: ${breakpoints.lg}) {
+    justify-content: flex-end;
+  }
+  @media (max-width: ${breakpoints.md}) {
+    grid-column: 1/2;
+  }
+  li + li {
+    margin-left: 1.55rem;
   }
 `;
 
+const copyright = css`
+  font-size: 0.8125rem;
+  color: hsla(0, 0%, 100%, 0.5);
+`;
 const Footer = ({ children }) => {
   return (
     <footer className={footer}>
-      <div className="footer-content">
-        <Link to="/" className="top">
+      <div className={`${footerContent} footer-content`}>
+        <Link to="/" className={top}>
           <svg width="16" height="22">
             <path
               d="M8 21V1M1 8l7-7 7 7"
@@ -217,12 +263,27 @@ const Footer = ({ children }) => {
           </svg>
         </Link>
         {children}
-        <section className="footer-info">
-          <div className="mode">
+        <section className={`${footerInfo} footer-info`}>
+          <div>
             <Link to="/">
-              <img src={footerLogo} alt="" style={{ maxWidth: "2rem" }} />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="317.758"
+                height="283.971"
+                class={footerLogo}
+                viewBox="0 0 317.758 283.971"
+              >
+                <g fill="#ffffff" stroke="none" strokeWidth="1px">
+                  <path
+                    d="M26.704 241.324C11.633 241.324 0 230.041 0 216.694V24.651C0 10.607 12.321 0 26.704 0h57.849c51.354 0 77.022 32.858 77.022 67.092 0 23.953-15.398 38.686-35.947 48.605 21.226 8.555 42.453 23.964 42.453 53.755 0 40.051-32.173 71.872-84.903 71.872H26.704zM87.292 94.483c11.981 0 26.365-8.218 26.365-26.704 0-13.009-6.166-24.642-23.966-24.642H47.918v51.346h39.374zm-39.374 43.816v59.562h38.348c22.6 0 33.883-11.295 33.883-29.095 0-19.513-13.693-30.467-31.832-30.467H47.918zM294.143 240.496c11.982 0 23.615 9.592 23.615 21.912 0 12.332-10.281 21.563-23.615 21.563h-91.166c-13.357 0-23.625-9.23-23.625-21.563 0-12.319 11.645-21.912 23.625-21.912h91.166z"
+                    stroke="none"
+                    fill="#ffffff"
+                    strokeWidth="1px"
+                  ></path>
+                </g>
+              </svg>
             </Link>
-            <fieldset aria-label="Theme Switcher">
+            <fieldset aria-label="Theme Switcher" className={fieldset}>
               <input
                 type="checkbox"
                 id="themeSwitch"
@@ -250,7 +311,7 @@ const Footer = ({ children }) => {
               </label>
             </fieldset>
           </div>
-          <nav>
+          <nav className={nav}>
             <div className="company">
               <p>Company</p>
               <ul>
@@ -296,7 +357,7 @@ const Footer = ({ children }) => {
                 </li>
               </ul>
             </div>
-            <ul className="social">
+            <ul className={social}>
               <li>
                 <a
                   href="https://www.facebook.com/bejamas.io"
@@ -364,7 +425,7 @@ const Footer = ({ children }) => {
             </ul>
           </nav>
         </section>
-        <p className="copyright">&copy; Bejamas.io - All rights reserved.</p>
+        <p className={copyright}>&copy; Bejamas.io - All rights reserved.</p>
       </div>
     </footer>
   );
