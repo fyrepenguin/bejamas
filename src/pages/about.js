@@ -34,6 +34,16 @@ const About = () => {
     }
   `);
 
+  const i4 = css`
+      @media (max-width: ${breakpoints.xl}) {
+        display: none !important;
+      }
+    `,
+    i1 = css`
+      @media (max-width: ${breakpoints.xl}) {
+        display: none !important;
+      }
+    `;
   const subheading = `About Us`,
     title = `We are Bejamas`,
     desc = `Not your everyday web dev shop but a partner that will help your business grow with modern tools more than you thought it's possible.`,
@@ -41,7 +51,7 @@ const About = () => {
     shapes = (
       <>
         <Img
-          className="i4"
+          className={i4}
           fluid={data.i1.fluid}
           style={{
             position: "absolute",
@@ -53,7 +63,7 @@ const About = () => {
           }}
         />
         <Img
-          className="i1"
+          className={i1}
           fluid={data.i4.fluid}
           style={{
             position: "absolute",
@@ -92,6 +102,7 @@ const About = () => {
           "Those are two very important factors at Bejamas. We believe that every person deserves valuable relationships with other people and a pleasant work environment. We try to help each other and give as much as we take ourselves.",
       },
     ];
+
   const aboutUs = css`
     padding-top: 6.2rem;
     text-align: center;
@@ -136,6 +147,7 @@ const About = () => {
       }
     }
   `;
+
   const FooterCTA = (
     <section className={footerCta}>
       <div>

@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import { css } from "linaria";
 
 import Heading from "../common/heading";
+import breakpoints from "../utils/breakpoints";
 
 const CaseStudy = () => {
   const data = useStaticQuery(graphql`
@@ -26,21 +27,36 @@ const CaseStudy = () => {
     }
   `);
   const caseStudy = css`
-      padding-top: 7.75rem;
+      &.section {
+        padding-top: 3.1rem;
+        @media (min-width: ${breakpoints.md}) {
+          padding-top: 7.75rem;
+        }
+      }
     `,
     caseStudyContent = css`
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 100%;
       row-gap: 1.55rem;
       max-width: 72.075rem;
       margin: 1.55rem auto 0;
-      margin-top: 4.65rem;
+      margin-top: 3.1rem;
       align-items: flex-start;
       column-gap: 49.6px;
+      @media (min-width: ${breakpoints.md}) {
+        grid-template-columns: 2fr 3fr;
+        margin-top: 4.65rem;
+      }
+      @media (min-width: ${breakpoints.lg}) {
+        grid-template-columns: 1fr 1fr;
+      }
     `,
     caseStudyHero = css`
-      order: 0;
+      order: 2;
       margin-bottom: 2.325rem;
+      @media (min-width: ${breakpoints.md}) {
+        order: 0;
+      }
       .img-container {
         border-radius: 16px;
         .img-wrapper {
@@ -55,19 +71,27 @@ const CaseStudy = () => {
       }
     `,
     caseStudyQuote = css`
-      padding: 2.325rem 6.2rem 3.1rem 3.1rem !important;
+      padding: 1.55rem 4.65rem 1.55rem;
       border-radius: 28px;
       background-color: var(--color-bg-secondary);
       position: relative;
       border: 0 !important;
       margin: 0 0 1.55rem;
+      @media (min-width: ${breakpoints.lg}) {
+        padding: 2.325rem 6.2rem 3.1rem 3.1rem !important;
+      }
     `,
     quoteImg = css`
-      max-width: 100px;
-      right: -1.55rem;
-      top: -1.55rem;
+      right: -0.775rem;
+      top: -0.775rem;
+      max-width: 60px;
       position: absolute;
       width: 100%;
+      @media (min-width: ${breakpoints.md}) {
+        max-width: 100px;
+        right: -1.55rem;
+        top: -1.55rem;
+      }
     `,
     user = css`
       font-size: 1rem;
@@ -124,7 +148,7 @@ const CaseStudy = () => {
     `;
 
   return (
-    <section className={`${caseStudy} section`}>
+    <section className={`section ${caseStudy}`}>
       <Heading
         subheading="featured jamstack case study"
         title="JAMstack in Services of Better education: Avenues, the World School."
@@ -140,7 +164,10 @@ const CaseStudy = () => {
         <div>
           <blockquote className={caseStudyQuote}>
             <div className={quoteImg}>
-              <Img fluid={data.quotes.fluid} />
+              <Img
+                fluid={data.quotes.fluid}
+                style={{ maxWidth: "100px", margin: "0 auto" }}
+              />
             </div>
             For us, the benefits (of JAMstack) are straight forward. Cost is an
             obvious win as well as the ease of implementing enhancements and

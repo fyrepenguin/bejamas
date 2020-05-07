@@ -5,6 +5,7 @@ import { css } from "linaria";
 
 import Heading from "../common/heading";
 import { JAMintro, jamPWA, jamclients, wordpress, headless } from "../images";
+import breakpoints from "../utils/breakpoints";
 
 const Stories = () => {
   const data = useStaticQuery(graphql`
@@ -16,23 +17,43 @@ const Stories = () => {
   `);
   const posts = css`
       display: grid;
-
-      padding: 0 4.65rem;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(4, 254px);
-      grid-template-areas:
-        ". mainPost mainPost ."
-        ". mainPost mainPost post4"
-        "post1 . post2 post2"
-        ". post3 post2 post2";
+      padding: 0;
       column-gap: 1.55rem;
       row-gap: 1.55rem;
       color: #fff;
       position: relative;
+      grid-template-areas:
+        "mainPost"
+        "post4"
+        "post1"
+        "post2"
+        "post3";
+      @media (min-width: ${breakpoints.sm}) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+          "mainPost mainPost"
+          "post4 post1"
+          "post2 post3";
+      }
+      @media (min-width: ${breakpoints.lg}) {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 254px);
+        grid-template-areas:
+          ". mainPost mainPost ."
+          ". mainPost mainPost post4"
+          "post1 . post2 post2"
+          ". post3 post2 post2";
+      }
+      @media (min-width: ${breakpoints.xxl}) {
+        padding: 0 4.65rem;
+      }
     `,
     postCircle = css`
       max-width: 172px;
       height: auto;
+      @media (max-width: ${breakpoints.lg}) {
+        display: none;
+      }
     `,
     postCta = css`
       text-align: center;
@@ -40,10 +61,12 @@ const Stories = () => {
     `,
     mainPost = css`
       grid-area: mainPost;
-      margin-right: 6.2rem;
-      margin-top: 6.2rem;
       position: relative;
-      grid-column: 2 / span 2;
+      @media (min-width: ${breakpoints.lg}) {
+        grid-column: 2 / span 2;
+        margin-right: 6.2rem;
+        margin-top: 6.2rem;
+      }
       a {
         padding: 2.325rem 2.325rem 0.5166666rem;
 
@@ -113,9 +136,11 @@ const Stories = () => {
     post2 = css`
       position: relative;
       grid-area: post2;
-      margin-right: 9.3rem;
-      margin-bottom: 9.3rem;
       border-radius: 16px;
+      @media (min-width: ${breakpoints.lg}) {
+        margin-right: 9.3rem;
+        margin-top: 9.3rem;
+      }
       a {
         color: #1f0757;
         background: #ff385e;

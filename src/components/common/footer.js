@@ -270,7 +270,7 @@ const Footer = ({ children }) => {
                 xmlns="http://www.w3.org/2000/svg"
                 width="317.758"
                 height="283.971"
-                class={footerLogo}
+                className={footerLogo}
                 viewBox="0 0 317.758 283.971"
               >
                 <g fill="#ffffff" stroke="none" strokeWidth="1px">

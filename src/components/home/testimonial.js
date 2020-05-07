@@ -2,6 +2,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import { css } from "linaria";
+import breakpoints from "../utils/breakpoints";
 
 const Testimonial = () => {
   const data = useStaticQuery(graphql`
@@ -15,11 +16,13 @@ const Testimonial = () => {
     }
   `);
   const testimonialContent = css`
-    display: grid;
-    column-gap: 6.2rem;
-    align-items: center;
-    padding-left: 3.1rem;
-    grid-template-columns: auto 40%;
+    @media (min-width: ${breakpoints.lg}) {
+      display: grid;
+      column-gap: 6.2rem;
+      align-items: center;
+      padding-left: 3.1rem;
+      grid-template-columns: auto 40%;
+    }
   `;
 
   const rating = css`
@@ -45,6 +48,9 @@ const Testimonial = () => {
     position: relative;
     max-width: 511px;
     overflow: hidden;
+    @media (max-width: ${breakpoints.lg}) {
+      display: none;
+    }
   `;
   const testimonial = css`
     font-size: 1.8125rem;

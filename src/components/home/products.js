@@ -4,6 +4,7 @@ import { css } from "linaria";
 import Img from "gatsby-image";
 
 import Heading from "../common/heading";
+import breakpoints from "../utils/breakpoints";
 
 const Products = ({ description, subheading, pageName, jamDesc, pwaDesc }) => {
   const data = useStaticQuery(graphql`
@@ -25,11 +26,13 @@ const Products = ({ description, subheading, pageName, jamDesc, pwaDesc }) => {
     margin: 1.55rem auto 0;
     margin-top: 4.65rem;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     row-gap: 3.1rem;
     column-gap: 3.1rem;
     max-width: 58.9rem;
     align-items: flex-start;
+    @media (min-width: ${breakpoints.sm}) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   `;
   const card = css`
     display: flex;
