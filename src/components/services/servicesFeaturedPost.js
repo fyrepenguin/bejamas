@@ -6,6 +6,7 @@ import { css } from "linaria";
 import Heading from "./../common/heading";
 
 import "../../styles/jamstack.scss";
+import breakpoints from "../utils/breakpoints";
 
 const ServicesFeaturedPost = () => {
   const data = useStaticQuery(graphql`
@@ -18,11 +19,17 @@ const ServicesFeaturedPost = () => {
   const featuredContent = css`
     margin: 1.55rem auto 0;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     row-gap: 4.65rem;
     column-gap: 4.65rem;
     max-width: 58.9rem;
-    margin-top: 4.65rem;
+    @media (min-width: ${breakpoints.sm}) {
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 3.1rem;
+    }
+    @media (min-width: ${breakpoints.sm}) {
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 4.65rem;
+    }
   `;
   const featuredHeader = css`
     .gatsby-image-wrapper {

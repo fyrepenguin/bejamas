@@ -14,6 +14,8 @@ import Faq from "../../components/services/faq";
 import { paolo, william, yan } from "./../../components/images";
 
 import "../../styles/services.scss";
+import { css } from "linaria";
+import breakpoints from "../../components/utils/breakpoints";
 
 const Services = () => {
   const data = useStaticQuery(graphql`
@@ -26,10 +28,15 @@ const Services = () => {
       }
     }
   `);
+  const i24 = css`
+    @media (max-width: ${breakpoints.lg}) {
+      display: none !important;
+    }
+  `;
   const shapes = (
     <Img
       fluid={data.i24.fluid}
-      className="i24"
+      className={i24}
       style={{
         position: "absolute",
         width: "150px",

@@ -2,6 +2,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import { css } from "linaria";
+import breakpoints from "../utils/breakpoints";
 
 import Heading from "./../common/heading";
 
@@ -43,8 +44,8 @@ const JAMworkflow = () => {
     color: var(--color-text-secondary);
     &::before {
       position: absolute;
-      font-size: 18rem;
-      top: -5rem;
+      font-size: 10rem;
+      top: 1rem;
       content: counter(benefits);
       color: #e3eef4;
       right: 5%;
@@ -62,6 +63,10 @@ const JAMworkflow = () => {
       );
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      @media (min-width: ${breakpoints.md}) {
+        font-size: 18rem;
+        top: -5rem;
+      }
     }
     .gatsby-image-wrapper {
       display: inline-block;

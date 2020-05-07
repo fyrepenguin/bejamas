@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import { css } from "linaria";
+import breakpoints from "../utils/breakpoints";
 
 const JamIntro = () => {
   const data = useStaticQuery(graphql`
@@ -11,15 +12,18 @@ const JamIntro = () => {
       }
     }
   `);
+
   const jamIntroContent = css`
     margin: 1.55rem auto 0;
-    grid-template-columns: repeat(2, 1fr);
-    margin-top: 0;
     align-items: center;
     max-width: 72.075rem;
     display: grid;
     column-gap: 3.1rem;
     row-gap: 4.65rem;
+    @media (min-width: ${breakpoints.sm}) {
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 3.1rem;
+    }
     p {
       margin-top: 2.325rem;
       font-size: 1.25rem;

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { css } from "linaria";
 
 import Heading from "./../common/heading";
+import breakpoints from "../utils/breakpoints";
 
 const Query = ({ query, ans }) => {
   let [isOpen, setOpen] = useState(false);
@@ -20,10 +21,13 @@ const faqList = css`
   margin: 1.55rem auto 0;
   display: grid;
   grid-template-columns: 1fr;
-  margin-top: 4.65rem;
+  margin-top:3.1rem
   column-gap: 2.325rem;
   align-items: flex-start;
-  font-size: 1.25rem;
+  @media(min-width:${breakpoints.md}) {
+    font-size: 1.25rem;margin-top: 4.65rem;
+  }
+  
   .query {
     margin-top: 1.55rem;
     margin-bottom: 0;

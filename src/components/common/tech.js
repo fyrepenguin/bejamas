@@ -6,7 +6,7 @@ import breakpoints from "../utils/breakpoints";
 
 import Heading from "./heading";
 
-const TechUsed = ({ cta }) => {
+const TechUsed = ({ cta, light }) => {
   const data = useStaticQuery(graphql`
     fragment ImagesContent on ContentfulAsset {
       fluid {
@@ -108,7 +108,11 @@ const TechUsed = ({ cta }) => {
   `;
 
   return (
-    <section className={`${tech} section secondaryBg`}>
+    <section
+      className={
+        light ? `${tech} section primaryBg` : `${tech} section secondaryBg`
+      }
+    >
       <Heading
         description={desc}
         title="Beautifying the web"
