@@ -66,7 +66,7 @@ const JAM = () => {
         <JamIntro />
         <Benefits />
         <ServicesFeaturedPost />
-        <TechUsed />
+        <TechUsed light />
         <JAMworkflow />
         <Testimonials testimonials={testimonials} />
         <section className="section others">
