@@ -2,6 +2,7 @@ import React from "react";
 import Img from "gatsby-image";
 import { Link } from "gatsby";
 import { css } from "linaria";
+import breakpoints from "../utils/breakpoints";
 
 const Header = ({ subheading, title, cta, desc, hero, extra, shapes }) => {
   const heroCss = css`
@@ -50,10 +51,24 @@ const Header = ({ subheading, title, cta, desc, hero, extra, shapes }) => {
     line-height: 1.8;
   `;
   const heroImgContainer = css`
-    margin-right: -3.1rem;
     padding-bottom: 3.1rem;
+    @media (min-width: ${breakpoints.md}) {
+      margin-right: -55%;
+    }
+    @media (min-width: ${breakpoints.lg}) {
+      margin-right: -40%;
+    }
+    @media (min-width: ${breakpoints.xl}) {
+      margin-right: 0;
+    }
+    @media (min-width: ${breakpoints.xxl}) {
+      margin-right: -3.1rem;
+    }
+    @media (max-width: ${breakpoints.md}) {
+      margin-right: 0;
+      display: none !important;
+    }
     .gatsby-image-wrapper {
-      margin: 0 auto;
       max-width: 676px;
     }
   `;

@@ -1,7 +1,7 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
-import { css, cx } from "linaria";
+import { css } from "linaria";
 
 import Heading from "../common/heading";
 import { JAMintro, jamPWA, jamclients, wordpress, headless } from "../images";

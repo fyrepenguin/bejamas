@@ -93,7 +93,7 @@ const Mission = () => {
         title="Help build the web of tomorrow"
         subheading="Our mission"
       />
-      <main className={missionContent}>
+      <div className={missionContent}>
         <div>
           <p className={p}>
             Bejamas is home to independent souls and visionary thinkers. A
@@ -125,7 +125,7 @@ const Mission = () => {
         <div className={missionImg}>
           <Img className="mission-hero" fluid={data.hero.fluid} />
         </div>
-      </main>
+      </div>
     </section>
   );
 };

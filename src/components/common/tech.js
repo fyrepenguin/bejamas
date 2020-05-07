@@ -2,6 +2,7 @@ import React from "react";
 import Img from "gatsby-image";
 import { css } from "linaria";
 import { Link, useStaticQuery, graphql } from "gatsby";
+import breakpoints from "../utils/breakpoints";
 
 import Heading from "./heading";
 
@@ -62,10 +63,11 @@ const TechUsed = ({ cta }) => {
     "Every project is a new story, yet some things stay the same. We pick a dedicated set of tools for each one, for the best performance possible.";
 
   const tech = css`
-    text-align: center;
-    border-radius: 16px;
-    background-color: var(--color-bg-secondary);
+    @media (min-width: ${breakpoints.md}) {
+      text-align: center;
+    }
   `;
+
   const toolTypes = css`
     margin-top: 4.65rem;
     h3 {
@@ -77,6 +79,7 @@ const TechUsed = ({ cta }) => {
       color: var(--color-text-secondary);
     }
   `;
+
   const toolImages = css`
     display: flex;
     align-items: center;
@@ -90,8 +93,9 @@ const TechUsed = ({ cta }) => {
       opacity: 0.3;
     }
   `;
+
   return (
-    <section className={`${tech} tech section`}>
+    <section className={`${tech} section secondaryBg`}>
       <Heading
         description={desc}
         title="Beautifying the web"
