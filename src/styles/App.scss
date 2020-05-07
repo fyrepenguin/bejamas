@@ -477,8 +477,26 @@ img {
   border-style: none;
 }
 .container {
-  max-width: 87.5rem;
   margin: 0 auto;
+  padding-left: 8vw;
+  padding-right: 8vw;
+  @media (min-width: 768px) {
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+  @media (min-width: 1522px) {
+    max-width: 87.5rem;
+    overflow: visible;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  @media (min-width: 1522px) {
+    max-width: 87.5rem;
+    overflow: visible;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 .container-fluid {
   width: 100%;
@@ -541,8 +559,8 @@ a.cta {
 
 .section {
   padding: 3.1rem 8vw;
-  margin-left: 8vw;
-  margin-right: 8vw;
+  margin-left: -8vw;
+  margin-right: -8vw;
   @media (min-width: 768px) {
     padding: 4.65rem 4vw;
     margin-left: 0;

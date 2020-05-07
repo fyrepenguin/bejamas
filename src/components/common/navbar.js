@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "gatsby";
 import { css } from "linaria";
-
+import breakpoints from "../utils/breakpoints";
 /**
  * TODO: Add post name and social icons in blog posts
  * TODO: Add animations and scroll events
@@ -13,44 +13,121 @@ const Navbar = () => {
       background: var(--color-bg-almost-primary);
       backdrop-filter: blur(16px);
       z-index: 9;
-      position: sticky;
-      top: 0;
+      transition: transform 0.3s cubic-bezier(0, 0.89, 0.44, 1);
+      backface-visibility: hidden;
+      transform: translateZ(0);
+
+      &.isScrolled {
+        @media (max-width: ${breakpoints.lg}) {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transfrom: translateY(100%);
+        opacity: 0;
+          &.open,
+          &.show-it {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+        &:not(.open) {
+          background: var(--color-bg-header);
+        }
+      }
+      }
+
+      @media (min-width: ${breakpoints.lg}) {
+        position: sticky;
+        top: 0;
+      }
     `,
     navbar = css`
-      display: grid;
-      max-width: 87.5rem;
-      padding: 0;
-      grid-template-columns: 1fr auto 1fr;
-      grid-template-areas: "logo nav cta";
-      align-items: center;
+      align-items: flex-end;
+      margin: 0 auto;
       height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      @media (max-width: ${breakpoints.md}) {
+        padding: 0.775rem 8vw;
+        grid-template-rows: 44px auto;
+        z-index: 8;
+      }
+      @media (min-width: ${breakpoints.md}) {
+        padding: 0.775rem 4vw;
+      }
+      @media (max-width: ${breakpoints.lg}) {
+        .cta {
+          margin-left: 0;
+          margin-right: auto;
+          flex-direction: row-reverse;
+          transition: all 0.5s ease;
+        }
+      }
+      @media (min-width: ${breakpoints.lg}) {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        grid-template-areas: "logo nav cta";
+        padding: 0 4vw;
+        align-items: center;
+      }
+      @media (min-width: ${breakpoints.xxl}) {
+        max-width: 87.5rem;
+        padding: 0;
+      }
     `,
     navBrand = css`
       grid-area: logo;
+      z-index: 8;
       a {
         background-color: transparent;
         .nav-logo {
-          max-width: 10.85rem;
           height: 30px;
           margin-top: 0.5rem;
+          max-width: 6.25rem;
+          path {
+            fill: var(--color-text-solid);
+          }
+
+          @media (min-width: ${breakpoints.lg}) {
+            max-width: 9.3rem;
+          }
+          @media (min-width: ${breakpoints.xl}) {
+            max-width: 10.85rem;
+          }
         }
       }
     `,
     menu = css`
-      display: block;
+      display: none;
       grid-area: nav;
       width: 100%;
+      .open & {
+        display: block;
+      }
+      @media (min-width: ${breakpoints.lg}) {
+        transition: all 0.5s ease;
+        display: block;
+      }
     `,
     menuItems = css`
-      display: flex;
       list-style-type: none;
       justify-content: center;
       margin: 0;
-      padding: 0;
-      li {
+      @media (min-width: ${breakpoints.lg}) {
+        display: flex;
+      }
+      & > li {
         padding: 0 0.3875rem;
+      }
+      li {
         margin: 0;
-        font-size: 1rem;
+        @media (min-width: ${breakpoints.xl}) {
+          font-size: 1rem;
+        }
+        @media (min-width: ${breakpoints.lg}) {
+          font-size: 0.9375rem;
+        }
       }
     `,
     navLink = css`
@@ -65,8 +142,17 @@ const Navbar = () => {
       &.active {
         color: var(--color-cta);
       }
-      &.active {
-        border-top: 2px solid var(--color-cta);
+      @media (min-width: ${breakpoints.lg}) {
+        padding: 2.325rem 0.775rem;
+
+        &.active {
+          border-top: 2px solid var(--color-cta);
+        }
+      }
+      @media (min-width: ${breakpoints.xl}) {
+        padding: 2.325rem 1.033333333332rem;
+      }
+      @media (min-width: ${breakpoints.lg}) {
       }
     `,
     navService = css`
@@ -75,10 +161,17 @@ const Navbar = () => {
           opacity: 1;
           visibility: visible;
           transform: translateY(0);
+          @media (max-width: ${breakpoints.lg}) {
+            display: none;
+          }
         }
       }
     `,
     downCaret = css`
+      display: none;
+      @media (min-width: ${breakpoints.md}) {
+        display: block;
+      }
       margin-left: 0.775rem;
     `,
     serviceDropdown = css`
@@ -112,11 +205,83 @@ const Navbar = () => {
       display: flex;
       align-items: center;
       margin-left: auto;
+      button {
+        
+        margin-right:1.033333333332rem;
+        grid-area:burger;
+        display:inline-block;
+        overflow:visible;
+        margin-top:0.5rem;
+        padding:0;
+        cursor:pointer;
+        transition-property: opacity,filter;
+        transition-timing-function:linear;
+        transition-duration:0.15s;
+        border:0;
+        background-color:initial;
+        outline:0;
+@media(min-width: ${breakpoints.lg}) {
+          display:none;
+        }
+        span {
+          position:relative;
+          display:inline-block;
+          width:28px;
+          height:24px;
+
+          span {
+            top:50%;
+            margin-top:-2px;
+
+            .open & {
+              transition-delay: .12s;
+              transition-timing-function: cubic-bezier(.215,.61,.355,1);
+              transform: rotate(45deg);
+              background-color: var(--color-text-solid);
+}
+
+            }
+            &,&::before,&::after{
+              position:absolute;
+              width:28px;
+              height:3px;
+              border-radius:3px;
+              transition:transform 0.15s ease;
+              background-color:var(--color-text-solid);
+              display:block;
+            }
+            &::after,&::before {
+              content:"";
+            }
+            &::after {
+              bottom:-8px;
+              transition: bottom 75ms ease 0.12, transform 75ms cubic-bezier(0.55,0.055,0.675,0.19);
+            }
+            &::before {
+              top:-8px;
+              transition: top 75ms ease 0.12, transform 75ms ease;
+            }
+            .open &::after {
+              bottom:0;
+              transform: rotate(-90deg);
+              transition: bottom 75ms ease, transform 75ms cubic-bezier(0.215,0.61,0.355,1) 0.12s;
+            }
+            .open &::before {
+              top:0;
+              transition: top 75ms ease, opacity 75ms ease 0.12s;
+              opacity:0
+            }
+            
+
+          }
+        }
+      }
     `;
 
+  const [isOpen, setOpen] = useState(true);
   return (
-    <header className={nav}>
-      <div className={`${navbar} container`}>
+    <header className={isOpen ? `${nav} open show-it` : nav}>
+      <div className={`${navbar}`}>
         <div className={navBrand}>
           <a href="/">
             <svg
@@ -135,7 +300,7 @@ const Navbar = () => {
             </svg>
           </a>
         </div>
-        <nav className={menu}>
+        <nav className={isOpen ? `${menu} open` : menu}>
           <ul className={menuItems}>
             <li>
               <Link activeClassName="active" className={navLink} to="/">
@@ -216,6 +381,11 @@ const Navbar = () => {
           <Link to="/estimate-project" className="cta">
             Work with us!
           </Link>
+          <button type="button" onClick={() => setOpen(!isOpen)}>
+            <span>
+              <span></span>
+            </span>
+          </button>
         </div>
       </div>
     </header>
