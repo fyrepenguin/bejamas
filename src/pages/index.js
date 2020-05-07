@@ -14,6 +14,7 @@ import Img from "gatsby-image";
 import "../styles/App.scss";
 import { Helmet } from "react-helmet";
 import { css } from "linaria";
+import breakpoints from "../components/utils/breakpoints";
 
 /**
  * TODO: Make it responsive
@@ -53,6 +54,7 @@ export default () => {
     h3 {
       font-size: 0.875rem;
       margin-bottom: 2.325rem;
+      margin-top: 2.325rem;
       letter-spacing: 0.1875rem;
       text-transform: uppercase;
       font-family: Poppins, sans-serif;
@@ -94,6 +96,9 @@ export default () => {
     max-width: 140px;
     right: 1%;
     width: 100%;
+    @media (max-width: ${breakpoints.xl}) {
+      display: none !important;
+    }
   `;
   const i9 = css`
     position: absolute;
@@ -103,6 +108,9 @@ export default () => {
     right: 20%;
     transform: rotate(-80deg);
     width: 100%;
+    @media (max-width: ${breakpoints.xl}) {
+      display: none !important;
+    }
   `;
   const extra = (
     <div className={trustedCompanies}>

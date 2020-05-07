@@ -4,6 +4,7 @@ import Img from "gatsby-image";
 import { css } from "linaria";
 
 import Heading from "../common/heading";
+import breakpoints from "../utils/breakpoints";
 
 const JamUses = () => {
   const data = useStaticQuery(graphql`
@@ -43,8 +44,8 @@ const JamUses = () => {
     &::before {
       content: counter(benefits);
       font-weight: 700;
-      font-size: 18rem;
-      top: -5rem;
+      font-size: 10rem;
+      top: 1rem;
       color: #e3eef4;
       position: absolute;
       right: 5%;
@@ -61,6 +62,10 @@ const JamUses = () => {
       z-index: 0;
       background-clip: text;
       -webkit-text-fill-color: transparent;
+      @media (min-width: ${breakpoints.md}) {
+        top: -5rem;
+        font-size: 18rem;
+      }
     }
   `;
   const benefitImg = css`

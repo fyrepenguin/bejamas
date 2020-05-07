@@ -71,11 +71,13 @@ const Header = ({ subheading, title, cta, desc, hero, extra, shapes }) => {
   `;
   const heroImgContainer = css`
     padding-bottom: 3.1rem;
-    @media (min-width: ${breakpoints.md}) {
+    ${
+      "" /* @media (min-width: ${breakpoints.md}) {
       margin-right: -55%;
     }
     @media (min-width: ${breakpoints.lg}) {
       margin-right: -40%;
+    } */
     }
     @media (min-width: ${breakpoints.xl}) {
       margin-right: 0;
