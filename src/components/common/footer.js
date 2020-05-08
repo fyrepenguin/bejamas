@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "gatsby";
+import * as Scroll from "react-scroll";
 import { css } from "linaria";
+
 import breakpoints from "../utils/breakpoints";
 
 /**
- * TODO: Make it responsive
  * TODO: Add Theme functonality
  */
 
@@ -249,7 +250,11 @@ const Footer = ({ children }) => {
   return (
     <footer className={footer}>
       <div className={`${footerContent} footer-content`}>
-        <Link to="/" className={top}>
+        <Link
+          to="/"
+          onClick={() => Scroll.animateScroll.scrollToTop()}
+          className={top}
+        >
           <svg width="16" height="22">
             <path
               d="M8 21V1M1 8l7-7 7 7"
