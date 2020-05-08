@@ -1,10 +1,10 @@
 import React from "react";
-import Navbar from "../components/common/navbar";
 import Footer from "./../components/common/footer";
+import LoadableNav from "./../components/common/loadingNav";
 const Layout = ({ children, page, footerCta }) => {
   return (
     <>
-      <Navbar />
+      <LoadableNav />
       <main className={`container ${page}`}>{children}</main>
       <Footer>{footerCta}</Footer>
     </>
