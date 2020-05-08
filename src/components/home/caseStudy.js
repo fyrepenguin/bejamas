@@ -29,7 +29,7 @@ const CaseStudy = () => {
   const caseStudy = css`
       &.section {
         padding-top: 3.1rem;
-        @media (min-width: ${breakpoints.md}) {
+        @media (min-width: ${breakpoints.xl}) {
           padding-top: 7.75rem;
         }
       }
@@ -71,7 +71,7 @@ const CaseStudy = () => {
       }
     `,
     caseStudyQuote = css`
-      padding: 1.55rem 4.65rem 1.55rem;
+      padding: 1.55rem 4.65rem 1.55rem 1.55rem;
       border-radius: 28px;
       background-color: var(--color-bg-secondary);
       position: relative;

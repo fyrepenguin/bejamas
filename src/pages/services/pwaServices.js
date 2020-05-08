@@ -61,7 +61,7 @@ const PWA = () => {
         <JamIntro />
         <Benefits />
         <Testimonials testimonials={testimonials} />
-        <TechUsed />
+        <TechUsed light />
         <JAMworkflow />
         <section className="section others">
           <Heading

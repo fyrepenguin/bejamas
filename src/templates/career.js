@@ -1,6 +1,5 @@
 import React from "react";
 import Layout from "./../layouts/index";
-import Footer from "./../components/common/footer";
 import { graphql, Link } from "gatsby";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
@@ -121,7 +120,6 @@ const Template = ({ data }) => {
           </Link>
         </section>
       </Layout>
-      <Footer />
     </>
   );
 };
