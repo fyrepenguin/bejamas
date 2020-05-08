@@ -365,7 +365,7 @@ const Navbar = () => {
         filter: blur(14px);
         transform-style: preserve-3d;
         backface-visibility: hidden;
-        .show-it & {
+        .is-scrolled.show-it & {
           opacity: 1;
           visibility: visible;
           filter: blur(0);

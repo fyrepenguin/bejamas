@@ -72,7 +72,6 @@ const Services = () => {
   ];
   return (
     <>
-      {console.log(data.hero)}
       <Helmet>
         <meta charSet="utf-8" />
         <title>Services</title>
