@@ -474,7 +474,6 @@ const Navbar = () => {
   classes = isScrolled ? `${classes} is-scrolled` : classes;
   return (
     <header className={`${classes} show-it bottom`}>
-      {console.log(window.scrollY)}
       <div className={`${navbar}`}>
         <div className={navBrand}>
           <a href="/">
