@@ -406,6 +406,9 @@ html {
 }
 body {
   color: var(--color-text-primary);
+  @media (max-width: 575px) {
+    font-size: 0.875rem;
+  }
 }
 
 *,
@@ -443,6 +446,17 @@ h5 {
 }
 h6 {
   font-size: 0.69425rem;
+}
+@media screen and (max-width: 990px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
 }
 address,
 dd,
@@ -521,6 +535,7 @@ a.cta {
   font-weight: 500;
   display: inline-block;
   border: 0;
+  font-size: 0.875rem;
   cursor: pointer;
   background-color: var(--color-cta);
   padding: 1.033333333333332rem 2.06666666666664rem;
@@ -531,10 +546,14 @@ a.cta {
   position: relative;
   text-align: center;
   z-index: 0;
+  @media (max-width: 990px) {
+    padding: 10px;
+  }
   @media (min-width: 1522px) {
     font-size: 1.125rem;
     padding: 0.86111111111111111112rem 1.55rem 1.03333333333333332rem;
   }
+
   &:hover {
     outline: 0;
     &::before {

@@ -205,6 +205,11 @@ const Navbar = () => {
       display: flex;
       align-items: center;
       margin-left: auto;
+      .cta {
+        @media(max-width: ${breakpoints.lg}) {
+          margin-right:2.325rem;
+        }
+      }
       button {
         
         margin-right:1.033333333332rem;
