@@ -367,6 +367,7 @@ const Navbar = () => {
         backface-visibility: hidden;
         .is-scrolled.show-it & {
           opacity: 1;
+          z-index: 10;
           visibility: visible;
           filter: blur(0);
           transform: translateZ(0);
@@ -461,17 +462,23 @@ const Navbar = () => {
     `;
 
   const [isOpen, setOpen] = useState(false);
-
-  const [isScrolled, setScrolled] = useState(false);
+  const [bodyOffset, setBodyOffset] = useState(
+    document.body.getBoundingClientRect()
+  );
+  const [scrollY, setScrollY] = useState(bodyOffset.top);
+  const listener = (e) => {
+    setBodyOffset(document.body.getBoundingClientRect());
+    setScrollY(-bodyOffset.top);
+  };
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 25) {
-        setScrolled(!isScrolled);
-      }
-    });
+    window.addEventListener("scroll", listener);
+    return () => {
+      window.removeEventListener("scroll", listener);
+    };
   });
+
   let classes = isOpen ? `${nav} open` : `${nav}`;
-  classes = isScrolled ? `${classes} is-scrolled` : classes;
+  classes = scrollY > 250 ? `${classes} is-scrolled` : classes;
   return (
     <header className={`${classes} show-it bottom`}>
       <div className={`${navbar}`}>
