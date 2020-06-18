@@ -555,7 +555,7 @@ const Navbar = () => {
                 Careers
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link
                 activeClassName="active"
                 className={navLink}
@@ -564,17 +564,17 @@ const Navbar = () => {
               >
                 Blog
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link activeClassName="active" className={navLink} to="/contact">
                 Contact
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link activeClassName="active" to="/ask" className={navLink}>
                 Ask
               </Link>
-            </li>
+            </li> */}
           </ul>
         </nav>
         <div className={isOpen ? `${ctaContainer} op` : ctaContainer}>
