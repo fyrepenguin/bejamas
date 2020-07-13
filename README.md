@@ -1,1 +1,1 @@
-This project is a copy of [Bejamas](https://bejamas.io) site.
+This project is a replica of [Bejamas](https://bejamas.io) site.
