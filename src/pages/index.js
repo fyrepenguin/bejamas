@@ -8,13 +8,13 @@ import Products from "../components/home/products";
 import WorldMap from "../components/home/worldmap";
 import Stories from "../components/home/stories";
 import Layout from "./../layouts/index";
-import Footer from "./../components/common/footer";
 import FooterCTA from "./../components/common/footerCTA";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import "../styles/App.scss";
-import "../styles/home.scss";
 import { Helmet } from "react-helmet";
+import { css } from "linaria";
+import breakpoints from "../components/utils/breakpoints";
 
 /**
  * TODO: Make it responsive
@@ -49,8 +49,71 @@ export default () => {
     ),
     desc = `Let us maximize your business potential with the latest and innovative technologies.`,
     cta = `Work with us!`;
+  const trustedCompanies = css`
+    margin: auto 0;
+    h3 {
+      font-size: 0.875rem;
+      margin-bottom: 2.325rem;
+      margin-top: 2.325rem;
+      letter-spacing: 0.1875rem;
+      text-transform: uppercase;
+      font-family: Poppins, sans-serif;
+      color: var(--color-text-secondary);
+    }
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+
+      color: var(--color-text-primary);
+
+      li {
+        margin-bottom: 1.55rem;
+        svg {
+          max-width: 100px;
+          height: auto;
+        }
+      }
+      li:not(:last-child) {
+        margin-right: 2.325rem;
+        padding-left: 0;
+      }
+    }
+  `;
+  const flo = css`
+    position: relative;
+    top: -3px;
+    width: 35px;
+    max-width: auto;
+    height: 28px;
+    .flo_svg__cls-3 {
+      fill: #b7c7d3;
+    }
+  `;
+  const i30 = css`
+    position: absolute;
+    overflow: hidden;
+    top: 90%;
+    max-width: 140px;
+    right: 1%;
+    width: 100%;
+    @media (max-width: ${breakpoints.xl}) {
+      display: none !important;
+    }
+  `;
+  const i9 = css`
+    position: absolute;
+    overflow: hidden;
+    top: 85%;
+    max-width: 230px;
+    right: 20%;
+    transform: rotate(-80deg);
+    width: 100%;
+    @media (max-width: ${breakpoints.xl}) {
+      display: none !important;
+    }
+  `;
   const extra = (
-    <div className="trusted-companies">
+    <div className={trustedCompanies}>
       <h3>TRUSTED BY INNOVATIVE COMPANIES</h3>
       <ul>
         <li>
@@ -100,7 +163,7 @@ export default () => {
             id="flo_svg__Layer_1"
             data-name="Layer 1"
             viewBox="0 0 141.14 117.66"
-            className="flo"
+            className={flo}
           >
             <path
               fill="currentColor"
@@ -152,10 +215,10 @@ export default () => {
   );
   const shapes = (
     <>
-      <div className="i30">
+      <div className={i30}>
         <Img fluid={data.i30.fluid} />
       </div>
-      <div className="i9">
+      <div className={i9}>
         <Img fluid={data.i9.fluid} />
       </div>
     </>
@@ -166,7 +229,7 @@ export default () => {
         <meta charSet="utf-8" />
         <title>Bejamas Home</title>
       </Helmet>
-      <Layout page={"home-page"}>
+      <Layout page={"home-page"} footerCta={<FooterCTA />}>
         <Header
           subheading={subheading}
           title={title}
@@ -193,9 +256,6 @@ export default () => {
         <WorldMap />
         <Stories />
       </Layout>
-      <Footer>
-        <FooterCTA />
-      </Footer>
     </>
   );
 };

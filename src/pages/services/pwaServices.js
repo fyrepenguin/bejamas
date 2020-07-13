@@ -1,6 +1,5 @@
 import React from "react";
 import Layout from "../../layouts";
-import Footer from "./../../components/common/footer";
 import FooterCTA from "./../../components/common/footerCTA";
 import Header from "./../../components/common/header";
 import JamIntro from "./../../components/services/jamIntro";
@@ -51,7 +50,7 @@ const PWA = () => {
         <meta charSet="utf-8" />
         <title>PWA Websites</title>
       </Helmet>
-      <Layout page={"pwa-page"}>
+      <Layout page={"pwa-page"} footerCta={<FooterCTA />}>
         <Header
           subheading="Progressive Web App"
           title="A fast app-like experience in a browser"
@@ -62,7 +61,7 @@ const PWA = () => {
         <JamIntro />
         <Benefits />
         <Testimonials testimonials={testimonials} />
-        <TechUsed />
+        <TechUsed light />
         <JAMworkflow />
         <section className="section others">
           <Heading
@@ -73,9 +72,6 @@ const PWA = () => {
           />
         </section>
       </Layout>
-      <Footer>
-        <FooterCTA />
-      </Footer>
     </>
   );
 };
