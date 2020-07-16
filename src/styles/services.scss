@@ -1,9 +1,5 @@
 .services-page {
-  .i24 {
-    bottom: -13%;
-    right: 15.25%;
-  }
-  .hero-img-container .gatsby-image-wrapper {
+  [class^="heroImgContainer"] .gatsby-image-wrapper {
     max-width: 560px;
     margin: 0 auto;
   }
@@ -11,55 +7,5 @@
   .testimonials {
     background-color: var(--color-bg-secondary);
     border-radius: 16px;
-  }
-  .workflow-items {
-    & > .workflow-item:nth-child(2) {
-      margin-top: 23.25rem;
-    }
-    & > .workflow-item:nth-child(odd):not(:first-child) {
-      margin-top: -9.3rem;
-    }
-    & > .workflow-item:nth-child(2n):not(:nth-child(2)) {
-      margin-top: 12.4rem;
-    }
-  }
-
-  .faq-list {
-    max-width: 46.5rem;
-    margin: 1.55rem auto 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    margin-top: 4.65rem;
-    column-gap: 2.325rem;
-    align-items: flex-start;
-    font-size: 1.25rem;
-    .query {
-      margin-top: 1.55rem;
-      margin-bottom: 0;
-      padding: 2.325rem;
-      background-color: var(--color-bg-secondary);
-      display: flex;
-      border-radius: 8px;
-      font-weight: 400;
-      cursor: pointer;
-      justify-content: space-between;
-      span {
-        font-size: 2.25rem;
-        font-weight: 100;
-        line-height: 1;
-        margin-left: 0.775rem;
-        color: var(--color-cta);
-      }
-    }
-    .ans {
-      background-color: var(--color-bg-secondary);
-      border-radius: 0 0 8px 8px;
-      display: none;
-      padding: 0 2.325rem 2.325rem;
-      color: var(--color-text-secondary);
-    }
-    .ans.active {
-      display: block;
-    }
   }
 }

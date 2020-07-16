@@ -1,6 +1,12 @@
 import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import { Helmet } from "react-helmet";
+
+import { dmitri, eppo, lotan } from "./../../components/images";
+
 import Layout from "./../../layouts/index";
-import Footer from "./../../components/common/footer";
+import JAMworkflow from "./../../components/services/JAMworkflow";
+
 import FooterCTA from "./../../components/common/footerCTA";
 import Header from "../../components/common/header";
 import JamIntro from "./../../components/services/jamIntro";
@@ -9,12 +15,7 @@ import ServicesFeaturedPost from "./../../components/services/servicesFeaturedPo
 import TechUsed from "./../../components/common/tech";
 import Testimonials from "./../../components/common/testimonials";
 import Heading from "../../components/common/heading";
-import { useStaticQuery, graphql } from "gatsby";
-import JAMworkflow from "./../../components/services/JAMworkflow";
-
-import { dmitri, eppo, lotan } from "./../../components/images";
-import { Helmet } from "react-helmet";
-
+import "../../styles/jamstack.scss";
 const JAM = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -54,7 +55,7 @@ const JAM = () => {
         <meta charSet="utf-8" />
         <title>JAMstack Websites</title>
       </Helmet>
-      <Layout page={"jamstack-service-page"}>
+      <Layout page={"jamstack-service-page"} footerCta={<FooterCTA />}>
         <Header
           subheading="jamstack"
           title="Get more customers with SEO-friendly marketing websites"
@@ -65,7 +66,7 @@ const JAM = () => {
         <JamIntro />
         <Benefits />
         <ServicesFeaturedPost />
-        <TechUsed />
+        <TechUsed light />
         <JAMworkflow />
         <Testimonials testimonials={testimonials} />
         <section className="section others">
@@ -78,9 +79,6 @@ with all the native app’s features"
           />
         </section>
       </Layout>
-      <Footer>
-        <FooterCTA />
-      </Footer>
     </>
   );
 };

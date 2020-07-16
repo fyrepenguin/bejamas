@@ -1,7 +1,8 @@
 import React from "react";
-import "../../styles/testimonial.scss";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
+import { css } from "linaria";
+import breakpoints from "../utils/breakpoints";
 
 const Testimonial = () => {
   const data = useStaticQuery(graphql`
@@ -14,11 +15,53 @@ const Testimonial = () => {
       }
     }
   `);
+  const testimonialContent = css`
+    @media (min-width: ${breakpoints.lg}) {
+      display: grid;
+      column-gap: 6.2rem;
+      align-items: center;
+      padding-left: 3.1rem;
+      grid-template-columns: auto 40%;
+    }
+  `;
+
+  const rating = css`
+    display: flex;
+    margin: 3.1rem 0;
+    svg + svg {
+      margin-left: 0.775rem;
+    }
+  `;
+  const customer = css`
+    display: flex;
+  `;
+  const customerImg = css`
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    margin-right: 0.775rem;
+  `;
+  const testimonialHero = css`
+    position: relative;
+    max-width: 511px;
+    overflow: hidden;
+    @media (max-width: ${breakpoints.lg}) {
+      display: none;
+    }
+  `;
+  const testimonial = css`
+    font-size: 1.8125rem;
+    font-weight: 600;
+  `;
+
   return (
     <section className="testimonial section">
-      <div className="testimonial-content">
+      <div className={testimonialContent}>
         <div>
-          <h3>
+          <h3 className={testimonial}>
             „Having worked intensively with Bejamas on multiple projects, our
             partnership has been a professional and productive experience with
             impressive results to date. The team is responsive, full of ideas
@@ -26,7 +69,7 @@ const Testimonial = () => {
             a serious partner in modern web development projects involving
             JAMstack and React.”
           </h3>
-          <div className="rating">
+          <div className={rating}>
             <svg width="16" height="16">
               <path
                 fill="#FAB51B"
@@ -63,8 +106,8 @@ const Testimonial = () => {
               ></path>
             </svg>
           </div>
-          <div className="customer">
-            <div className="customer-img">
+          <div className={customer}>
+            <div className={customerImg}>
               <Img fluid={data.eppo.fluid} />
             </div>
             <p>
@@ -73,7 +116,7 @@ const Testimonial = () => {
             </p>
           </div>
         </div>
-        <div className="testimonial-hero">
+        <div className={testimonialHero}>
           <Img fluid={data.opt.fluid} />
         </div>
       </div>

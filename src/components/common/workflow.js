@@ -1,8 +1,10 @@
 import React from "react";
-import Heading from "./heading";
-import { useStaticQuery } from "gatsby";
-import { graphql } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
+import { css } from "linaria";
+
+import Heading from "./heading";
+import breakpoints from "../utils/breakpoints";
 
 const Workflow = () => {
   const data = useStaticQuery(graphql`
@@ -24,11 +26,82 @@ const Workflow = () => {
       }
     }
   `);
+  const workflowItem = css`
+    position: relative;
+    color: var(--color-text-secondary);
+    &::before {
+      position: absolute;
+      font-size:10rem;
+      top: 1rem;
+      content: counter(benefits);
+      color: #e3eef4;
+      right: 5%;
+      width: 50%;
+      text-align: center;
+      line-height: 1;
+      font-weight: 700;
+      counter-increment: benefits;
+      pointer-events: none;
+      z-index: 0;
+      background: linear-gradient(
+        180deg,
+        var(--color-text-gradient-from) 0,
+        var(--color-text-gradient-to) 85%
+      );
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      
+      @media(min-width:${breakpoints.md}) {
+        font-size: 18rem;
+        top:-5rem;
+      }
+    }
+    .gatsby-image-wrapper {
+      display: inline-block;
+    }
+    h3 {
+      margin-top: 1.55rem;
+      color: var(--color-text-primary);
+      z-index: 2;
+      position: relative;
+    }
+    
+    }`;
+  const workflowItems = css`
+    margin: 1.55rem auto 0;
+    margin-top: 4.65rem;
+    display: grid;
+    column-gap: calc(6vw + 3.1rem);
+    row-gap: 4.65rem;
+    max-width: 58.9rem;
+    grid-template-columns: repeat(
+      auto-fill,
+      [col-start] minmax(16rem, 4fr) [col-end]
+    );
+    counter-reset: benefits;
+    align-items: flex-start;
+    @media (min-width: ${breakpoints.sm}) {
+      margin-top: 3.1rem;
+    }
+
+    @media (min-width: ${breakpoints.md}) {
+      margin-top: 4.65rem;
+      & > .workflow-item:nth-child(2) {
+        margin-top: 23.25rem;
+      }
+      & > .workflow-item:nth-child(odd):not(:first-child) {
+        margin-top: -9.3rem;
+      }
+      & > .workflow-item:nth-child(2n):not(:nth-child(2)) {
+        margin-top: 12.4rem;
+      }
+    }
+  `;
   return (
     <section className="section workflow">
       <Heading subheading="workflow" title="Get your project a pro service" />
-      <div className="workflow-items">
-        <div className="workflow-item">
+      <div className={workflowItems}>
+        <div className={`${workflowItem} workflow-item`}>
           <Img
             fluid={data.icon1.fluid}
             style={{ width: "250px", height: "250px" }}
@@ -42,7 +115,7 @@ const Workflow = () => {
             choosing the best tech set.
           </p>
         </div>
-        <div className="workflow-item">
+        <div className={`${workflowItem} workflow-item`}>
           <Img
             fluid={data.icon2.fluid}
             style={{ width: "250px", height: "250px" }}
@@ -56,7 +129,7 @@ const Workflow = () => {
             always be close to help with advice.
           </p>
         </div>
-        <div className="workflow-item">
+        <div className={`${workflowItem} workflow-item`}>
           <Img
             fluid={data.icon3.fluid}
             style={{ width: "250px", height: "250px" }}
@@ -71,7 +144,7 @@ const Workflow = () => {
             updates from us and in what form should they be in.
           </p>
         </div>
-        <div className="workflow-item">
+        <div className={`${workflowItem} workflow-item`}>
           <Img
             fluid={data.icon4.fluid}
             style={{ width: "250px", height: "250px" }}
@@ -85,7 +158,7 @@ const Workflow = () => {
             see how much time each task consumed.
           </p>
         </div>
-        <div className="workflow-item">
+        <div className={`${workflowItem} workflow-item`}>
           <Img
             fluid={data.icon5.fluid}
             style={{ width: "250px", height: "250px" }}

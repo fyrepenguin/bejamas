@@ -1,8 +1,10 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
+import { css } from "linaria";
+import breakpoints from "../utils/breakpoints";
+
 import Heading from "./../common/heading";
-import "../../styles/service.scss";
 
 const JAMworkflow = () => {
   const data = useStaticQuery(graphql`
@@ -22,11 +24,65 @@ const JAMworkflow = () => {
       }
     }
   `);
+
+  const workflowItems = css`
+    margin: 1.55rem auto 0;
+    margin-top: 4.65rem;
+    display: grid;
+    column-gap: calc(6vw + 3.1rem);
+    row-gap: 4.65rem;
+    max-width: 58.9rem;
+    grid-template-columns: repeat(
+      auto-fill,
+      [col-start] minmax(16rem, 4fr) [col-end]
+    );
+    counter-reset: benefits;
+    align-items: flex-start;
+  `;
+  const workflowItem = css`
+    position: relative;
+    color: var(--color-text-secondary);
+    &::before {
+      position: absolute;
+      font-size: 10rem;
+      top: 1rem;
+      content: counter(benefits);
+      color: #e3eef4;
+      right: 5%;
+      width: 50%;
+      text-align: center;
+      line-height: 1;
+      font-weight: 700;
+      counter-increment: benefits;
+      pointer-events: none;
+      z-index: 0;
+      background: linear-gradient(
+        180deg,
+        var(--color-text-gradient-from) 0,
+        var(--color-text-gradient-to) 85%
+      );
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      @media (min-width: ${breakpoints.md}) {
+        font-size: 18rem;
+        top: -5rem;
+      }
+    }
+    .gatsby-image-wrapper {
+      display: inline-block;
+    }
+    h3 {
+      margin-top: 1.55rem;
+      color: var(--color-text-primary);
+      z-index: 2;
+      position: relative;
+    }
+  `;
   return (
     <section className="section workflow">
       <Heading subheading="workflow" title="Get your project a pro service" />
-      <div className="workflow-items">
-        <div className="workflow-item">
+      <div className={workflowItems}>
+        <div className={workflowItem}>
           <Img
             fluid={data.icon1.fluid}
             style={{ width: "250px", height: "250px" }}
@@ -37,7 +93,7 @@ const JAMworkflow = () => {
             it during the whole project.
           </p>
         </div>
-        <div className="workflow-item">
+        <div className={workflowItem}>
           <Img
             fluid={data.icon2.fluid}
             style={{ width: "250px", height: "250px" }}
@@ -48,7 +104,7 @@ const JAMworkflow = () => {
             that will suit your interests best.
           </p>
         </div>
-        <div className="workflow-item">
+        <div className={workflowItem}>
           <Img
             fluid={data.icon3.fluid}
             style={{ width: "250px", height: "250px" }}
@@ -60,7 +116,7 @@ const JAMworkflow = () => {
           </p>
         </div>
 
-        <div className="workflow-item">
+        <div className={workflowItem}>
           <Img
             fluid={data.icon5.fluid}
             style={{ width: "250px", height: "250px" }}

@@ -1,17 +1,488 @@
-import React from "react";
-import "./../../styles/navbar.scss";
+import React, { useState, useEffect } from "react";
 import { Link } from "gatsby";
+import { css } from "linaria";
+import breakpoints from "../utils/breakpoints";
 
-/**
- * TODO: Add post name and social icons in blog posts
- * TODO: Add animations and scroll events
- * TODO: Make it responsive
- */
 const Navbar = () => {
+  const nav = css`
+      background: var(--color-bg-almost-primary);
+      backdrop-filter: blur(16px);
+      z-index: 9;
+      transition: transform 0.3s cubic-bezier(0, 0.89, 0.44, 1);
+      backface-visibility: hidden;
+      transform: translateZ(0);
+      @media (min-width: ${breakpoints.lg}) {
+        position: sticky;
+        top: 0;
+      }
+      @media (max-width: ${breakpoints.lg}) {
+        &.is-scrolled.bottom {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          transform: translateY(100%);
+          opacity: 0;
+        }
+        &.open {
+          height: 100vh;
+          transform: translateY(0);
+          opacity: 1;
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          overflow: auto;
+        }
+        &.is-scrolled {
+          transform: translateY(100%);
+        }
+      }
+      @media (max-width: ${breakpoints.lg}) {
+        &.is-scrolled.open,
+        &.is-scrolled.show-it {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        &.bottom:not(.open) {
+          background: var(--color-bg-header);
+        }
+      }
+    `,
+    navbar = css`
+      align-items: flex-end;
+      margin-left: auto;
+      margin-right: auto;
+      height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      @media (max-width: ${breakpoints.md}) {
+        padding: 0.775rem 8vw;
+        grid-template-rows: 44px auto;
+        z-index: 8;
+      }
+      @media (min-width: ${breakpoints.md}) {
+        padding: 0.775rem 4vw;
+      }
+      @media (min-width: ${breakpoints.lg}) {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        grid-template-areas: "logo nav cta";
+        padding: 0 4vw;
+        align-items: center;
+      }
+      @media (min-width: ${breakpoints.xxl}) {
+        padding: 0;
+        max-width: 87.5rem;
+      }
+
+      ${"" /*  
+      margin: 0 auto;
+      
+      @media (max-width: ${breakpoints.md}) {
+        padding: 0.775rem 8vw;
+        grid-template-rows: 44px auto;
+        z-index: 8;
+      }
+      @media (min-width: ${breakpoints.md}) {
+        padding: 0.775rem 4vw;
+      }
+      @media (max-width: ${breakpoints.lg}) {
+        .cta {
+          margin-left: 0;
+          margin-right: auto;
+          flex-direction: row-reverse;
+          transition: all 0.5s ease;
+        }
+      }
+      @media (min-width: ${breakpoints.lg}) {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        grid-template-areas: "logo nav cta";
+        padding: 0 4vw;
+        align-items: center;
+      }
+      @media (min-width: ${breakpoints.xxl}) {
+        max-width: 87.5rem;
+        padding: 0;
+      } */}
+    `,
+    navBrand = css`
+      grid-area: logo;
+      z-index: 8;
+      @media (max-width: ${breakpoints.lg}) {
+        .open & {
+          margin-left: auto;
+          order: 3;
+        }
+      }
+      .nav-logo {
+        max-width: 6.25rem;
+        height: 30px;
+        margin-top: 0.5rem;
+        path {
+          fill: var(--color-text-solid);
+        }
+
+        @media (min-width: ${breakpoints.lg}) {
+          max-width: 9.3rem;
+        }
+        @media (min-width: ${breakpoints.xl}) {
+          max-width: 10.85rem;
+        }
+      }
+      ${"" /* 
+      @media (max-width: ${breakpoints.lg}) {
+        order: 3;
+        margin-left: auto;
+      }
+      a {
+        background-color: transparent;
+        .nav-logo {
+          height: 30px;
+          margin-top: 0.5rem;
+          max-width: 6.25rem;
+          path {
+            
+          }
+
+          @media (min-width: ${breakpoints.lg}) {
+            max-width: 9.3rem;
+          }
+          @media (min-width: ${breakpoints.xl}) {
+            max-width: 10.85rem;
+          }
+        }
+      } */}
+    `,
+    menu = css`
+      display: none;
+      grid-area: nav;
+      width: 100%;
+      @media (max-width: ${breakpoints.lg}) {
+        &.o {
+          display: flex;
+          flex-wrap: wrap;
+          font-size: 1rem;
+          text-align: center;
+          margin-top: auto;
+        }
+      }
+      @media (min-height: 500px) and (max-width: ${breakpoints.lg}) {
+        &.o {
+          font-size: 1.125rem;
+        }
+      }
+      @media (min-width: ${breakpoints.lg}) {
+        transition: all 0.5s ease;
+        display: block;
+      }
+
+      ${"" /* 
+      .open & {
+        display: block;
+      }
+       */}
+    `,
+    menuItems = css`
+      list-style-type: none;
+      justify-content: center;
+      margin: 0;
+      li {
+        margin: 0;
+      }
+      & > li {
+        padding: 0 0.3875rem;
+      }
+      @media (min-width: ${breakpoints.lg}) {
+        display: flex;
+        & > li {
+          font-size: 0.9375rem;
+        }
+      }
+      @media (min-width: ${breakpoints.xl}) {
+        & > li {
+          font-size: 1rem;
+        }
+      }
+      & li:hover > ul {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      ${"" /*  
+      @media (max-width: ${breakpoints.lg}) {
+        width: 100%;
+        padding-top: 0.51666666rem;
+      }
+      
+      & > li {
+        padding: 0 0.3875rem;
+        @media (max-width: ${breakpoints.lg}) {
+          padding: 0;
+        }
+      }
+      li {
+        margin: 0;
+        @media (min-width: ${breakpoints.xl}) {
+          font-size: 1rem;
+        }
+        @media (min-width: ${breakpoints.lg}) {
+          font-size: 0.9375rem;
+        }
+      } */}
+    `,
+    navLink = css`
+      display: flex;
+      border-top: 2px solid transparent;
+      color: var(--color-text-primary);
+      padding: 2.325rem 1.55rem;
+      align-items: center;
+      &.active,
+      &:hover {
+        color: var(--color-cta);
+      }
+      @media (min-width: ${breakpoints.lg}) {
+        padding: 2.325rem 0.775rem;
+        &.active,
+        &:hover {
+          border-top: 2px solid var(--color-cta);
+        }
+      }
+      @media (min-width: ${breakpoints.xl}) {
+        padding: 2.325rem 1.0333333333332rem;
+      }
+      ${"" /*  font-size: 1rem;
+      font-weight: 500;
+     
+      
+      &:hover,
+      &.active {
+        color: var(--color-cta);
+      }
+      @media (min-height: 500px) and (max-width: ${breakpoints.lg}) {
+        padding: 0.775rem 0;
+      }
+     
+        padding: 2.325rem 0.775rem;
+
+        &.active {
+          
+        }
+      }
+      @media (min-width: ${breakpoints.xl}) {
+        padding: 2.325rem 1.033333333332rem;
+      }
+      @media (min-width: ${breakpoints.lg}) {
+      } */}
+    `,
+    navService = css`
+      ${"" /*  &:hover {
+        ul {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+          @media (max-width: ${breakpoints.lg}) {
+            display: none;
+          }
+        }
+      } */}
+    `,
+    downCaret = css`
+      display: none;
+      margin-left: 0.775rem;
+      @media (min-width: ${breakpoints.md}) {
+        display: block;
+      }
+    `,
+    serviceDropdown = css`
+      background: var(--color-bg-hover);
+      border-radius: 8px;
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      margin: 0;
+      list-style: none;
+      box-shadow: 0 9px 60px 0 var(--color-bg-shadow-heavy);
+      padding: 1.0333333333333332rem 0;
+      transition: all 0.3s cubic-bezier(0, 0.89, 0.44, 1);
+      transform: translateY(-4px);
+
+      a {
+        color: var(--color-text-primary);
+        padding: 0.5166666666666666rem 1.9375rem;
+        display: block;
+        &:hover {
+          color: var(--color-cta);
+        }
+      }
+      ${"" /*   background: var(--color-bg-hover);
+      border-radius: 8px;
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      margin: 0;
+      list-style: none;
+      box-shadow: 0 9px 60px 0 var(--color-bg-shadow-heavy);
+      padding: 1.0333333333333332rem 0;
+      transition: all 0.3s cubic-bezier(0, 0.89, 0.44, 1);
+      transform: translateY(-4px);
+      li {
+        margin: 0;
+        padding-left: 0;
+        a {
+          color: var(--color-text-primary);
+          padding: 0.5167rem 1.9375rem;
+          display: block;
+          &:hover {
+            color: var(--color-cta);
+          }
+        }
+      } */}
+    `,
+    ctaContainer = css`
+      justify-self: end;
+      display: flex;
+      align-items: center;
+      transform-style: preserve-3d;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      margin-left: auto;
+      transition: all 0.5s ease;
+      @media (max-width: ${breakpoints.lg}) {
+        .open & {
+          margin-left: 0;
+          margin-right: auto;
+          flex-direction: row-reverse;
+        }
+      }
+      .cta {
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.5s cubic-bezier(0, 0.89, 0.44, 1);
+        transform: translate3d(0, -15px, 0);
+        filter: blur(14px);
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+        .is-scrolled.show-it & {
+          opacity: 1;
+          z-index: 10;
+          visibility: visible;
+          filter: blur(0);
+          transform: translateZ(0);
+        }
+        @media (max-width: ${breakpoints.lg}) {
+          min-width: 0;
+          padding: 10px;
+          margin-right: 0.775rem;
+          .show-it & {
+            margin-right: 2.325rem;
+          }
+        }
+        .open & {
+          display: none;
+        }
+      }
+      button {
+        grid-area: burger;
+        font: inherit;
+        display: inline-block;
+        overflow: visible;
+        margin-top: 0.5rem;
+        padding: 0;
+        cursor: pointer;
+        transition-timing-function: linear;
+        transition-duration: 0.15s;
+        transition-property: opacity, filter;
+        text-transform: none;
+        color: inherit;
+        border: 0;
+        background-color: initial;
+        outline: 0;
+
+        span {
+          position: relative;
+          display: inline-block;
+          width: 28px;
+          height: 24px;
+          span {
+            transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+            transition-duration: 75ms;
+            top: 50%;
+            margin-top: -2px;
+            &,
+            &:after,
+            &:before {
+              position: absolute;
+              width: 28px;
+              height: 3px;
+              transition-timing-function: ease;
+              transition-duration: 0.15s;
+              transition-property: transform;
+              border-radius: 3px;
+              background-color: var(--color-text-solid);
+              display: block;
+            }
+            &:before,
+            &:after {
+              content: "";
+            }
+            &:before {
+              transition: top 75ms ease 0.12s, opacity 75ms ease;
+              top: -8px;
+            }
+            &:after {
+              transition: bottom 75ms ease 0.12s, opacity 75ms ease;
+              bottom: -8px;
+            }
+          }
+        }
+        @media (min-width: ${breakpoints.lg}) {
+          display: none;
+        }
+      }
+      &.op button span span {
+        transition-delay: 0.12s;
+        transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        transform: rotate(45deg);
+        background-color: var(--color-text-solid);
+        &:before {
+          top: 0;
+          transition: top 75ms ease, opacity 75ms ease 0.12s;
+          opacity: 0;
+        }
+        &:after {
+          bottom: 0;
+          transform: rotate(-90deg);
+          transition: bottom 75ms ease,
+            transform 75ms cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
+        }
+      }
+    `;
+
+  const [isOpen, setOpen] = useState(false);
+  const [bodyOffset, setBodyOffset] = useState(
+    document.body.getBoundingClientRect()
+  );
+  const [scrollY, setScrollY] = useState(bodyOffset.top);
+  const listener = (e) => {
+    setBodyOffset(document.body.getBoundingClientRect());
+    setScrollY(-bodyOffset.top);
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", listener);
+    return () => {
+      window.removeEventListener("scroll", listener);
+    };
+  });
+
+  let classes = isOpen ? `${nav} open` : `${nav}`;
+  classes = scrollY > 250 ? `${classes} is-scrolled` : classes;
   return (
-    <header className="nav">
-      <div className="navbar container">
-        <div className="nav-brand">
+    <header className={`${classes} show-it bottom`}>
+      <div className={`${navbar}`}>
+        <div className={navBrand}>
           <a href="/">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -29,26 +500,22 @@ const Navbar = () => {
             </svg>
           </a>
         </div>
-        <nav className="menu">
-          <ul className="menu-items">
+        <nav className={isOpen ? `${menu} o` : menu}>
+          <ul className={menuItems}>
             <li>
-              <Link activeClassName="active" className="top-nav-link" to="/">
+              <Link activeClassName="active" className={navLink} to="/">
                 Home
               </Link>
             </li>
             <li>
-              <Link
-                activeClassName="active"
-                to="/about"
-                className="top-nav-link"
-              >
+              <Link activeClassName="active" to="/about" className={navLink}>
                 About
               </Link>
             </li>
-            <li className="nav-service">
+            <li className={navService}>
               <Link
                 activeClassName="active"
-                className="top-nav-link "
+                className={navLink}
                 to="/services"
                 partiallyActive
               >
@@ -58,7 +525,7 @@ const Navbar = () => {
                   height="6"
                   fill="none"
                   display="block"
-                  className="downCaret"
+                  className={downCaret}
                 >
                   <path
                     d="M1 1l4 4 4-4"
@@ -69,7 +536,7 @@ const Navbar = () => {
                   />
                 </svg>
               </Link>
-              <ul className="service-dropdown">
+              <ul className={serviceDropdown}>
                 <li>
                   <a href="/services/jamstackServices">JAMstack websites</a>
                 </li>
@@ -81,43 +548,44 @@ const Navbar = () => {
             <li>
               <Link
                 activeClassName="active"
-                className="top-nav-link"
+                className={navLink}
                 to="/careers"
                 partiallyActive
               >
                 Careers
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link
                 activeClassName="active"
-                className="top-nav-link"
+                className={navLink}
                 to="/blog"
                 partiallyActive
               >
                 Blog
               </Link>
-            </li>
+            </li> */}
             <li>
-              <Link
-                activeClassName="active"
-                className="top-nav-link"
-                to="/contact"
-              >
+              <Link activeClassName="active" className={navLink} to="/contact">
                 Contact
               </Link>
             </li>
-            <li>
-              <Link activeClassName="active" to="/ask" className="top-nav-link">
+            {/* <li>
+              <Link activeClassName="active" to="/ask" className={navLink}>
                 Ask
               </Link>
-            </li>
+            </li> */}
           </ul>
         </nav>
-        <div className="cta-container">
+        <div className={isOpen ? `${ctaContainer} op` : ctaContainer}>
           <Link to="/estimate-project" className="cta">
             Work with us!
           </Link>
+          <button type="button" onClick={() => setOpen(!isOpen)}>
+            <span>
+              <span></span>
+            </span>
+          </button>
         </div>
       </div>
     </header>

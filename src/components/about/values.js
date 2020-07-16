@@ -1,8 +1,10 @@
 import React from "react";
-import Heading from "./../common/heading";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
-import "../../styles/values.scss";
+import { css } from "linaria";
+
+import breakpoints from "../utils/breakpoints";
+import Heading from "./../common/heading";
 
 const Values = ({ values, noFooter }) => {
   const data = useStaticQuery(graphql`
@@ -29,24 +31,71 @@ const Values = ({ values, noFooter }) => {
     data.commitment.fluid,
     data.empathy.fluid,
   ];
+
+  const things = css`
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    column-gap: calc(6vw + 3.1rem);
+    row-gap: 4.65rem;
+    align-items: flex-start;
+    margin: 1.55rem auto 0;
+    max-width: 58.9rem;
+    @media (min-width: ${breakpoints.sm}) {
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 3.1rem;
+    }
+    @media (min-width: ${breakpoints.md}) {
+      margin-top: 4.65rem;
+    }
+  `;
+  const value = css`
+    position: relative;
+    color: var(--color-text-secondary);
+  `;
+  const valueImg = css`
+    display: inline-block;
+  `;
+  const valueTitle = css`
+    color: var(--color-text-primary);
+    z-index: 2;
+    position: relative;
+    margin-top: 1.55rem;
+  `;
+
+  const valueFooter = css`
+    margin-top: 1.55rem;
+    text-align: center;
+    @media (min-width: ${breakpoints.md}) {
+      margin-top: 4.65rem;
+    }
+  `;
+  const footerContent = css`
+    max-width: 40.3000000000000004rem;
+    margin: 0 auto;
+  `;
+  const footerDesc = css`
+    margin-top: 1.55rem;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    @media (min-width: ${breakpoints.md}) {
+      font-size: 1.25rem;
+      margin-top: 2.25rem;
+    }
+  `;
   return (
-    <section className="values section">
+    <section className="values section primaryBg">
       <Heading
         subheading="Things we value"
         title="Believability at the core"
         description="As a remote team of independent thinkers, we share the same values that make things work like a charm."
       />
-      <div className="things">
-        {values.map((value, i) => {
+      <div className={things}>
+        {values.map((v, i) => {
           return (
-            <div className="value" key={i}>
-              <Img
-                className="value-img"
-                fluid={images[i]}
-                style={value.style}
-              />
-              <h3>{value.heading}</h3>
-              <p>{value.description}</p>
+            <div className={value} key={i}>
+              <Img className={valueImg} fluid={images[i]} style={v.style} />
+              <h3 className={valueTitle}>{v.heading}</h3>
+              <p>{v.description}</p>
             </div>
           );
         })}
@@ -55,9 +104,9 @@ const Values = ({ values, noFooter }) => {
       {noFooter ? (
         ""
       ) : (
-        <footer>
-          <div>
-            <p>
+        <footer className={valueFooter}>
+          <div className={footerContent}>
+            <p className={footerDesc}>
               For us customers really do come first because we help them not
               only grow their businesses but also educate them to understand the
               tech behind it.

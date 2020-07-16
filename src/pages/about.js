@@ -1,17 +1,16 @@
 import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
+import { Helmet } from "react-helmet";
+import { css } from "linaria";
 
 import Layout from "./../layouts";
 import Header from "./../components/common/header";
-import Footer from "../components/common/footer";
 import Team from "../components/about/team";
 import TechUsed from "../components/common/tech";
 import Nomads from "../components/about/nomads";
 import Values from "./../components/about/values";
-
-import "../styles/about.scss";
-import { Helmet } from "react-helmet";
+import breakpoints from "../components/utils/breakpoints";
 
 /**
  * TODO: Make it responsive
@@ -35,6 +34,16 @@ const About = () => {
     }
   `);
 
+  const i4 = css`
+      @media (max-width: ${breakpoints.xl}) {
+        display: none !important;
+      }
+    `,
+    i1 = css`
+      @media (max-width: ${breakpoints.xl}) {
+        display: none !important;
+      }
+    `;
   const subheading = `About Us`,
     title = `We are Bejamas`,
     desc = `Not your everyday web dev shop but a partner that will help your business grow with modern tools more than you thought it's possible.`,
@@ -42,23 +51,27 @@ const About = () => {
     shapes = (
       <>
         <Img
-          className="i4"
+          className={i4}
           fluid={data.i1.fluid}
           style={{
             position: "absolute",
             display: "inline-block",
             width: "160px",
             height: "160px",
+            bottom: 0,
+            right: "50%",
           }}
         />
         <Img
-          className="i1"
+          className={i1}
           fluid={data.i4.fluid}
           style={{
             position: "absolute",
             display: "inline-block",
             width: "160px",
             height: "160px",
+            bottom: "-6%",
+            right: "14%",
           }}
         />
       </>
@@ -89,13 +102,74 @@ const About = () => {
           "Those are two very important factors at Bejamas. We believe that every person deserves valuable relationships with other people and a pleasant work environment. We try to help each other and give as much as we take ourselves.",
       },
     ];
+
+  const aboutUs = css`
+    padding-top: 6.2rem;
+    text-align: center;
+    background-color: var(--color-bg);
+    header {
+      max-width: 43.4rem;
+      margin: 0 auto;
+
+      p {
+        margin-top: 2.325rem;
+        font-size: 1.25rem;
+        color: var(--color-text-secondary);
+        line-height: 1.8;
+      }
+    }
+  `;
+  const footerCta = css`
+    display: grid;
+    align-items: center;
+    margin: 0 auto 3.1rem;
+    padding-bottom: 3.1rem;
+    row-gap: 3.1rem;
+
+    @media (min-width: ${breakpoints.md}) {
+      padding-bottom: 4.65rem;
+      grid-template-columns: auto 40%;
+      column-gap: 2.325rem;
+      margin-bottom: 4.65rem;
+    }
+    @media (min-width: ${breakpoints.xl}) {
+      padding-left: 6.5875rem;
+      grid-template-columns: auto 513px;
+      column-gap: 9.3rem;
+    }
+    p {
+      line-height: 1.8;
+      margin-top: 1.55rem;
+      margin-bottom: 3.1rem;
+      @media (min-width: ${breakpoints.md}) {
+        font-size: 1.25rem;
+        margin-top: 2.325rem;
+      }
+    }
+  `;
+
+  const FooterCTA = (
+    <section className={footerCta}>
+      <div>
+        <h2>Become one of us</h2>
+        <p>
+          Do you want to join our team and work remotely from anywhere you'd
+          like? We can't wait to hear from you!
+        </p>
+        <Link to="/careers" className="cta">
+          Check Careers
+        </Link>
+      </div>
+      <Img className="footer-cta-img" fluid={data.footer.fluid} />
+    </section>
+  );
   return (
     <>
       <Helmet>
         <meta charSet="utf-8" />
         <title>About</title>
       </Helmet>
-      <Layout page={"about-page"}>
+      <Layout page={"about-page"} footerCta={FooterCTA}>
         <Header
           subheading={subheading}
           title={title}
@@ -104,7 +178,7 @@ const About = () => {
           hero={data.hero.fluid}
           shapes={shapes}
         ></Header>
-        <section className="about-us section">
+        <section className={`${aboutUs} section`}>
           <header>
             <h2>Client-focused, forward-thinking people</h2>
             <p>
@@ -120,21 +194,6 @@ const About = () => {
         <TechUsed cta={`Consult your project`} />
         <Nomads />
       </Layout>
-      <Footer>
-        <section className="footer-cta">
-          <div>
-            <h2>Become one of us</h2>
-            <p>
-              Do you want to join our team and work remotely from anywhere you'd
-              like? We can't wait to hear from you!
-            </p>
-            <Link to="/careers" className="cta">
-              Check Careers
-            </Link>
-          </div>
-          <Img className="footer-cta-img" fluid={data.footer.fluid} />
-        </section>
-      </Footer>
     </>
   );
 };
